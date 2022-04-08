@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BethHarmon Scripts" commit="abede9342a9813acfd0465fe601cc7fa567841a9">
+<index version="1" name="BethHarmon Scripts" commit="0b343a4eb9d6cb1b57b4249f9a03bc16a8cab63e">
+  <category name="S-D Markers">
+    <reapack name="BethHarmon_Source-Destination.lua" type="script" desc="BethHarmon_Source-Destination">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 These scripts provide dedicated source-destination markers for classical music editing in REAPER as well as functionality to move to them for the purposes of executing a 4-point edit via a custom action.\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="BethHarmon" time="2022-04-08T18:15:29Z">
+        <source main="main" file="delete_SD_markers.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/0b343a4eb9d6cb1b57b4249f9a03bc16a8cab63e/S-D%20Markers/delete_SD_markers.lua</source>
+        <source main="main" file="dest-in.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/0b343a4eb9d6cb1b57b4249f9a03bc16a8cab63e/S-D%20Markers/dest-in.lua</source>
+        <source main="main" file="dest-out.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/0b343a4eb9d6cb1b57b4249f9a03bc16a8cab63e/S-D%20Markers/dest-out.lua</source>
+        <source main="main" file="goto_dest-in_marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/0b343a4eb9d6cb1b57b4249f9a03bc16a8cab63e/S-D%20Markers/goto_dest-in_marker.lua</source>
+        <source main="main" file="goto_dest-out_marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/0b343a4eb9d6cb1b57b4249f9a03bc16a8cab63e/S-D%20Markers/goto_dest-out_marker.lua</source>
+        <source main="main" file="goto_source-in_marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/0b343a4eb9d6cb1b57b4249f9a03bc16a8cab63e/S-D%20Markers/goto_source-in_marker.lua</source>
+        <source main="main" file="goto_source-out_marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/0b343a4eb9d6cb1b57b4249f9a03bc16a8cab63e/S-D%20Markers/goto_source-out_marker.lua</source>
+        <source main="main" file="source-in.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/0b343a4eb9d6cb1b57b4249f9a03bc16a8cab63e/S-D%20Markers/source-in.lua</source>
+        <source main="main" file="source-out.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/0b343a4eb9d6cb1b57b4249f9a03bc16a8cab63e/S-D%20Markers/source-out.lua</source>
+      </version>
+    </reapack>
+  </category>
   <category name="S-D_Markers">
     <reapack name="BethHarmon_Source-Destination.lua" type="script" desc="BethHarmon_Source-Destination">
       <metadata>
