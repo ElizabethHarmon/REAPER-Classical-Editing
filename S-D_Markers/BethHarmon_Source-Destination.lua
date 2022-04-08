@@ -1,6 +1,6 @@
 @description BethHarmon_Source-Destination
 @author BethHarmon
-@version 1.4
+@version 1.0
 @metapackage
 @provides
   [main] delete_SD_markers.lua
