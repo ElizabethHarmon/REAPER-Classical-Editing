@@ -1,23 +1,3 @@
-# ReaPack Repository Template
+# BethHarmon's Classical Editing Tools for REAPER
 
-A template for GitHub-hosted ReaPack repositories with automated
-[reapack-index](https://github.com/cfillion/reapack-index)
-running from GitHub Actions.
-
-Replace the name of the repository in [index.xml](/index.xml) when using this template.
-This will be the name shown in ReaPack.
-
-```xml
-<index version="1" name="Name of your repository here">
-```
-
-Replace the contents of this file ([README.md](/README.md)).
-This will be the text shown when using ReaPack's "About this repository" feature.
-
-reapack-index looks for package files in subfolders.
-The folder tree represents the package categories shown in ReaPack.
-
-Each package file is expected to begin with a metadata header.
-See [Packaging Documentation](https://github.com/cfillion/reapack-index/wiki/Packaging-Documentation) on reapack-index's wiki.
-
-The URL to import in ReaPack is [https://github.com/`<your username>`/`<repository name>`/raw/master/index.xml](https://github.com/cfillion/reapack-repository-template/raw/master/index.xml).
+Everything you need to do professional classical editing in REAPER for free. Please begin by reading the [PDF guide](https://raw.githubusercontent.com/ElizabethHarmon/REAPER-Classical-Editing/main/BethHarmon's%20Guide%20to%20Classical%20Editing%20in%20REAPER.pdf).
