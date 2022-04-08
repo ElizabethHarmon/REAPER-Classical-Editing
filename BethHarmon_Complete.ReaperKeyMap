@@ -16,24 +16,24 @@ ACT 0 0 "246ebbb3b95f400c2c6e3efc59def0a3" "Custom: Crossfade Editor View" _SWS_
 SCR 4 0 RS28677e60720bb76c4f379f62125b15adb2fd6af4 "Custom: mpl_Convert CUE file into markers (DDP formatted).lua" "MPL Scripts/Regions/mpl_Convert CUE file into markers (DDP formatted).lua"
 SCR 4 0 RS102cada7b98ebda2bbad102df88c52c01d7cbdd4 "Custom: mpl_Convert CUE file into markers.lua" "MPL Scripts/Regions/mpl_Convert CUE file into markers.lua"
 ACT 1 0 "11e1cd9d746a3d4dadf3fe4e6802b9d7" "Custom: Add S/D crossfades" 41173 _SWS_MOVECURFADELEFT 41305 40417 _SWS_MOVECURFADELEFT 41305 40020
-SCR 4 0 RS7a233ddda893cac30d9c9670123bbced88ceaa3c "Custom: delete_SD_markers.lua" "BethHarmon Scripts/delete_SD_markers.lua"
-SCR 4 0 RS0362a9409b31d3ef16232b61192af15548bb0447 "Custom: goto_source-in_marker.lua" "BethHarmon Scripts/goto_source-in_marker.lua"
-SCR 4 0 RSfdf3b097ed7835ea8e9b3feca3e267384459c159 "Custom: goto_source-out_marker.lua" "BethHarmon Scripts/goto_source-out_marker.lua"
-SCR 4 0 RS5e981d7409e8e31b6bbd9a4ba318869462b98862 "Custom: goto_dest-in_marker.lua" "BethHarmon Scripts/goto_dest-in_marker.lua"
-SCR 4 0 RS09bb217b47ad39a0c45562546be92e7e1d63ea67 "Custom: goto_dest-out_marker.lua" "BethHarmon Scripts/goto_dest-out_marker.lua"
-ACT 1 0 "3974a7d5dc27ca4ea90362f1a7db09bd" "Custom: One-Window S/D Editing" _BR_FOCUS_ARRANGE_WND 40939 _RS0362a9409b31d3ef16232b61192af15548bb0447 40625 _RSfdf3b097ed7835ea8e9b3feca3e267384459c159 40626 40717 41383 40289 _RS5e981d7409e8e31b6bbd9a4ba318869462b98862 40625 _RS09bb217b47ad39a0c45562546be92e7e1d63ea67 40626 40717 40630 _XENAKIOS_TSADEL 42398 _11e1cd9d746a3d4dadf3fe4e6802b9d7 _RS7a233ddda893cac30d9c9670123bbced88ceaa3c 40289
+ACT 1 0 "3974a7d5dc27ca4ea90362f1a7db09bd" "Custom: One-Window S/D Editing" _BR_FOCUS_ARRANGE_WND 40939 _RS3fa66732e6bf60ac48f783eba83f68db88b96f20 40625 _RS825ec05b830fc79389d746d4262fbdfeb8be8fde 40626 40717 41383 40289 _RS56903ec3b68624157f8c8305be4a42a68c337e7d 40625 _RS871cc3a6094413443602142bb2136007444b6f26 40626 40717 40630 _XENAKIOS_TSADEL 42398 _11e1cd9d746a3d4dadf3fe4e6802b9d7 _RSebc5e07c68e0b0e2fd120caff75d4d0caef7cbd4 40289
 ACT 1 0 "a8e5297ae6958789f8be88404e6ab111" "Custom: VERTICAL Add S/D crossfades" 41173 _SWS_MOVECURFADELEFT 41305 40417 _SWS_MOVECURFADELEFT 41305 40020
-ACT 1 0 "507248150793ac385f9e4ba89ea8bdb6" "Custom: VERTICAL One-Window S/D Editing" _BR_FOCUS_ARRANGE_WND 40289 _RS0362a9409b31d3ef16232b61192af15548bb0447 40625 _RSfdf3b097ed7835ea8e9b3feca3e267384459c159 40626 40718 40034 41383 40289 40939 _RS5e981d7409e8e31b6bbd9a4ba318869462b98862 40625 _RS09bb217b47ad39a0c45562546be92e7e1d63ea67 40626 40718 40034 40630 _XENAKIOS_TSADEL _SWS_AWPASTE _a8e5297ae6958789f8be88404e6ab111 _RS7a233ddda893cac30d9c9670123bbced88ceaa3c 40289
+ACT 1 0 "507248150793ac385f9e4ba89ea8bdb6" "Custom: VERTICAL One-Window S/D Editing" _BR_FOCUS_ARRANGE_WND 40289 _RS3fa66732e6bf60ac48f783eba83f68db88b96f20 40625 _RS825ec05b830fc79389d746d4262fbdfeb8be8fde 40626 40718 40034 41383 40289 40939 _RS56903ec3b68624157f8c8305be4a42a68c337e7d 40625 _RS871cc3a6094413443602142bb2136007444b6f26 40626 40718 40034 40630 _XENAKIOS_TSADEL _SWS_AWPASTE _a8e5297ae6958789f8be88404e6ab111 _RSebc5e07c68e0b0e2fd120caff75d4d0caef7cbd4 40289
 ACT 0 0 "9fb4ce17c19f6751a8a4459b4720421f" "Custom: VERTICAL Prepare Takes for Classical Editing" 40417 _XENAKIOS_SELITEMSUNDEDCURSELTX 40032
 ACT 0 0 "16f492305c72b0514f511e58eac5e330" "Custom: VERTICAL Color It!" 40042 40421 40706
 ACT 0 0 "b676f85996f439c21bb838bd63d55e9d" "Custom: Duplicate Tracks (No Items)" _S&M_COPYSNDRCV1 _XENAKIOS_SELLASTOFSELTRAX _SWS_AWPASTE 40421 40006
-SCR 4 0 RS3bbd41726dbf08e42c2765369e12f82a9c0c631c "Custom: dest-in.lua" "BethHarmon Scripts/dest-in.lua"
-SCR 4 0 RS3e11ae94ddd56724848e0209ad6d2e00b1adc66c "Custom: dest-out.lua" "BethHarmon Scripts/dest-out.lua"
-SCR 4 0 RSd259c4e17d2314462dbaad7c0ceafdc1f94fdd72 "Custom: source-in.lua" "BethHarmon Scripts/source-in.lua"
-SCR 4 0 RS5de133857b2b5ca5b976389b10b3d5f91c9b84fe "Custom: source-out.lua" "BethHarmon Scripts/source-out.lua"
 SCR 260 0 RS261273f6f00ddb47febc57ec823e84405a17aca4 "Custom: me2beats_Auto solo for selected tracks (defer, obey track grouping).lua" "me2beats Scripts/Tracks/me2beats_Auto solo for selected tracks (defer, obey track grouping).lua"
 ACT 1 0 "82180276c389613aa03dc6c222f6f9db" "Custom: Duplicate folder" _SWS_SELCHILDREN2 _b676f85996f439c21bb838bd63d55e9d
 SCR 4 0 RS6dff3f6a4e46b9f01b4b89e62d385d3b27b15d49 "Custom: TJF LINK Razor Edit Selection with Folders, Item Grouping Affects Behavior2(reapacktest).lua" "TJF Scripts/Editing/Razor Edit/TJF LINK Razor Edit Selection with Folders, Item Grouping Affects Behavior2(reapacktest).lua"
+SCR 4 0 RSebc5e07c68e0b0e2fd120caff75d4d0caef7cbd4 "Custom: delete_SD_markers.lua" "BethHarmon Scripts/S-D Markers/delete_SD_markers.lua"
+SCR 4 0 RSb07b3959cdbf69f16040a1132455c046a00805b7 "Custom: dest-in.lua" "BethHarmon Scripts/S-D Markers/dest-in.lua"
+SCR 4 0 RSd6f5c19a371cc5a053890b92aa54587277cd8704 "Custom: dest-out.lua" "BethHarmon Scripts/S-D Markers/dest-out.lua"
+SCR 4 0 RS56903ec3b68624157f8c8305be4a42a68c337e7d "Custom: goto_dest-in_marker.lua" "BethHarmon Scripts/S-D Markers/goto_dest-in_marker.lua"
+SCR 4 0 RS871cc3a6094413443602142bb2136007444b6f26 "Custom: goto_dest-out_marker.lua" "BethHarmon Scripts/S-D Markers/goto_dest-out_marker.lua"
+SCR 4 0 RS3fa66732e6bf60ac48f783eba83f68db88b96f20 "Custom: goto_source-in_marker.lua" "BethHarmon Scripts/S-D Markers/goto_source-in_marker.lua"
+SCR 4 0 RS825ec05b830fc79389d746d4262fbdfeb8be8fde "Custom: goto_source-out_marker.lua" "BethHarmon Scripts/S-D Markers/goto_source-out_marker.lua"
+SCR 4 0 RSe6d97c3eff92581bb4f6f8167774479181e2601e "Custom: source-in.lua" "BethHarmon Scripts/S-D Markers/source-in.lua"
+SCR 4 0 RS13ff3f78ecaec31974031c636a1f23578cb5b15a "Custom: source-out.lua" "BethHarmon Scripts/S-D Markers/source-out.lua"
 KEY 25 82 0 0
 KEY 9 80 0 0
 KEY 17 13 0 0
@@ -82,12 +82,12 @@ KEY 1 84 _e9a90d69c3af914e8c0c451c28a4477b 0
 KEY 0 96 _e3a99706f6f64055824dd118275cae04 0
 KEY 1 116 _246ebbb3b95f400c2c6e3efc59def0a3 0
 KEY 1 32813 _3974a7d5dc27ca4ea90362f1a7db09bd 0
-KEY 8 91 _RS3bbd41726dbf08e42c2765369e12f82a9c0c631c 0
-KEY 9 32804 _RS3bbd41726dbf08e42c2765369e12f82a9c0c631c 0
-KEY 8 93 _RS3e11ae94ddd56724848e0209ad6d2e00b1adc66c 0
-KEY 9 32803 _RS3e11ae94ddd56724848e0209ad6d2e00b1adc66c 0
-KEY 0 123 _RSd259c4e17d2314462dbaad7c0ceafdc1f94fdd72 0
-KEY 5 32804 _RSd259c4e17d2314462dbaad7c0ceafdc1f94fdd72 0
-KEY 0 125 _RS5de133857b2b5ca5b976389b10b3d5f91c9b84fe 0
-KEY 5 32803 _RS5de133857b2b5ca5b976389b10b3d5f91c9b84fe 0
+KEY 8 91 0 0
+KEY 8 93 0 0
+KEY 0 123 0 0
+KEY 0 125 0 0
+KEY 9 32804 _RSb07b3959cdbf69f16040a1132455c046a00805b7 0
+KEY 9 32803 _RSd6f5c19a371cc5a053890b92aa54587277cd8704 0
+KEY 5 32804 _RSe6d97c3eff92581bb4f6f8167774479181e2601e 0
+KEY 5 32803 _RS13ff3f78ecaec31974031c636a1f23578cb5b15a 0
 KEY 1 9 40440 32060
