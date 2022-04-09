@@ -80,6 +80,7 @@ R       Render
 Required files
 ==============
 SWS, ReaPack
+BethHarmon_Source-Destination (BethHarmon)
 Solo exclusive track under mouse and play (X-Raym)
 Various_functions (MPL)
 JS reascript API (juliansader)
