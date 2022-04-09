@@ -55,8 +55,8 @@ Shift+End   Add Source OUT marker
             VERTICAL One-Window S/D Editing (unassigned)
 =====================================================
 
-D       Hide child tracks (minimizes to 0 height)
-E       Show child tracks (to collapsed state: 25 pixels)
+D       Display child tracks (minimizes to 0 height)
+E       Ensconce (hide) child tracks (to collapsed state: 25 pixels)
 
 M       Add Marker
 N       Add/Edit Marker…
