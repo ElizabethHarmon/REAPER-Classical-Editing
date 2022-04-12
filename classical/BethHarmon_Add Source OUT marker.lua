@@ -1,8 +1,8 @@
 --[[
 @noindex
 
-This file is a part of "BethHarmon_source-destination" package.
-See "BethHarmon_source-destination.lua" for more information.
+This file is a part of "BethHarmon_Classical" package.
+See "BethHarmon_Classical.lua" for more information.
 
 Copyright (C) 2022 BethHarmon
 

@@ -1,8 +1,8 @@
 --[[
 @noindex
 
-This file is a part of "BethHarmon_source-destination" package.
-See "BethHarmon_source-destination.lua" for more information.
+This file is a part of "BethHarmon_Classical" package.
+See "BethHarmon_Classical.lua" for more information.
 
 Copyright (C) 2022 BethHarmon
 
@@ -19,7 +19,20 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ]]--
 
-reaper.DeleteProjectMarker(NULL, 100, false)
-reaper.DeleteProjectMarker(NULL, 101, false)
-reaper.DeleteProjectMarker(NULL, 102, false)
-reaper.DeleteProjectMarker(NULL, 103, false)
+local function main()
+  reaper.PreventUIRefresh(1)
+  reaper.Undo_BeginBlock()
+
+  reaper.Main_OnCommand(40296, 0)
+  reaper.Main_OnCommand(40417, 0)
+  reaper.Main_OnCommand(53459, 0)
+  reaper.Main_OnCommand(40706, 0)
+  reaper.Main_OnCommand(40032, 0)
+
+  reaper.Undo_EndBlock('Prepare Takes for Classical Editing', 0)
+  reaper.PreventUIRefresh(-1)
+  reaper.UpdateArrange()
+  reaper.UpdateTimeline()
+end
+
+main()

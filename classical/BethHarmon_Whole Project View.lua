@@ -1,8 +1,8 @@
 --[[
 @noindex
 
-This file is a part of "BethHarmon_source-destination" package.
-See "BethHarmon_source-destination.lua" for more information.
+This file is a part of "BethHarmon_Classical" package.
+See "BethHarmon_Classical.lua" for more information.
 
 Copyright (C) 2022 BethHarmon
 
@@ -19,7 +19,19 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ]]--
 
-local cur_pos = (reaper.GetPlayState() == 0) and reaper.GetCursorPosition() or reaper.GetPlayPosition()
+local function main()
+  reaper.PreventUIRefresh(1)
+  reaper.Undo_BeginBlock()
 
-reaper.DeleteProjectMarker(NULL, 100, false)
-reaper.AddProjectMarker2(0, false, cur_pos, 0, "DEST-IN", 100, reaper.ColorToNative(22,141,195)|0x1000000)
+  reaper.Main_OnCommand(40296, 0)
+  reaper.Main_OnCommand(53801, 0)
+  reaper.Main_OnCommand(40297, 0)
+  reaper.Main_OnCommand(40295, 0)
+
+  reaper.Undo_EndBlock('Whole Project View', 0)
+  reaper.PreventUIRefresh(-1)
+  reaper.UpdateArrange()
+  reaper.UpdateTimeline()
+end
+
+main()
