@@ -1,6 +1,6 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 1.0
+@version 1.1
 @metapackage
 @provides
   [main] BethHarmon_Add Destination IN marker.lua
@@ -20,6 +20,8 @@
   [main] BethHarmon_VERTICAL Prepare Takes for Classical Editing.lua
   [main] BethHarmon_VERTICAL S-D Edit.lua
   [main] BethHarmon_Whole Project View.lua
+  [main] BethHarmon_auto_solo.lua
+  [main] BethHarmon_VERTICAL_Create source groups and link vol & pan.lua
 
 @about
   These scripts provide dedicated source-destination markers, edits, crossfade
