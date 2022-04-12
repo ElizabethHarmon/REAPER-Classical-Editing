@@ -1,64 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BethHarmon Scripts" commit="36145c89392988a2d910b381adbc61e471a0d708">
-  <category name="Classical">
-    <reapack name="BethHarmon_Classical Crossfade Editor.lua" type="script" desc="Classical Crossfade Editor">
-      <version name="1.0" author="BethHarmon" time="2022-04-12T10:28:56Z">
-        <source main="main">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/36145c89392988a2d910b381adbc61e471a0d708/Classical/BethHarmon_Classical%20Crossfade%20Editor.lua</source>
-      </version>
-    </reapack>
-    <reapack name="BethHarmon_Classical Crossfade.lua" type="script" desc="Classical Crossfade">
-      <version name="1.0" author="BethHarmon" time="2022-04-12T10:28:56Z">
-        <source main="main">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/36145c89392988a2d910b381adbc61e471a0d708/Classical/BethHarmon_Classical%20Crossfade.lua</source>
-      </version>
-    </reapack>
-    <reapack name="BethHarmon_Classical Take Record.lua" type="script" desc="Classical Take Record">
-      <version name="1.0" author="BethHarmon" time="2022-04-12T10:28:56Z">
-        <source main="main">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/36145c89392988a2d910b381adbc61e471a0d708/Classical/BethHarmon_Classical%20Take%20Record.lua</source>
-      </version>
-    </reapack>
-    <reapack name="BethHarmon_Crossfade Editor View.lua" type="script" desc="Crossfade Editor View">
-      <version name="1.0" author="BethHarmon" time="2022-04-12T10:28:56Z">
-        <source main="main">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/36145c89392988a2d910b381adbc61e471a0d708/Classical/BethHarmon_Crossfade%20Editor%20View.lua</source>
-      </version>
-    </reapack>
-    <reapack name="BethHarmon_Duplicate folder (No items).lua" type="script" desc="Duplicate folder (No items)">
-      <version name="1.0" author="BethHarmon" time="2022-04-12T10:28:56Z">
-        <source main="main">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/36145c89392988a2d910b381adbc61e471a0d708/Classical/BethHarmon_Duplicate%20folder%20(No%20items).lua</source>
-      </version>
-    </reapack>
-    <reapack name="BethHarmon_Edit Classical Crossfade.lua" type="script" desc="Edit Classical Crossfade">
-      <version name="1.0" author="BethHarmon" time="2022-04-12T10:28:56Z">
-        <source main="main">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/36145c89392988a2d910b381adbc61e471a0d708/Classical/BethHarmon_Edit%20Classical%20Crossfade.lua</source>
-      </version>
-    </reapack>
-    <reapack name="BethHarmon_Prepare Takes for Classical Editing.lua" type="script" desc="Prepare Takes for Classical Editing">
-      <version name="1.0" author="BethHarmon" time="2022-04-12T10:28:56Z">
-        <source main="main">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/36145c89392988a2d910b381adbc61e471a0d708/Classical/BethHarmon_Prepare%20Takes%20for%20Classical%20Editing.lua</source>
-      </version>
-    </reapack>
-    <reapack name="BethHarmon_S-D Edit.lua" type="script" desc="One-Window S-D Editing">
-      <version name="1.0" author="BethHarmon" time="2022-04-12T10:28:56Z">
-        <source main="main">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/36145c89392988a2d910b381adbc61e471a0d708/Classical/BethHarmon_S-D%20Edit.lua</source>
-      </version>
-    </reapack>
-    <reapack name="BethHarmon_VERTICAL Color It!.lua" type="script" desc="VERTICAL Color It!">
-      <version name="1.0" author="BethHarmon" time="2022-04-12T10:28:56Z">
-        <source main="main">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/36145c89392988a2d910b381adbc61e471a0d708/Classical/BethHarmon_VERTICAL%20Color%20It!.lua</source>
-      </version>
-    </reapack>
-    <reapack name="BethHarmon_VERTICAL Prepare Takes for Classical Editing.lua" type="script" desc="VERTICAL Prepare Takes for Classical Editing">
-      <version name="1.0" author="BethHarmon" time="2022-04-12T10:28:56Z">
-        <source main="main">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/36145c89392988a2d910b381adbc61e471a0d708/Classical/BethHarmon_VERTICAL%20Prepare%20Takes%20for%20Classical%20Editing.lua</source>
-      </version>
-    </reapack>
-    <reapack name="BethHarmon_VERTICAL S-D Edit.lua" type="script" desc="VERTICAL One-Window S-D Editing">
-      <version name="1.0" author="BethHarmon" time="2022-04-12T10:28:56Z">
-        <source main="main">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/36145c89392988a2d910b381adbc61e471a0d708/Classical/BethHarmon_VERTICAL%20S-D%20Edit.lua</source>
-      </version>
-    </reapack>
-    <reapack name="BethHarmon_Whole Project View.lua" type="script" desc="Whole Project View">
-      <version name="1.0" author="BethHarmon" time="2022-04-12T10:28:56Z">
-        <source main="main">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/36145c89392988a2d910b381adbc61e471a0d708/Classical/BethHarmon_Whole%20Project%20View.lua</source>
+<index version="1" name="BethHarmon Scripts" commit="5a4f5e159889867083d0a85fe85fef1bb25e1092">
+  <category name="classical">
+    <reapack name="BethHarmon_Classical.lua" type="script" desc="BethHarmon_Classical">
+      <version name="1.0" author="BethHarmon" time="2022-04-12T10:44:10Z">
+        <source main="main" file="BethHarmon_Add Destination IN marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_Add%20Destination%20IN%20marker.lua</source>
+        <source main="main" file="BethHarmon_Add Destination OUT Marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_Add%20Destination%20OUT%20Marker.lua</source>
+        <source main="main" file="BethHarmon_Add Source IN marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_Add%20Source%20IN%20marker.lua</source>
+        <source main="main" file="BethHarmon_Add Source OUT marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_Add%20Source%20OUT%20marker.lua</source>
+        <source main="main" file="BethHarmon_Classical Crossfade Editor.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_Classical%20Crossfade%20Editor.lua</source>
+        <source main="main" file="BethHarmon_Classical Crossfade.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_Classical%20Crossfade.lua</source>
+        <source main="main" file="BethHarmon_Classical Take Record.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_Classical%20Take%20Record.lua</source>
+        <source main="main" file="BethHarmon_Crossfade Editor View.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_Crossfade%20Editor%20View.lua</source>
+        <source main="main" file="BethHarmon_Delete All S-D markers.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_Delete%20All%20S-D%20markers.lua</source>
+        <source main="main" file="BethHarmon_Duplicate folder (No items).lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_Duplicate%20folder%20(No%20items).lua</source>
+        <source main="main" file="BethHarmon_Edit Classical Crossfade.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_Edit%20Classical%20Crossfade.lua</source>
+        <source main="main" file="BethHarmon_Prepare Takes for Classical Editing.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_Prepare%20Takes%20for%20Classical%20Editing.lua</source>
+        <source main="main" file="BethHarmon_S-D Edit.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_S-D%20Edit.lua</source>
+        <source main="main" file="BethHarmon_VERTICAL Color It!.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_VERTICAL%20Color%20It!.lua</source>
+        <source main="main" file="BethHarmon_VERTICAL Prepare Takes for Classical Editing.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_VERTICAL%20Prepare%20Takes%20for%20Classical%20Editing.lua</source>
+        <source main="main" file="BethHarmon_VERTICAL S-D Edit.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_VERTICAL%20S-D%20Edit.lua</source>
+        <source main="main" file="BethHarmon_Whole Project View.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/5a4f5e159889867083d0a85fe85fef1bb25e1092/classical/BethHarmon_Whole%20Project%20View.lua</source>
       </version>
     </reapack>
   </category>
