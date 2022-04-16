@@ -5,16 +5,17 @@ SCR 4 0 RS63aa2ec66b935b9c8ef8492979fdba9818f34939 "Custom: BethHarmon_Add Sourc
 SCR 4 0 RS9c61ac0478c3de96f276137a249e9339ed76fc16 "Custom: BethHarmon_Classical Crossfade Editor.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Crossfade Editor.lua"
 SCR 4 0 RS3a37848e27e182da552661629fe6cda880e72b87 "Custom: BethHarmon_Classical Crossfade.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Crossfade.lua"
 SCR 4 0 RSd51d37e55d67816b4d247aa707f3f7caca9b404b "Custom: BethHarmon_Classical Take Record.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Take Record.lua"
+SCR 4 0 RS7cabeec720993dfeedef4b7a48cb427bdd1e66c5 "Custom: BethHarmon_Create source groups (vertical).lua" "BethHarmon Scripts/classical/BethHarmon_Create source groups (vertical).lua"
 SCR 4 0 RS11490fe5592dd62143523cb4b57ab54549d69de9 "Custom: BethHarmon_Crossfade Editor View.lua" "BethHarmon Scripts/classical/BethHarmon_Crossfade Editor View.lua"
 SCR 4 0 RS5d06a61d2931d0e481139b76b0c9580bf0f6e9d1 "Custom: BethHarmon_Delete All S-D markers.lua" "BethHarmon Scripts/classical/BethHarmon_Delete All S-D markers.lua"
 SCR 4 0 RS9530c3c713b3322e3c256cd603195ec7307bba64 "Custom: BethHarmon_Duplicate folder (No items).lua" "BethHarmon Scripts/classical/BethHarmon_Duplicate folder (No items).lua"
 SCR 4 0 RS03fbdd7a8a48892177467951bd6923fe18ceacba "Custom: BethHarmon_Edit Classical Crossfade.lua" "BethHarmon Scripts/classical/BethHarmon_Edit Classical Crossfade.lua"
-SCR 4 0 RSbbf4b2ce4cfea702f8cfb3566d12de7df4817f7d "Custom: BethHarmon_Prepare Takes for Classical Editing.lua" "BethHarmon Scripts/classical/BethHarmon_Prepare Takes for Classical Editing.lua"
-SCR 4 0 RS20a8d20b71ffcee24fd8808498c9052d55812c46 "Custom: BethHarmon_S-D Edit.lua" "BethHarmon Scripts/classical/BethHarmon_S-D Edit.lua"
-SCR 4 0 RS683a76cc37c9dea99b0448832973f5191fc6a3eb "Custom: BethHarmon_VERTICAL Color It!.lua" "BethHarmon Scripts/classical/BethHarmon_VERTICAL Color It!.lua"
-SCR 4 0 RSbfe9aec7e0014a2ba309cfdcf614e41f91488a44 "Custom: BethHarmon_VERTICAL Prepare Takes for Classical Editing.lua" "BethHarmon Scripts/classical/BethHarmon_VERTICAL Prepare Takes for Classical Editing.lua"
-SCR 4 0 RS76580b7b879692fd96c7ca49ee461179dd4aa106 "Custom: BethHarmon_VERTICAL S-D Edit.lua" "BethHarmon Scripts/classical/BethHarmon_VERTICAL S-D Edit.lua"
+SCR 4 0 RSd981cd559102465ba25b1f496e87a829b6ec6f33 "Custom: BethHarmon_Prepare Takes (horizontal).lua" "BethHarmon Scripts/classical/BethHarmon_Prepare Takes (horizontal).lua"
+SCR 4 0 RS2502820c69fc8c2e41de054ddc57019cc08f5e14 "Custom: BethHarmon_Prepare Takes (vertical).lua" "BethHarmon Scripts/classical/BethHarmon_Prepare Takes (vertical).lua"
+SCR 4 0 RS2975408a7386da34f0fa39ba1354b6ed79196e13 "Custom: BethHarmon_S-D Edit (horizontal).lua" "BethHarmon Scripts/classical/BethHarmon_S-D Edit (horizontal).lua"
+SCR 4 0 RSa764b70ce795ec022260da8a509f1f47715f6e4f "Custom: BethHarmon_S-D Edit (vertical).lua" "BethHarmon Scripts/classical/BethHarmon_S-D Edit (vertical).lua"
 SCR 4 0 RS9955d327581b58ca4381ed90a162792e7e2c2f66 "Custom: BethHarmon_Whole Project View.lua" "BethHarmon Scripts/classical/BethHarmon_Whole Project View.lua"
+SCR 260 0 RS5422336d14d0f95240fe9d03883cd742bbcb3542 "Custom: BethHarmon_auto_solo.lua" "BethHarmon Scripts/classical/BethHarmon_auto_solo.lua"
 KEY 9 32804 _RS32c624d3a18b3109316a17bafa192670a8047d1f 0
 KEY 9 32803 _RSc48c7d72b89ae4ee52d5f8a1ba08e2f266fff1aa 0
 KEY 5 32804 _RS485da334f88a4f2ffa1d084612566589833c35e6 0
@@ -26,6 +27,6 @@ KEY 1 116 _RS11490fe5592dd62143523cb4b57ab54549d69de9 0
 KEY 9 32814 _RS5d06a61d2931d0e481139b76b0c9580bf0f6e9d1 0
 KEY 9 68 _RS9530c3c713b3322e3c256cd603195ec7307bba64 0
 KEY 1 90 _RS03fbdd7a8a48892177467951bd6923fe18ceacba 0
-KEY 1 84 _RSbbf4b2ce4cfea702f8cfb3566d12de7df4817f7d 0
-KEY 1 32813 _RS20a8d20b71ffcee24fd8808498c9052d55812c46 0
+KEY 1 84 _RSd981cd559102465ba25b1f496e87a829b6ec6f33 0
+KEY 1 32813 _RS2975408a7386da34f0fa39ba1354b6ed79196e13 0
 KEY 0 96 _RS9955d327581b58ca4381ed90a162792e7e2c2f66 0

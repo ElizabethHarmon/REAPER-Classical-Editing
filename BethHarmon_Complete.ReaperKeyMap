@@ -9,9 +9,7 @@ SCR 4 0 RSe580fc8c058652fcb4ab0183c61358e105dbef1b "Custom: ply_Source-Destinati
 SCR 4 0 RS4d2aa3d4867bf866fc418c2ca12f567effa917f6 "Custom: X-Raym_Solo exclusive track under mouse and play.lua" "X-Raym Scripts/Transport/X-Raym_Solo exclusive track under mouse and play.lua"
 SCR 4 0 RS28677e60720bb76c4f379f62125b15adb2fd6af4 "Custom: mpl_Convert CUE file into markers (DDP formatted).lua" "MPL Scripts/Regions/mpl_Convert CUE file into markers (DDP formatted).lua"
 SCR 4 0 RS102cada7b98ebda2bbad102df88c52c01d7cbdd4 "Custom: mpl_Convert CUE file into markers.lua" "MPL Scripts/Regions/mpl_Convert CUE file into markers.lua"
-SCR 260 0 RS261273f6f00ddb47febc57ec823e84405a17aca4 "Custom: me2beats_Auto solo for selected tracks (defer, obey track grouping).lua" "me2beats Scripts/Tracks/me2beats_Auto solo for selected tracks (defer, obey track grouping).lua"
-SCR 4 0 RS6dff3f6a4e46b9f01b4b89e62d385d3b27b15d49 "Custom: TJF LINK Razor Edit Selection with Folders, Item Grouping Affects Behavior2(reapacktest).lua" "TJF Scripts/Editing/Razor Edit/TJF LINK Razor Edit Selection with Folders, Item Grouping Affects Behavior2(reapacktest).lua"
-SCR 4 0 RS58f567e0df9542d4b6f572f9dba00ba2d3192f15 "Custom: X-Raym_Search and replace in selected tracks names.lua" "X-Raym Scripts/Track Properties/X-Raym_Search and replace in selected tracks names.lua"
+SCR 260 0 RS6dff3f6a4e46b9f01b4b89e62d385d3b27b15d49 "Custom: TJF LINK Razor Edit Selection with Folders, Item Grouping Affects Behavior2(reapacktest).lua" "TJF Scripts/Editing/Razor Edit/TJF LINK Razor Edit Selection with Folders, Item Grouping Affects Behavior2(reapacktest).lua"
 SCR 4 0 RS1c6ad1164e1d29bb4b1f2c1acf82f5853ce77875 "Custom: Set Lokasenna_GUI v2 library path.lua" "ReaTeam Scripts/Development/Lokasenna_GUI v2/Library/Set Lokasenna_GUI v2 library path.lua"
 SCR 4 0 RS3bd078fbbbacf2a4ce23abbab4e1ec59a8947f9d "Custom: Lokasenna_Generate script from custom action.lua" "ReaTeam Scripts/Various/Lokasenna_Generate script from custom action.lua"
 SCR 4 0 RS32c624d3a18b3109316a17bafa192670a8047d1f "Custom: BethHarmon_Add Destination IN marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Destination IN marker.lua"
@@ -25,12 +23,14 @@ SCR 4 0 RS11490fe5592dd62143523cb4b57ab54549d69de9 "Custom: BethHarmon_Crossfade
 SCR 4 0 RS5d06a61d2931d0e481139b76b0c9580bf0f6e9d1 "Custom: BethHarmon_Delete All S-D markers.lua" "BethHarmon Scripts/classical/BethHarmon_Delete All S-D markers.lua"
 SCR 4 0 RS9530c3c713b3322e3c256cd603195ec7307bba64 "Custom: BethHarmon_Duplicate folder (No items).lua" "BethHarmon Scripts/classical/BethHarmon_Duplicate folder (No items).lua"
 SCR 4 0 RS03fbdd7a8a48892177467951bd6923fe18ceacba "Custom: BethHarmon_Edit Classical Crossfade.lua" "BethHarmon Scripts/classical/BethHarmon_Edit Classical Crossfade.lua"
-SCR 4 0 RSbbf4b2ce4cfea702f8cfb3566d12de7df4817f7d "Custom: BethHarmon_Prepare Takes for Classical Editing.lua" "BethHarmon Scripts/classical/BethHarmon_Prepare Takes for Classical Editing.lua"
-SCR 4 0 RS20a8d20b71ffcee24fd8808498c9052d55812c46 "Custom: BethHarmon_S-D Edit.lua" "BethHarmon Scripts/classical/BethHarmon_S-D Edit.lua"
-SCR 4 0 RS683a76cc37c9dea99b0448832973f5191fc6a3eb "Custom: BethHarmon_VERTICAL Color It!.lua" "BethHarmon Scripts/classical/BethHarmon_VERTICAL Color It!.lua"
-SCR 4 0 RSbfe9aec7e0014a2ba309cfdcf614e41f91488a44 "Custom: BethHarmon_VERTICAL Prepare Takes for Classical Editing.lua" "BethHarmon Scripts/classical/BethHarmon_VERTICAL Prepare Takes for Classical Editing.lua"
-SCR 4 0 RS76580b7b879692fd96c7ca49ee461179dd4aa106 "Custom: BethHarmon_VERTICAL S-D Edit.lua" "BethHarmon Scripts/classical/BethHarmon_VERTICAL S-D Edit.lua"
 SCR 4 0 RS9955d327581b58ca4381ed90a162792e7e2c2f66 "Custom: BethHarmon_Whole Project View.lua" "BethHarmon Scripts/classical/BethHarmon_Whole Project View.lua"
+SCR 260 0 RS5422336d14d0f95240fe9d03883cd742bbcb3542 "Custom: BethHarmon_auto_solo.lua" "BethHarmon Scripts/classical/BethHarmon_auto_solo.lua"
+SCR 4 0 RS261273f6f00ddb47febc57ec823e84405a17aca4 "Custom: me2beats_Auto solo for selected tracks (defer, obey track grouping).lua" "me2beats Scripts/Tracks/me2beats_Auto solo for selected tracks (defer, obey track grouping).lua"
+SCR 4 0 RS7cabeec720993dfeedef4b7a48cb427bdd1e66c5 "Custom: BethHarmon_Create source groups (vertical).lua" "BethHarmon Scripts/classical/BethHarmon_Create source groups (vertical).lua"
+SCR 4 0 RSd981cd559102465ba25b1f496e87a829b6ec6f33 "Custom: BethHarmon_Prepare Takes (horizontal).lua" "BethHarmon Scripts/classical/BethHarmon_Prepare Takes (horizontal).lua"
+SCR 4 0 RS2502820c69fc8c2e41de054ddc57019cc08f5e14 "Custom: BethHarmon_Prepare Takes (vertical).lua" "BethHarmon Scripts/classical/BethHarmon_Prepare Takes (vertical).lua"
+SCR 4 0 RS2975408a7386da34f0fa39ba1354b6ed79196e13 "Custom: BethHarmon_S-D Edit (horizontal).lua" "BethHarmon Scripts/classical/BethHarmon_S-D Edit (horizontal).lua"
+SCR 4 0 RSa764b70ce795ec022260da8a509f1f47715f6e4f "Custom: BethHarmon_S-D Edit (vertical).lua" "BethHarmon Scripts/classical/BethHarmon_S-D Edit (vertical).lua"
 KEY 25 82 0 0
 KEY 9 80 0 0
 KEY 17 13 0 0
@@ -87,7 +87,7 @@ KEY 1 116 _RS11490fe5592dd62143523cb4b57ab54549d69de9 0
 KEY 9 32814 _RS5d06a61d2931d0e481139b76b0c9580bf0f6e9d1 0
 KEY 9 68 _RS9530c3c713b3322e3c256cd603195ec7307bba64 0
 KEY 1 90 _RS03fbdd7a8a48892177467951bd6923fe18ceacba 0
-KEY 1 84 _RSbbf4b2ce4cfea702f8cfb3566d12de7df4817f7d 0
-KEY 1 32813 _RS20a8d20b71ffcee24fd8808498c9052d55812c46 0
 KEY 0 96 _RS9955d327581b58ca4381ed90a162792e7e2c2f66 0
+KEY 1 84 _RSd981cd559102465ba25b1f496e87a829b6ec6f33 0
+KEY 1 32813 _RS2975408a7386da34f0fa39ba1354b6ed79196e13 0
 KEY 1 9 40440 32060
