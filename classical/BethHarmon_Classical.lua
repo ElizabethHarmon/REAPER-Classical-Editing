@@ -1,6 +1,10 @@
 @description BethHarmon_Classical
 @author BethHarmon
 @version 1.3
+@changelog
+  v1.3
+    Prepare Takes scripts are now single press
+    Renamed scripts
 @metapackage
 @provides
   [main] BethHarmon_Add Destination IN marker.lua
