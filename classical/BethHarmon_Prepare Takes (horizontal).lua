@@ -19,16 +19,40 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ]]--
 
-local function main()
-  reaper.PreventUIRefresh(1)
-  reaper.Undo_BeginBlock()
+local function color()
+  reaper.Main_OnCommand(40706, 0)
+end
 
+local function group()
   reaper.Main_OnCommand(40296, 0)
   reaper.Main_OnCommand(40417, 0)
   reaper.Main_OnCommand(53459, 0)
-  reaper.Main_OnCommand(40706, 0)
   reaper.Main_OnCommand(40032, 0)
+end
 
+local function main()
+  reaper.PreventUIRefresh(1)
+  reaper.Undo_BeginBlock()
+  
+  length = reaper.GetProjectLength(0)
+  num_of_tracks = reaper.CountTracks(0)
+  last_track = reaper.GetTrack(0, num_of_tracks - 1)
+  new_item = reaper.AddMediaItemToTrack(last_track)
+  reaper.SetMediaItemPosition(new_item, length + 1, false)
+  num_of_items = reaper.CountMediaItems(0)
+  last_item = reaper.GetMediaItem(0, num_of_items-1)
+  reaper.SetEditCurPos(0, false, false)
+  
+  while (reaper.IsMediaItemSelected(last_item) == false)
+  do
+  group()
+  color()
+  end
+  
+  reaper.DeleteTrackMediaItem(last_track, last_item)
+  reaper.SelectAllMediaItems(0, false)
+  reaper.Main_OnCommand(40297, 0)
+  reaper.SetEditCurPos(0, false, false)
   reaper.Undo_EndBlock('Prepare Takes for Classical Editing', 0)
   reaper.PreventUIRefresh(-1)
   reaper.UpdateArrange()
