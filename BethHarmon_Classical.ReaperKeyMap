@@ -2,6 +2,7 @@ SCR 4 0 RS32c624d3a18b3109316a17bafa192670a8047d1f "Custom: BethHarmon_Add Desti
 SCR 4 0 RSc48c7d72b89ae4ee52d5f8a1ba08e2f266fff1aa "Custom: BethHarmon_Add Destination OUT Marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Destination OUT Marker.lua"
 SCR 4 0 RS485da334f88a4f2ffa1d084612566589833c35e6 "Custom: BethHarmon_Add Source IN marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Source IN marker.lua"
 SCR 4 0 RS63aa2ec66b935b9c8ef8492979fdba9818f34939 "Custom: BethHarmon_Add Source OUT marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Source OUT marker.lua"
+SCR 4 0 RS98094db59befdb22a828f4f784ceec2ce595a68b "Custom: BethHarmon_Audition.lua" "BethHarmon Scripts/classical/BethHarmon_Audition.lua"
 SCR 4 0 RS9c61ac0478c3de96f276137a249e9339ed76fc16 "Custom: BethHarmon_Classical Crossfade Editor.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Crossfade Editor.lua"
 SCR 4 0 RS3a37848e27e182da552661629fe6cda880e72b87 "Custom: BethHarmon_Classical Crossfade.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Crossfade.lua"
 SCR 4 0 RSd51d37e55d67816b4d247aa707f3f7caca9b404b "Custom: BethHarmon_Classical Take Record.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Take Record.lua"
@@ -15,11 +16,11 @@ SCR 4 0 RS2502820c69fc8c2e41de054ddc57019cc08f5e14 "Custom: BethHarmon_Prepare T
 SCR 4 0 RS2975408a7386da34f0fa39ba1354b6ed79196e13 "Custom: BethHarmon_S-D Edit (horizontal).lua" "BethHarmon Scripts/classical/BethHarmon_S-D Edit (horizontal).lua"
 SCR 4 0 RSa764b70ce795ec022260da8a509f1f47715f6e4f "Custom: BethHarmon_S-D Edit (vertical).lua" "BethHarmon Scripts/classical/BethHarmon_S-D Edit (vertical).lua"
 SCR 4 0 RS9955d327581b58ca4381ed90a162792e7e2c2f66 "Custom: BethHarmon_Whole Project View.lua" "BethHarmon Scripts/classical/BethHarmon_Whole Project View.lua"
-SCR 260 0 RS5422336d14d0f95240fe9d03883cd742bbcb3542 "Custom: BethHarmon_auto_solo.lua" "BethHarmon Scripts/classical/BethHarmon_auto_solo.lua"
 KEY 9 32804 _RS32c624d3a18b3109316a17bafa192670a8047d1f 0
 KEY 9 32803 _RSc48c7d72b89ae4ee52d5f8a1ba08e2f266fff1aa 0
 KEY 5 32804 _RS485da334f88a4f2ffa1d084612566589833c35e6 0
 KEY 5 32803 _RS63aa2ec66b935b9c8ef8492979fdba9818f34939 0
+KEY 1 65 _RS98094db59befdb22a828f4f784ceec2ce595a68b 0
 KEY 1 70 _RS9c61ac0478c3de96f276137a249e9339ed76fc16 0
 KEY 1 88 _RS3a37848e27e182da552661629fe6cda880e72b87 0
 KEY 1 110 _RSd51d37e55d67816b4d247aa707f3f7caca9b404b 0

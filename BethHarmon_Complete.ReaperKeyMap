@@ -24,13 +24,13 @@ SCR 4 0 RS5d06a61d2931d0e481139b76b0c9580bf0f6e9d1 "Custom: BethHarmon_Delete Al
 SCR 4 0 RS9530c3c713b3322e3c256cd603195ec7307bba64 "Custom: BethHarmon_Duplicate folder (No items).lua" "BethHarmon Scripts/classical/BethHarmon_Duplicate folder (No items).lua"
 SCR 4 0 RS03fbdd7a8a48892177467951bd6923fe18ceacba "Custom: BethHarmon_Edit Classical Crossfade.lua" "BethHarmon Scripts/classical/BethHarmon_Edit Classical Crossfade.lua"
 SCR 4 0 RS9955d327581b58ca4381ed90a162792e7e2c2f66 "Custom: BethHarmon_Whole Project View.lua" "BethHarmon Scripts/classical/BethHarmon_Whole Project View.lua"
-SCR 260 0 RS5422336d14d0f95240fe9d03883cd742bbcb3542 "Custom: BethHarmon_auto_solo.lua" "BethHarmon Scripts/classical/BethHarmon_auto_solo.lua"
-SCR 4 0 RS261273f6f00ddb47febc57ec823e84405a17aca4 "Custom: me2beats_Auto solo for selected tracks (defer, obey track grouping).lua" "me2beats Scripts/Tracks/me2beats_Auto solo for selected tracks (defer, obey track grouping).lua"
 SCR 4 0 RS7cabeec720993dfeedef4b7a48cb427bdd1e66c5 "Custom: BethHarmon_Create source groups (vertical).lua" "BethHarmon Scripts/classical/BethHarmon_Create source groups (vertical).lua"
 SCR 4 0 RSd981cd559102465ba25b1f496e87a829b6ec6f33 "Custom: BethHarmon_Prepare Takes (horizontal).lua" "BethHarmon Scripts/classical/BethHarmon_Prepare Takes (horizontal).lua"
 SCR 4 0 RS2502820c69fc8c2e41de054ddc57019cc08f5e14 "Custom: BethHarmon_Prepare Takes (vertical).lua" "BethHarmon Scripts/classical/BethHarmon_Prepare Takes (vertical).lua"
 SCR 4 0 RS2975408a7386da34f0fa39ba1354b6ed79196e13 "Custom: BethHarmon_S-D Edit (horizontal).lua" "BethHarmon Scripts/classical/BethHarmon_S-D Edit (horizontal).lua"
 SCR 4 0 RSa764b70ce795ec022260da8a509f1f47715f6e4f "Custom: BethHarmon_S-D Edit (vertical).lua" "BethHarmon Scripts/classical/BethHarmon_S-D Edit (vertical).lua"
+SCR 4 0 RS9aebe6a6a706099d8a0af623f132ce89ed88ac10 "Custom: cfillion_Interactive ReaScript.lua" "ReaTeam Scripts/Development/cfillion_Interactive ReaScript.lua"
+SCR 4 0 RS98094db59befdb22a828f4f784ceec2ce595a68b "Custom: BethHarmon_Audition.lua" "BethHarmon Scripts/classical/BethHarmon_Audition.lua"
 KEY 25 82 0 0
 KEY 9 80 0 0
 KEY 17 13 0 0
@@ -75,7 +75,6 @@ KEY 1 67 _RS3e8cc367dc95c9cc784436c861fa030f022ca8a6 0
 KEY 1 120 _RSbe0935cc3962e9e56634238c9c6bc350b0fd46b4 0
 KEY 1 101 _RS395bb8278945338b19b825f3d1019da8705b8c9c 0
 KEY 1 121 _RSe580fc8c058652fcb4ab0183c61358e105dbef1b 0
-KEY 1 65 _RS4d2aa3d4867bf866fc418c2ca12f567effa917f6 0
 KEY 9 32804 _RS32c624d3a18b3109316a17bafa192670a8047d1f 0
 KEY 9 32803 _RSc48c7d72b89ae4ee52d5f8a1ba08e2f266fff1aa 0
 KEY 5 32804 _RS485da334f88a4f2ffa1d084612566589833c35e6 0
@@ -90,4 +89,5 @@ KEY 1 90 _RS03fbdd7a8a48892177467951bd6923fe18ceacba 0
 KEY 0 96 _RS9955d327581b58ca4381ed90a162792e7e2c2f66 0
 KEY 1 84 _RSd981cd559102465ba25b1f496e87a829b6ec6f33 0
 KEY 1 32813 _RS2975408a7386da34f0fa39ba1354b6ed79196e13 0
+KEY 1 65 _RS98094db59befdb22a828f4f784ceec2ce595a68b 0
 KEY 1 9 40440 32060
