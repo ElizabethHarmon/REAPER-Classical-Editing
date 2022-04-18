@@ -86,8 +86,6 @@ local function main()
   end
 --==============================================================================
   reaper.Main_OnCommand(40297, 0)
-  auto_solo = reaper.NamedCommandLookup("_RS5422336d14d0f95240fe9d03883cd742bbcb3542")
-  reaper.Main_OnCommand(auto_solo, 0)
   razor_edit = reaper.NamedCommandLookup("_RS6dff3f6a4e46b9f01b4b89e62d385d3b27b15d49")
   reaper.Main_OnCommand(razor_edit, 0)
   

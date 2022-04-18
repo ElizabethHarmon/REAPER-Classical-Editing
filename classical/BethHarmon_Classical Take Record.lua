@@ -19,29 +19,56 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ]]--
 
+local function solo()
+    track = reaper.GetSelectedTrack(0, 0)
+    reaper.SetMediaTrackInfo_Value(track, "I_SOLO", 1)
+
+  for i = 0, reaper.CountTracks(0)-1, 1
+  do
+    track = reaper.GetTrack(0, i)
+    if reaper.IsTrackSelected(track) == false
+    then
+      reaper.SetMediaTrackInfo_Value(track, "I_SOLO", 0)
+    i = i + 1
+    end
+  end
+end
+
+local function mixer()
+  for i = 0, reaper.CountTracks(0)-1, 1
+  do
+    tr = reaper.GetTrack(0, i)    
+    if reaper.IsTrackSelected(tr) then 
+      reaper.SetMediaTrackInfo_Value(tr, 'B_SHOWINMIXER',1)
+    else
+      reaper.SetMediaTrackInfo_Value(tr, 'B_SHOWINMIXER',0)
+    end
+  end
+end
+
 local function main()
   if reaper.GetPlayState() == 0
   then
     reaper.PreventUIRefresh(1)
     reaper.Undo_BeginBlock()
 
-    reaper.Main_OnCommand(40491, 0)
-    reaper.Main_OnCommand(53773, 0)
-    reaper.Main_OnCommand(53342, 0)
-    reaper.Main_OnCommand(1013, 0)
+    solo()
+    reaper.Main_OnCommand(40491, 0) -- Track: Unarm all tracks for recording
+    reaper.Main_OnCommand(53773, 0) -- SWS: Select children of selected folder track(s)
+    mixer()
+    reaper.Main_OnCommand(53342, 0) -- Xenakios/SWS: Set selected tracks record armed
+    reaper.Main_OnCommand(1013, 0) -- Transport: Record
 
     reaper.Undo_EndBlock('Classical Take Record', 0)
     reaper.PreventUIRefresh(-1)
     reaper.UpdateArrange()
     reaper.UpdateTimeline()
   else
-  -- reaper.GetPlayState() == 4
     reaper.PreventUIRefresh(1)
     reaper.Undo_BeginBlock()
-
-    reaper.Main_OnCommand(40667, 0)
-    reaper.Main_OnCommand(53343, 0)
-    reaper.Main_OnCommand(53777, 0)
+    reaper.Main_OnCommand(40667, 0) -- Transport: Stop (save all recorded media)
+    reaper.Main_OnCommand(53343, 0) -- Xenakios/SWS: Set selected tracks record unarmed
+    reaper.Main_OnCommand(53777, 0) -- SWS: Unselect children of selected folder track(s)
 
     reaper.Undo_EndBlock('Classical Take Record Stop', 0)
     reaper.PreventUIRefresh(-1)

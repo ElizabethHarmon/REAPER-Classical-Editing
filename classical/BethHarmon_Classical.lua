@@ -1,7 +1,12 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 1.3
+@version 1.4
 @changelog
+  v1.4
+    Remove original auto_solo script
+    Remove auto_solo functionality from Create source groups script
+    Add custom audition script
+    Audition & Take Record scripts both auto-filter active mixer tracks
   v1.3
     Prepare Takes scripts are now single press
     Renamed scripts
@@ -23,8 +28,8 @@
   [main] BethHarmon_Prepare Takes (vertical).lua
   [main] BethHarmon_S-D Edit (vertical).lua
   [main] BethHarmon_Whole Project View.lua
-  [main] BethHarmon_auto_solo.lua
   [main] BethHarmon_Create source groups (vertical).lua
+  [main] BethHarmon_Audition.lua
 
 @about
   These scripts provide dedicated source-destination markers, edits, crossfade
