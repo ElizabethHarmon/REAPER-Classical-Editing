@@ -1,0 +1,30 @@
+[Floating toolbar 1]
+icon_0=Whole Project.png
+icon_1=Create Track Groups.png
+icon_2=Classical Take Record.png
+icon_3=Duplicate Folder.png
+icon_4=Prepare Takes Horizontal.png
+icon_5=Prepare Takes Vertical.png
+icon_6=Dest IN.png
+icon_7=Dest OUT.png
+icon_8=source IN.png
+icon_9=source OUT.png
+icon_10=Delete SD Markers.png
+icon_11=SD Edit HOR.png
+icon_12=SD Edit VER.png
+icon_13=Fade Editor.png
+item_0=_RS9955d327581b58ca4381ed90a162792e7e2c2f66 Whole Project View
+item_1=_RS7cabeec720993dfeedef4b7a48cb427bdd1e66c5 Create Source Groups
+item_2=_RSd51d37e55d67816b4d247aa707f3f7caca9b404b Classical Take Record
+item_3=_RS9530c3c713b3322e3c256cd603195ec7307bba64 Duplicate folder (No items)
+item_4=_RSd981cd559102465ba25b1f496e87a829b6ec6f33 Prepare Takes (horizontal)
+item_5=_RS2502820c69fc8c2e41de054ddc57019cc08f5e14 Prepare Takes (vertical)
+item_6=_RS32c624d3a18b3109316a17bafa192670a8047d1f Add Destination IN marker
+item_7=_RSc48c7d72b89ae4ee52d5f8a1ba08e2f266fff1aa Add Destination OUT Marker
+item_8=_RS485da334f88a4f2ffa1d084612566589833c35e6 Add Source IN marker
+item_9=_RS63aa2ec66b935b9c8ef8492979fdba9818f34939 Add Source OUT marker
+item_10=_RS5d06a61d2931d0e481139b76b0c9580bf0f6e9d1 Delete All S-D markers
+item_11=_RS2975408a7386da34f0fa39ba1354b6ed79196e13 S-D Edit (horizontal)
+item_12=_RSa764b70ce795ec022260da8a509f1f47715f6e4f S-D Edit (vertical)
+item_13=_RS9c61ac0478c3de96f276137a249e9339ed76fc16 Classical Crossfade Editor
+
