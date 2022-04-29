@@ -2,12 +2,13 @@ Home    Project Start
 End     Project End
 `       Whole Project View
 
-        Create Source Groups (vertical) (unassigned)
+F8      Create Source Groups (vertical)
+\       Duplicate Folder (no items)
 
 Num.    Classical Take Record
 
 T       Prepare Takes (horizontal)
-        Prepare Takes (vertical) (unassigned)
+Y       Prepare Takes (vertical)
 
 S       Split
 J       Join (glue)
@@ -49,7 +50,7 @@ Ctrl+Home   Add Destination IN marker
 Ctrl+End    Add Destination OUT marker
 Shift+Home  Add Source IN marker
 Shift+End   Add Source OUT marker
-            VERTICAL One-Window S/D Editing (unassigned)
+Backspace   VERTICAL One-Window S/D Editing
 Ctrl+Delete Delete all S-D Markers
 =====================================================
 
