@@ -33,7 +33,6 @@ F6      Overlapping items in lanes View (toggle)
 X       Classical Crossfade
 Z       Edit existing crossfade across two lanes (when in Fade Editor view)
 
-
 =======Single-project-window 4-point Editing=========
 ====================HORIZONTAL=======================
 Ctrl+Home   Add Destination IN marker
@@ -43,6 +42,9 @@ Shift+End   Add Source OUT marker
 Insert      One-Window S/D Editing
 Ctrl+Delete Delete all S-D Markers
 =====================================================
+
+I       Swap marquee and razor edit modifiers
+V       Toggle per-track ripple editing
 
 =======Single-project-window 4-point Editing=========
 ====================VERTICAL=========================
