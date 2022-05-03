@@ -23,11 +23,11 @@ local function main()
   reaper.PreventUIRefresh(1)
   reaper.Undo_BeginBlock()
 
-  reaper.Main_OnCommand(55769, 0)
-  reaper.Main_OnCommand(40113, 0)
-  reaper.Main_OnCommand(53451, 0)
-  reaper.Main_OnCommand(40507, 0)
-  reaper.Main_OnCommand(41827, 0)
+  reaper.Main_OnCommand(55769, 0) -- select only track 1
+  reaper.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
+  reaper.Main_OnCommand(53451, 0) -- Xenakios/SWS: Scroll track view to home
+  reaper.Main_OnCommand(40507, 0) -- Options: Show overlapping media items in lanes
+  reaper.Main_OnCommand(41827, 0) -- View: Show crossfade editor window 
 
   reaper.Undo_EndBlock('Classical Crossfade Editor', 0)
   reaper.PreventUIRefresh(-1)

@@ -1,7 +1,10 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 1.4
+@version 1.5
 @changelog
+  v1.5
+  Add bugfixed BirdBird razor area extend to children script
+  Begin to add comments to numerical reaper.Main_OnCommand() lines
   v1.4
     Remove original auto_solo script
     Remove auto_solo functionality from Create source groups script
@@ -30,6 +33,7 @@
   [main] BethHarmon_Whole Project View.lua
   [main] BethHarmon_Create source groups (vertical).lua
   [main] BethHarmon_Audition.lua
+  [main] BethHarmon_BirdBird Razor Children.lua
 
 @about
   These scripts provide dedicated source-destination markers, edits, crossfade

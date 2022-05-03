@@ -23,10 +23,10 @@ local function main()
   reaper.PreventUIRefresh(1)
   reaper.Undo_BeginBlock()
 
-  reaper.Main_OnCommand(40296, 0)
-  reaper.Main_OnCommand(53801, 0)
-  reaper.Main_OnCommand(40297, 0)
-  reaper.Main_OnCommand(40295, 0)
+  reaper.Main_OnCommand(40296, 0) -- Track: Select all tracks
+  reaper.Main_OnCommand(53801, 0) -- SWS: Vertical zoom to selected tracks
+  reaper.Main_OnCommand(40297, 0) -- Track: Unselect (clear selection of) all tracks
+  reaper.Main_OnCommand(40295, 0) -- View: Zoom out project
 
   reaper.Undo_EndBlock('Whole Project View', 0)
   reaper.PreventUIRefresh(-1)

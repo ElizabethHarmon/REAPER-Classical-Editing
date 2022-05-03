@@ -20,10 +20,10 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 ]]--
 
 local function color()
-  reaper.Main_OnCommand(40042, 0)
-  reaper.Main_OnCommand(53773, 0)
-  reaper.Main_OnCommand(40421, 0)
-  reaper.Main_OnCommand(40706, 0)
+  reaper.Main_OnCommand(40042, 0) -- Transport: Go to start of project
+  reaper.Main_OnCommand(53773, 0) -- SWS_SELCHILDREN2
+  reaper.Main_OnCommand(40421, 0) -- Item: Select all items in track
+  reaper.Main_OnCommand(40706, 0) -- Item: Set to one random color
 end
 
 local function group()
@@ -33,9 +33,9 @@ reaper.SetMediaItemPosition(item, length + 1, false)
 
   while (reaper.IsMediaItemSelected(item) == false)
   do
-  reaper.Main_OnCommand(40417, 0)
-  reaper.Main_OnCommand(53459, 0)
-  reaper.Main_OnCommand(40032, 0)
+  reaper.Main_OnCommand(40417, 0) -- Item navigation: Select and move to next item
+  reaper.Main_OnCommand(53459, 0) -- XENAKIOS_SELITEMSUNDEDCURSELTX
+  reaper.Main_OnCommand(40032, 0) -- Item grouping: Group items
   end
   reaper.DeleteTrackMediaItem(track, item)
 end
@@ -60,7 +60,7 @@ local function main()
   reaper.Main_OnCommand(next_folder, 0)
   end
   reaper.SelectAllMediaItems(0, false)
-  reaper.Main_OnCommand(40297, 0)
+  reaper.Main_OnCommand(40297, 0) -- Track: Unselect (clear selection of) all tracks
   reaper.SetEditCurPos(0, false, false)
   reaper.Undo_EndBlock('VERTICAL Prepare Takes for Classical Editing', 0)
   reaper.PreventUIRefresh(-1)

@@ -24,10 +24,10 @@ local function color()
 end
 
 local function group()
-  reaper.Main_OnCommand(40296, 0)
-  reaper.Main_OnCommand(40417, 0)
-  reaper.Main_OnCommand(53459, 0)
-  reaper.Main_OnCommand(40032, 0)
+  reaper.Main_OnCommand(40296, 0) -- Track: Select all tracks
+  reaper.Main_OnCommand(40417, 0) -- Item navigation: Select and move to next item
+  reaper.Main_OnCommand(53459, 0) -- XENAKIOS_SELITEMSUNDEDCURSELTX
+  reaper.Main_OnCommand(40032, 0) -- Item grouping: Group items
 end
 
 local function main()

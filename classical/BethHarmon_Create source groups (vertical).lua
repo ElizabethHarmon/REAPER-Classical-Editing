@@ -86,7 +86,7 @@ local function main()
   end
 --==============================================================================
   reaper.Main_OnCommand(40297, 0)
-  razor_edit = reaper.NamedCommandLookup("_RS6dff3f6a4e46b9f01b4b89e62d385d3b27b15d49")
+  razor_edit = reaper.NamedCommandLookup("_RS2a78b865dca5f05176044b6d8801f19e4d7af562")
   reaper.Main_OnCommand(razor_edit, 0)
   
   reaper.Undo_EndBlock('Link Vol & Pan', 0)
