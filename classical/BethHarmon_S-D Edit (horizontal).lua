@@ -29,17 +29,20 @@ local function main()
   reaper.Main_OnCommand(40625, 0) -- Time Selection: Set start point
   reaper.GoToMarker(0, 103, false)
   reaper.Main_OnCommand(40626, 0) -- Time Selection: Set end point
-  reaper.Main_OnCommand(40717, 0) --
+  reaper.Main_OnCommand(40717, 0) -- Item: Select all items in current time selection
   reaper.Main_OnCommand(41383, 0) -- Edit: Copy items/tracks/envelope points (depending on focus) within time selection, if any (smart copy)
   reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
   reaper.GoToMarker(0, 100, false)
+  reaper.Main_OnCommand(40912, 0) -- Options: Toggle auto-crossfade on split (OFF)
+  reaper.Main_OnCommand(40757, 0) -- Item: Split items at edit cursor (no change selection)
+  reaper.Main_OnCommand(40912, 0) -- Options: Toggle auto-crossfade on split (ON)
   reaper.Main_OnCommand(40625, 0) -- Time Selection: Set start point
   reaper.GoToMarker(0, 101, false)
   reaper.Main_OnCommand(40626, 0) -- Time Selection: Set end point
-  reaper.Main_OnCommand(40717, 0) --
+  reaper.Main_OnCommand(40717, 0) -- Item: Select all items in current time selection
   reaper.Main_OnCommand(40630, 0) -- XENAKIOS_TSADEL
   reaper.Main_OnCommand(53460, 0) -- Go to start of time selection
-  reaper.Main_OnCommand(42398, 0) --
+  reaper.Main_OnCommand(42398, 0) -- Item: Paste items/tracks
   reaper.Main_OnCommand(41173, 0) -- Item navigation: Move cursor to start of items
   reaper.Main_OnCommand(53616, 0) -- SWS_MOVECURFADELEFT
   reaper.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
@@ -47,7 +50,7 @@ local function main()
   reaper.Main_OnCommand(53616, 0) -- SWS_MOVECURFADELEFT
   reaper.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
   reaper.Main_OnCommand(40020, 0) -- Time Selection: Remove time selection and loop point selection
-  reaper.Main_OnCommand(40635, 0) --
+  reaper.Main_OnCommand(40635, 0) -- Time selection: Remove (unselect) time selection
   reaper.DeleteProjectMarker(NULL, 100, false)
   reaper.DeleteProjectMarker(NULL, 101, false)
   reaper.DeleteProjectMarker(NULL, 102, false)

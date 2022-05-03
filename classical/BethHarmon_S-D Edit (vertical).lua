@@ -35,6 +35,12 @@ local function main()
   reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
   reaper.Main_OnCommand(40939, 0) -- Track: Select track 01
   reaper.GoToMarker(0, 100, false)
+  reaper.Main_OnCommand(53459, 0) -- Xenakios/SWS: Select items under edit cursor on selected tracks
+  reaper.Main_OnCommand(40034, 0) -- Item grouping: Select all items in groups
+  reaper.Main_OnCommand(40912, 0) -- Options: Toggle auto-crossfade on split (OFF)
+  reaper.Main_OnCommand(40186, 0) -- Item: Split items at edit or play cursor (ignoring grouping)
+  reaper.Main_OnCommand(40912, 0) -- Options: Toggle auto-crossfade on split (ON)
+  reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
   reaper.Main_OnCommand(40625, 0) -- Time Selection: Set start point
   reaper.GoToMarker(0, 101, false)
   reaper.Main_OnCommand(40626, 0) -- Time Selection: Set end point

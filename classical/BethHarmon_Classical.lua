@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 1.5
+@version 1.6
 @changelog
+  v1.6
+  Add 3-point editing (insert) functionality
   v1.5
   Add bugfixed BirdBird razor area extend to children script
   Begin to add comments to numerical reaper.Main_OnCommand() lines
