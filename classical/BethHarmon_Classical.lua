@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 1.7
+@version 1.8
 @changelog
+  v1.8
+  Fix commandID issue with 3-point replace toggle
   v1.7
   Add 3-point editing (replace) functionality
   v1.6
