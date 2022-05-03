@@ -1,7 +1,10 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 1.9
+@version 2.0
 @changelog
+  v2.0
+  Replaced numeric command IDs with a reaper.NamedCommandLookup
+  3-point edit functionality complete
   v1.9
   Fix further commandID issue with S-D edit scripts
   v1.8

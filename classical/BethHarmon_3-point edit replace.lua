@@ -18,12 +18,14 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ]]--
-state = reaper.GetToggleCommandState(55842)
+replace_toggle = reaper.NamedCommandLookup("_RSa7436efacaf0efb8ba704fdec38e3caed3499a22")
+
+state = reaper.GetToggleCommandState(replace_toggle)
 if (state == 0)
 then
-reaper.SetToggleCommandState(1, 55842, 1)
-reaper.RefreshToolbar2(1, 55842)
+reaper.SetToggleCommandState(1, replace_toggle, 1)
+reaper.RefreshToolbar2(1, replace_toggle)
 else
-reaper.SetToggleCommandState(1, 55842, 0)
-reaper.RefreshToolbar2(1, 55842)
+reaper.SetToggleCommandState(1, replace_toggle, 0)
+reaper.RefreshToolbar2(1, replace_toggle)
 end

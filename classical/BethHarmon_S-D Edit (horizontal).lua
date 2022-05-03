@@ -19,6 +19,20 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ]]--
 
+local function dest_out()
+  retval, num_markers, num_regions = reaper.CountProjectMarkers(0)
+  exists = false
+  for i = 1, num_markers, 1
+  do
+    retval, isrgn, pos, rgnend, label, markrgnindexnumber = reaper.EnumProjectMarkers(i)
+    if (label == "DEST-OUT")
+    then
+      exists = true
+    end
+  end
+  return exists
+end
+
 local function main()
   reaper.PreventUIRefresh(1)
   reaper.Undo_BeginBlock()
@@ -37,8 +51,9 @@ local function main()
   reaper.GoToMarker(0, 100, false)
   reaper.Main_OnCommand(40912, 0) -- Options: Toggle auto-crossfade on split (OFF)
   reaper.Main_OnCommand(40757, 0) -- Item: Split items at edit cursor (no change selection)
-  
-  if (reaper.GetToggleCommandState(55842) == 1)
+ 
+  replace_toggle = reaper.NamedCommandLookup("_RSa7436efacaf0efb8ba704fdec38e3caed3499a22")
+  if (reaper.GetToggleCommandState(replace_toggle) == 1 and dest_out() == false)
   then
     reaper.MoveEditCursor(sel_length, true)
     reaper.Main_OnCommand(41990, 0) -- Toggle ripple editing per-track
