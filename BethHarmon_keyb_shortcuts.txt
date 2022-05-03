@@ -90,8 +90,7 @@ R       Render
 Required files
 ==============
 SWS, ReaPack
-BethHarmon_Classical (BethHarmon)
-TJF LINK Razor Edit Selection with Folders, Item Grouping Affects Behavior (BirdBird, Tim Farrell)
+BethHarmon_Classical (BethHarmon via import of https://raw.githubusercontent.com/ElizabethHarmon/REAPER-Classical-Editing/master/index.xml)
 Source-destination edit (ply via import of https://ply.github.io/ReaScripts/index.xml)
 Various_functions (MPL)
 JS reascript API (juliansader)
