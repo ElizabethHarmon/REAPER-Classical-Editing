@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 1.6
+@version 1.7
 @changelog
+  v1.7
+  Add 3-point editing (replace) functionality
   v1.6
   Add 3-point editing (insert) functionality
   v1.5
@@ -36,6 +38,7 @@
   [main] BethHarmon_Create source groups (vertical).lua
   [main] BethHarmon_Audition.lua
   [main] BethHarmon_BirdBird Razor Children.lua
+  [main] BethHarmon_3-point edit replace.lua
 
 @about
   These scripts provide dedicated source-destination markers, edits, crossfade

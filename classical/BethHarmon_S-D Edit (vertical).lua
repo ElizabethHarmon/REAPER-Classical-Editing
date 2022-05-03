@@ -29,6 +29,8 @@ local function main()
   reaper.Main_OnCommand(40625, 0) -- Time Selection: Set start point
   reaper.GoToMarker(0, 103, false)
   reaper.Main_OnCommand(40626, 0) -- Time Selection: Set end point
+  start_time, end_time = reaper.GetSet_LoopTimeRange2(0, false, false, 0, 0, false)
+  sel_length = end_time - start_time
   reaper.Main_OnCommand(40718, 0) -- Select all items on selected tracks in current time selection
   reaper.Main_OnCommand(40034, 0) -- Item Grouping: Select all items in group(s)
   reaper.Main_OnCommand(41383, 0) -- Edit: Copy items/tracks/envelope points (depending on focus) within time selection, if any (smart copy)
@@ -39,22 +41,34 @@ local function main()
   reaper.Main_OnCommand(40034, 0) -- Item grouping: Select all items in groups
   reaper.Main_OnCommand(40912, 0) -- Options: Toggle auto-crossfade on split (OFF)
   reaper.Main_OnCommand(40186, 0) -- Item: Split items at edit or play cursor (ignoring grouping)
-  reaper.Main_OnCommand(40912, 0) -- Options: Toggle auto-crossfade on split (ON)
   reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
-  reaper.Main_OnCommand(40625, 0) -- Time Selection: Set start point
-  reaper.GoToMarker(0, 101, false)
-  reaper.Main_OnCommand(40626, 0) -- Time Selection: Set end point
-  reaper.Main_OnCommand(40718, 0) -- Select all items on selected tracks in current time selection
-  reaper.Main_OnCommand(40034, 0) -- Item Grouping: Select all items in group(s)
-  reaper.Main_OnCommand(40630, 0) -- XENAKIOS_TSADEL
-  reaper.Main_OnCommand(53460, 0) -- Go to start of time selection
-  reaper.Main_OnCommand(53573, 0) -- SWS_AWPASTE
+  if (reaper.GetToggleCommandState(55843) == 1)
+  then
+    reaper.MoveEditCursor(sel_length, true)
+    reaper.Main_OnCommand(41990, 0) -- Toggle ripple editing per-track
+    reaper.Main_OnCommand(40718, 0) -- Select all items on selected tracks in current time selection
+    reaper.Main_OnCommand(40034, 0) -- Item Grouping: Select all items in group(s)
+    reaper.Main_OnCommand(40630, 0) -- XENAKIOS_TSADEL
+    reaper.Main_OnCommand(53460, 0) -- Go to start of time selection
+    reaper.Main_OnCommand(42398, 0) -- Item: Paste items/tracks
+    reaper.Main_OnCommand(41990, 0) -- Toggle ripple editing per-track
+  else
+    reaper.Main_OnCommand(40625, 0) -- Time Selection: Set start point
+    reaper.GoToMarker(0, 101, false)
+    reaper.Main_OnCommand(40626, 0) -- Time Selection: Set end point
+    reaper.Main_OnCommand(40718, 0) -- Select all items on selected tracks in current time selection
+    reaper.Main_OnCommand(40034, 0) -- Item Grouping: Select all items in group(s)
+    reaper.Main_OnCommand(40630, 0) -- XENAKIOS_TSADEL
+    reaper.Main_OnCommand(53460, 0) -- Go to start of time selection
+    reaper.Main_OnCommand(53573, 0) -- SWS_AWPASTE
+  end
   reaper.Main_OnCommand(41173, 0) -- Item navigation: Move cursor to start of items
   reaper.Main_OnCommand(53616, 0) -- SWS_MOVECURFADELEFT
   reaper.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
   reaper.Main_OnCommand(40417, 0) -- Item Navigation: Select and move to next item
   reaper.Main_OnCommand(53616, 0) -- SWS_MOVECURFADELEFT
   reaper.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
+  reaper.Main_OnCommand(40912, 0) -- Options: Toggle auto-crossfade on split (OFF) 
   reaper.Main_OnCommand(40020, 0) -- Time Selection: Remove time selection and loop point selection
   reaper.DeleteProjectMarker(NULL, 100, false)
   reaper.DeleteProjectMarker(NULL, 101, false)
