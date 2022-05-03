@@ -38,7 +38,7 @@ local function main()
   reaper.Main_OnCommand(40912, 0) -- Options: Toggle auto-crossfade on split (OFF)
   reaper.Main_OnCommand(40757, 0) -- Item: Split items at edit cursor (no change selection)
   
-  if (reaper.GetToggleCommandState(55843) == 1)
+  if (reaper.GetToggleCommandState(55842) == 1)
   then
     reaper.MoveEditCursor(sel_length, true)
     reaper.Main_OnCommand(41990, 0) -- Toggle ripple editing per-track

@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 1.8
+@version 1.9
 @changelog
+  v1.9
+  Fix further commandID issue with S-D edit scripts
   v1.8
   Fix commandID issue with 3-point replace toggle
   v1.7
