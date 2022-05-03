@@ -33,7 +33,7 @@ F6      Overlapping items in lanes View (toggle)
 X       Classical Crossfade
 Z       Edit existing crossfade across two lanes (when in Fade Editor view)
 
-=======Single-project-window 4-point Editing=========
+===================4-point Editing===================
 ====================HORIZONTAL=======================
 Ctrl+Home   Add Destination IN marker
 Ctrl+End    Add Destination OUT marker
@@ -42,11 +42,6 @@ Shift+End   Add Source OUT marker
 Insert      One-Window S/D Editing
 Ctrl+Delete Delete all S-D Markers
 =====================================================
-
-I       Swap marquee and razor edit modifiers
-V       Toggle per-track ripple editing
-
-=======Single-project-window 4-point Editing=========
 ====================VERTICAL=========================
 Ctrl+Home   Add Destination IN marker
 Ctrl+End    Add Destination OUT marker
@@ -55,15 +50,10 @@ Shift+End   Add Source OUT marker
 Backspace   VERTICAL One-Window S/D Editing
 Ctrl+Delete Delete all S-D Markers
 =====================================================
-
-========Two-tab S/D Editing using ply scripts========
-[       Selection start / in "marker" for S/D editing
-]       Selection end / out "marker" for S/D editing
-Num+    Switch S/D tabs
-Num5    S/D Edit
-F9      Configure S/D Editing
-F10     Setup S/D Editing
 =====================================================
+
+I       Swap marquee and razor edit modifiers
+V       Toggle per-track ripple editing
 
 D       Display child tracks (minimizes to 0 height)
 E       Ensconce (hide) child tracks (to collapsed state: 25 pixels)
