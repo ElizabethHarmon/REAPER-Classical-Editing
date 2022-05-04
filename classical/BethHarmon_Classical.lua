@@ -1,7 +1,11 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 2.0
+@version 2.1
 @changelog
+  v2.1
+  Crossfade Editor View: remembers previous arrange zoom
+  Crossfade Editor View: centers on crossfade and zooms in
+  Remove need for 3-point script as project startup
   v2.0
   Replaced numeric command IDs with a reaper.NamedCommandLookup
   3-point edit functionality complete
