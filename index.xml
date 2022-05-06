@@ -398,8 +398,8 @@ v1.3
 PDF guide
 }}}
 .\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Import my repository into ReaPack by using this {\field{\*\fldinst{HYPERLINK "https://raw.githubusercontent.com/ElizabethHarmon/REAPER-Classical-Editing/master/index.xml"}}{\fldrslt{\ul
-link
+{\pard \ql \f0 \sa180 \li0 \fi0 Import my repository into ReaPack by copying and pasting {\field{\*\fldinst{HYPERLINK "https://raw.githubusercontent.com/ElizabethHarmon/REAPER-Classical-Editing/master/index.xml"}}{\fldrslt{\ul
+this link
 }}}
 .\par}
 }
