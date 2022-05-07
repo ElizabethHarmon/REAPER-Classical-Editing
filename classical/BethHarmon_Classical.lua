@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 2.1
+@version 2.2
 @changelog
+  v2.2
+  Fix Crossfade Editor exit
   v2.1
   Crossfade Editor View: remembers previous arrange zoom
   Crossfade Editor View: centers on crossfade and zooms in

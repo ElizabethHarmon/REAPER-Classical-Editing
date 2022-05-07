@@ -42,9 +42,7 @@ local function fadeEnd()
   start_time = file:read("*line")
   end_time = file:read("*line")
   file:close()
-  reaper.Main_OnCommand(40296, 0) -- Track: Select all tracks
-  reaper.Main_OnCommand(53801, 0) -- SWS: Vertical zoom to selected tracks
-  reaper.Main_OnCommand(40297, 0) -- Track: Unselect (clear selection of) all tracks
+  reaper.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
   reaper.Main_OnCommand(40507, 0) -- Options: Show overlapping media items in lanes
   reaper.Main_OnCommand(41827, 0) -- View: Show crossfade editor window
   reaper.GetSet_ArrangeView2(0, true, 0, 0, start_time, end_time)
