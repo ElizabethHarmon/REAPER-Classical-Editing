@@ -32,6 +32,10 @@ local function main()
    reaper.GetSetTrackGroupMembership(track,"VOLUME_FOLLOW",2^i,2^i)
    reaper.GetSetTrackGroupMembership(track,"PAN_LEAD",2^i,2^i)
    reaper.GetSetTrackGroupMembership(track,"PAN_FOLLOW",2^i,2^i)
+   reaper.GetSetTrackGroupMembership(track,"POLARITY_LEAD",2^i,2^i)
+   reaper.GetSetTrackGroupMembership(track,"POLARITY_FOLLOW",2^i,2^i)
+   reaper.GetSetTrackGroupMembership(track,"AUTOMODE_LEAD",2^i,2^i)
+   reaper.GetSetTrackGroupMembership(track,"AUTOMODE_FOLLOW",2^i,2^i)
    i = i + 1
   end
   local first_track = reaper.GetTrack(0,0)

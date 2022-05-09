@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 2.2
+@version 2.3
 @changelog
+  v2.3
+  Add polarity and automation trim linking to "create source group" script
   v2.2
   Fix Crossfade Editor exit
   v2.1
