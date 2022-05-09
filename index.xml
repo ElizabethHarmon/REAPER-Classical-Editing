@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BethHarmon Scripts" commit="e385bfbde178ea681d99c8e574caab76ff04c5d3">
+<index version="1" name="BethHarmon Scripts" commit="7db1763f23e88a3f89c61b4adc6fc9cf0536af4b">
   <category name="classical">
     <reapack name="BethHarmon_Classical.lua" type="script" desc="BethHarmon_Classical">
       <version name="1.0" author="BethHarmon" time="2022-04-12T10:44:10Z">
@@ -435,6 +435,58 @@ v1.3
         <source main="main" file="BethHarmon_Audition.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/e385bfbde178ea681d99c8e574caab76ff04c5d3/classical/BethHarmon_Audition.lua</source>
         <source main="main" file="BethHarmon_BirdBird Razor Children.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/e385bfbde178ea681d99c8e574caab76ff04c5d3/classical/BethHarmon_BirdBird%20Razor%20Children.lua</source>
         <source main="main" file="BethHarmon_3-point edit replace.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/e385bfbde178ea681d99c8e574caab76ff04c5d3/classical/BethHarmon_3-point%20edit%20replace.lua</source>
+      </version>
+      <version name="2.3" author="BethHarmon" time="2022-05-09T13:45:20Z">
+        <changelog><![CDATA[v2.3
+Add polarity and automation trim linking to "create source group" script
+v2.2
+Fix Crossfade Editor exit
+v2.1
+Crossfade Editor View: remembers previous arrange zoom
+Crossfade Editor View: centers on crossfade and zooms in
+Remove need for 3-point script as project startup
+v2.0
+Replaced numeric command IDs with a reaper.NamedCommandLookup
+3-point edit functionality complete
+v1.9
+Fix further commandID issue with S-D edit scripts
+v1.8
+Fix commandID issue with 3-point replace toggle
+v1.7
+Add 3-point editing (replace) functionality
+v1.6
+Add 3-point editing (insert) functionality
+v1.5
+Add bugfixed BirdBird razor area extend to children script
+Begin to add comments to numerical reaper.Main_OnCommand() lines
+v1.4
+  Remove original auto_solo script
+  Remove auto_solo functionality from Create source groups script
+  Add custom audition script
+  Audition & Take Record scripts both auto-filter active mixer tracks
+v1.3
+  Prepare Takes scripts are now single press
+  Renamed scripts]]></changelog>
+        <source main="main" file="BethHarmon_Add Destination IN marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_Add%20Destination%20IN%20marker.lua</source>
+        <source main="main" file="BethHarmon_Add Destination OUT Marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_Add%20Destination%20OUT%20Marker.lua</source>
+        <source main="main" file="BethHarmon_Add Source IN marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_Add%20Source%20IN%20marker.lua</source>
+        <source main="main" file="BethHarmon_Add Source OUT marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_Add%20Source%20OUT%20marker.lua</source>
+        <source main="main" file="BethHarmon_Classical Crossfade Editor.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_Classical%20Crossfade%20Editor.lua</source>
+        <source main="main" file="BethHarmon_Classical Crossfade.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_Classical%20Crossfade.lua</source>
+        <source main="main" file="BethHarmon_Classical Take Record.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_Classical%20Take%20Record.lua</source>
+        <source main="main" file="BethHarmon_Crossfade Editor View.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_Crossfade%20Editor%20View.lua</source>
+        <source main="main" file="BethHarmon_Delete All S-D markers.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_Delete%20All%20S-D%20markers.lua</source>
+        <source main="main" file="BethHarmon_Duplicate folder (No items).lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_Duplicate%20folder%20(No%20items).lua</source>
+        <source main="main" file="BethHarmon_Edit Classical Crossfade.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_Edit%20Classical%20Crossfade.lua</source>
+        <source main="main" file="BethHarmon_Prepare Takes (horizontal).lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_Prepare%20Takes%20(horizontal).lua</source>
+        <source main="main" file="BethHarmon_S-D Edit (horizontal).lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_S-D%20Edit%20(horizontal).lua</source>
+        <source main="main" file="BethHarmon_Prepare Takes (vertical).lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_Prepare%20Takes%20(vertical).lua</source>
+        <source main="main" file="BethHarmon_S-D Edit (vertical).lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_S-D%20Edit%20(vertical).lua</source>
+        <source main="main" file="BethHarmon_Whole Project View.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_Whole%20Project%20View.lua</source>
+        <source main="main" file="BethHarmon_Create source groups (vertical).lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_Create%20source%20groups%20(vertical).lua</source>
+        <source main="main" file="BethHarmon_Audition.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_Audition.lua</source>
+        <source main="main" file="BethHarmon_BirdBird Razor Children.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_BirdBird%20Razor%20Children.lua</source>
+        <source main="main" file="BethHarmon_3-point edit replace.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/7db1763f23e88a3f89c61b4adc6fc9cf0536af4b/classical/BethHarmon_3-point%20edit%20replace.lua</source>
       </version>
     </reapack>
   </category>
