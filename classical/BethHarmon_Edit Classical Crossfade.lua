@@ -23,22 +23,22 @@ local function main()
   reaper.PreventUIRefresh(1)
   reaper.Undo_BeginBlock()
 
-  reaper.Main_OnCommand(40034, 0)
-  reaper.Main_OnCommand(41174, 0)
-  reaper.Main_OnCommand(40841, 0)
-  reaper.Main_OnCommand(40841, 0)
-  reaper.Main_OnCommand(53287, 0)
-  reaper.Main_OnCommand(40841, 0)
-  reaper.Main_OnCommand(53459, 0)
-  reaper.Main_OnCommand(40034, 0)
-  reaper.Main_OnCommand(41173, 0)
-  reaper.Main_OnCommand(40842, 0)
-  reaper.Main_OnCommand(40842, 0)
-  reaper.Main_OnCommand(53286, 0)
-  reaper.Main_OnCommand(40841, 0)
-  reaper.Main_OnCommand(53617, 0)
-  reaper.Main_OnCommand(40289, 0)
-  reaper.Main_OnCommand(53451, 0)
+  reaper.Main_OnCommand(40034, 0) -- Item grouping: Select all items in groups
+  reaper.Main_OnCommand(41174, 0) -- Item navigation: Move cursor to end of items
+  reaper.Main_OnCommand(40839, 0) -- Move edit cursor forward one measure (no seek)
+  reaper.Main_OnCommand(40839, 0) -- Move edit cursor forward one measure (no seek)
+  reaper.Main_OnCommand(53287, 0) -- XENAKIOS_TRIM_RIGHTEDGETO_EDCURSOR
+  reaper.Main_OnCommand(40841, 0) -- Move edit cursor forward one beat (no seek)
+  reaper.Main_OnCommand(53459, 0) -- XENAKIOS_SELITEMSUNDEDCURSELTX
+  reaper.Main_OnCommand(40034, 0) -- Item grouping: Select all items in groups
+  reaper.Main_OnCommand(41173, 0) -- Item navigation: Move cursor to start of items
+  reaper.Main_OnCommand(40840, 0) -- Move edit cursor back one measure (no seek)
+  reaper.Main_OnCommand(40840, 0) -- Move edit cursor back one measure (no seek)
+  reaper.Main_OnCommand(53286, 0) -- XENAKIOS_TRIM_LEFTEDGETO_EDCURSOR
+  reaper.Main_OnCommand(40839, 0) -- Move edit cursor forward one measure (no seek)
+  reaper.Main_OnCommand(40839, 0) -- Move edit cursor forward one measure (no seek)
+  reaper.Main_OnCommand(40289, 0) -- Item: Unselect (clear selection of) all items
+  reaper.Main_OnCommand(53451, 0) -- XENAKIOS_TVPAGEHOME
 
   reaper.Undo_EndBlock('Edit Classical Crossfade', 0)
   reaper.PreventUIRefresh(-1)
