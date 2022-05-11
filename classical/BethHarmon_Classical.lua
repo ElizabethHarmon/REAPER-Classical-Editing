@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 2.4
+@version 2.5
 @changelog
+  v2.5
+  "Classical Take Record" script is now a toggle
   v2.4
   Improve "Edit Crossfade" script to expand items further
   v2.3

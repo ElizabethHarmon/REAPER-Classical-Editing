@@ -47,11 +47,13 @@ local function mixer()
 end
 
 local function main()
+  take_record_toggle = reaper.NamedCommandLookup("_RSd51d37e55d67816b4d247aa707f3f7caca9b404b")
   if reaper.GetPlayState() == 0
   then
     reaper.PreventUIRefresh(1)
     reaper.Undo_BeginBlock()
-
+    reaper.SetToggleCommandState(1, take_record_toggle, 1)
+    reaper.RefreshToolbar2(1, take_record_toggle)
     solo()
     reaper.Main_OnCommand(40491, 0) -- Track: Unarm all tracks for recording
     reaper.Main_OnCommand(53773, 0) -- SWS: Select children of selected folder track(s)
@@ -66,6 +68,8 @@ local function main()
   else
     reaper.PreventUIRefresh(1)
     reaper.Undo_BeginBlock()
+    reaper.SetToggleCommandState(1, take_record_toggle, 0)
+    reaper.RefreshToolbar2(1, take_record_toggle)
     reaper.Main_OnCommand(40667, 0) -- Transport: Stop (save all recorded media)
     reaper.Main_OnCommand(53343, 0) -- Xenakios/SWS: Set selected tracks record unarmed
     reaper.Main_OnCommand(53777, 0) -- SWS: Unselect children of selected folder track(s)
