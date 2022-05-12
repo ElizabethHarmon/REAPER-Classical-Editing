@@ -7,8 +7,7 @@ F8      Create Source Groups (vertical)
 
 Num.    Classical Take Record
 
-T       Prepare Takes (horizontal)
-Y       Prepare Takes (vertical)
+T       Prepare Takes
 
 S       Split
 J       Join (glue)
@@ -33,24 +32,18 @@ F6      Overlapping items in lanes View (toggle)
 X       Classical Crossfade
 Z       Edit existing crossfade across two lanes (when in Fade Editor view)
 
-===================4-point Editing===================
-====================HORIZONTAL=======================
-Ctrl+Home   Add Destination IN marker
-Ctrl+End    Add Destination OUT marker
-Shift+Home  Add Source IN marker
-Shift+End   Add Source OUT marker
-Insert      One-Window S/D Editing
-Ctrl+Delete Delete all S-D Markers
+=====================S-D Editing=====================
+1, Ctrl+Home   Add Destination IN marker
+2, Ctrl+End    Add Destination OUT marker (without does 3-point edit)
+3, Shift+Home  Add Source IN marker
+4, Shift+End   Add Source OUT marker
+5, Insert      One-Window S/D Editing
+Ctrl+Delete    Delete all S-D Markers
+Backspace      Delete with ripple (between 2 source markers)
+Ctrl+Backspace Delete Leaving Silence (between 2 source markers)
 =====================================================
-====================VERTICAL=========================
-Ctrl+Home   Add Destination IN marker
-Ctrl+End    Add Destination OUT marker
-Shift+Home  Add Source IN marker
-Shift+End   Add Source OUT marker
-Backspace   VERTICAL One-Window S/D Editing
-Ctrl+Delete Delete all S-D Markers
-=====================================================
-=====================================================
+
+
 
 I       Swap marquee and razor edit modifiers
 V       Toggle per-track ripple editing
@@ -81,7 +74,6 @@ Required files
 ==============
 SWS, ReaPack
 BethHarmon_Classical (BethHarmon via import of https://raw.githubusercontent.com/ElizabethHarmon/REAPER-Classical-Editing/master/index.xml)
-Source-destination edit (ply via import of https://ply.github.io/ReaScripts/index.xml)
 Various_functions (MPL)
 JS reascript API (juliansader)
 Generate CUE from project markers (MPL)
