@@ -1,7 +1,13 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 2.5
+@version 3.0
 @changelog
+  v3.0
+  Single tool for both horizontal and vertical S-D edits
+  Single tool for both horizontal and vertical preparation of takes
+  Add Delete With Ripple & Delete Leaving Silence tools
+  Prepare Takes script no longer requires a gap at the beginning of the timeline
+  Auto-engage ripple per-track before any S-D or cut edits
   v2.5
   "Classical Take Record" script is now a toggle
   v2.4
@@ -49,15 +55,17 @@
   [main] BethHarmon_Delete All S-D markers.lua
   [main] BethHarmon_Duplicate folder (No items).lua
   [main] BethHarmon_Edit Classical Crossfade.lua
-  [main] BethHarmon_Prepare Takes (horizontal).lua
-  [main] BethHarmon_S-D Edit (horizontal).lua
-  [main] BethHarmon_Prepare Takes (vertical).lua
-  [main] BethHarmon_S-D Edit (vertical).lua
+  [main] BethHarmon_Prepare Takes.lua
+  [main] BethHarmon_S-D Edit.lua
   [main] BethHarmon_Whole Project View.lua
   [main] BethHarmon_Create source groups (vertical).lua
   [main] BethHarmon_Audition.lua
   [main] BethHarmon_BirdBird Razor Children.lua
   [main] BethHarmon_3-point edit replace.lua
+  [main] BethHarmon_Delete Leaving Silence.lua
+  [main] BethHarmon_Delete With Ripple.lua
+
+
 
 @about
   These scripts provide dedicated source-destination markers, edits, crossfade
