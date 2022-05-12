@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.0
+@version 3.01
 @changelog
+  v3.01
+  Small bugfix to "prepare takes" script
   v3.0
   Single tool for both horizontal and vertical S-D edits
   Single tool for both horizontal and vertical preparation of takes

@@ -25,7 +25,7 @@ local function shift()
   reaper.Main_OnCommand(40289, 0) -- unselect all items
 end
 
-local function horizonatal_color()
+local function horizontal_color()
   reaper.Main_OnCommand(40706, 0)
 end
 
@@ -70,7 +70,7 @@ local function horizontal()
   while (reaper.IsMediaItemSelected(last_item) == false)
   do
   horizontal_group()
-  horizonatal_color()
+  horizontal_color()
   end
   
   reaper.DeleteTrackMediaItem(last_track, last_item)
@@ -131,6 +131,7 @@ local function main()
   vertical()
   end
   reaper.Main_OnCommand(40042, 0) -- go to start of project
+  reaper.Main_OnCommand(40939, 0) -- select track 01
   reaper.Undo_EndBlock('Prepare Takes', 0)
   reaper.PreventUIRefresh(-1)
   reaper.UpdateArrange()
