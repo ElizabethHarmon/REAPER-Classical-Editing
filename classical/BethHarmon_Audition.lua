@@ -1,12 +1,10 @@
---[[
+ --[[
 @noindex
 
 This file is a part of "BethHarmon_Classical" package.
 See "BethHarmon_Classical.lua" for more information.
 
 Copyright (C) 2022 BethHarmon
-
-Part of this script is by X-Raym (https://github.com/X-Raym/REAPER-EEL-Scripts)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -20,6 +18,20 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ]]--
+local function solo()
+    track = reaper.GetSelectedTrack(0, 0)
+    reaper.SetMediaTrackInfo_Value(track, "I_SOLO", 1)
+
+  for i = 0, reaper.CountTracks(0)-1, 1
+  do
+    track = reaper.GetTrack(0, i)
+    if reaper.IsTrackSelected(track) == false
+    then
+      reaper.SetMediaTrackInfo_Value(track, "I_SOLO", 0)
+    i = i + 1
+    end
+  end
+end
 
 local function mixer()
   for i = 0, reaper.CountTracks(0)-1, 1
@@ -33,44 +45,27 @@ local function mixer()
   end
 end
 
--- Adapted X-Raym script (Solo exclusive track under mouse and play) ======
-
-function Main()
-  reaper.PreventUIRefresh(1)
-  local solo_state = 1
-  local track, context, pos = reaper.BR_TrackAtMouseCursor()
-  if track then
-    local solo = reaper.GetMediaTrackInfo_Value(track, "I_SOLO")
-    if solo ~= solo_state then
-
-      reaper.SetMediaTrackInfo_Value(track, "I_SOLO", solo_state)
-      reaper.SetOnlyTrackSelected( track )
-      
-      reaper.Main_OnCommand(53773, 0) -- SWS: Select children of selected folder track(s)
-      mixer()
-
-        local count_track = reaper.CountTracks(0)
-        for i = 0, count_track - 1 do
-          local tr = reaper.GetTrack(0,i)
-          if tr ~= track and reaper.GetMediaTrackInfo_Value(tr, "I_SOLO") ~=0 then
-            reaper.SetMediaTrackInfo_Value(tr, "I_SOLO", 0)
-          end
-        end
-    end
-    
-    if reaper.GetToggleCommandState( 1157 ) then
-      pos = reaper.SnapToGrid( 0, pos )
-    end
-    local pos_init = reaper.GetCursorPosition()
-    reaper.SetEditCurPos( pos, false, false )
+function main()
+    reaper.PreventUIRefresh(1)
+    reaper.Undo_BeginBlock()
+    local track, context, pos = reaper.BR_TrackAtMouseCursor()
+    if track then
+    reaper.SetOnlyTrackSelected(track)
+    solo()
+    reaper.Main_OnCommand(53773, 0) -- SWS: Select children of selected folder track(s)
+    mixer()
+    reaper.Main_OnCommand(53777, 0) -- SWS: Unselect children of selected folder track(s)
+    reaper.SetEditCurPos(pos, 0,0)
     reaper.OnPlayButton()
-    reaper.SetEditCurPos( pos_init, false, false )
+    reaper.Undo_EndBlock('Audition', 0)
     reaper.PreventUIRefresh(-1)
-  end
+    reaper.UpdateArrange()
+    reaper.UpdateTimeline()
+    reaper.TrackList_AdjustWindows(false)
+    end
 end
 
-reaper.defer(Main)
+main()
 
--- =========================================================================
 
 

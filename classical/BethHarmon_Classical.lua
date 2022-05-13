@@ -1,7 +1,10 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.01
+@version 3.1
 @changelog
+  v3.1
+  Audition script re-written from ground up
+  BirdBird script updated in light of REAPER fix (https://forum.cockos.com/showthread.php?t=266177)
   v3.01
   Small bugfix to "prepare takes" script
   v3.0

@@ -66,7 +66,7 @@ function extend_razor_edits()
           table.insert(t_tracks, {track = c_track, edits = edits})
         end
       end
-      table.insert(t_tracks, {track = track, edits = edits})
+      -- table.insert(t_tracks, {track = track, edits = edits})
     end
   end
   if #t_tracks > 0 then
