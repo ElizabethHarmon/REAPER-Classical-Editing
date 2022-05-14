@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.2
+@version 3.3
 @changelog
+  v3.3
+  Added Classical Assembly Line script
   v3.2
   Switch to recommended versioning (https://forum.cockos.com/showpost.php?p=1707548&postcount=484)
   Audition script re-written from ground up
@@ -70,6 +72,7 @@
   [main] BethHarmon_3-point edit replace.lua
   [main] BethHarmon_Delete Leaving Silence.lua
   [main] BethHarmon_Delete With Ripple.lua
+  [main] BethHarmon_Classical Assembly Line.lua
 
 
 
