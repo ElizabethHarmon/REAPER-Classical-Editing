@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BethHarmon Scripts" commit="f82b20664a0c744a418199ed1f1339374ea9b3e2">
+<index version="1" name="BethHarmon Scripts" commit="6080522d92adc03da90c9763dd897a43e91617c8">
   <category name="classical">
     <reapack name="BethHarmon_Classical.lua" type="script" desc="BethHarmon_Classical">
       <version name="1.0" author="BethHarmon" time="2022-04-12T10:44:10Z">
@@ -862,6 +862,79 @@ v1.3
         <source main="main" file="BethHarmon_Delete Leaving Silence.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/f82b20664a0c744a418199ed1f1339374ea9b3e2/classical/BethHarmon_Delete%20Leaving%20Silence.lua</source>
         <source main="main" file="BethHarmon_Delete With Ripple.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/f82b20664a0c744a418199ed1f1339374ea9b3e2/classical/BethHarmon_Delete%20With%20Ripple.lua</source>
         <source main="main" file="BethHarmon_Classical Assembly Line.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/f82b20664a0c744a418199ed1f1339374ea9b3e2/classical/BethHarmon_Classical%20Assembly%20Line.lua</source>
+      </version>
+      <version name="3.3.1" author="BethHarmon" time="2022-05-15T09:04:35Z">
+        <changelog><![CDATA[v3.3.1
+Solo first track group as part of running "Create Source Groups" script
+v3.3
+Added Classical Assembly Line script
+v3.2
+Switch to recommended versioning (https://forum.cockos.com/showpost.php?p=1707548&postcount=484)
+Audition script re-written from ground up
+BirdBird script updated in light of REAPER fix (https://forum.cockos.com/showthread.php?t=266177)
+v3.01
+Small bugfix to "prepare takes" script
+v3.0
+Single tool for both horizontal and vertical S-D edits
+Single tool for both horizontal and vertical preparation of takes
+Add Delete With Ripple & Delete Leaving Silence tools
+Prepare Takes script no longer requires a gap at the beginning of the timeline
+Auto-engage ripple per-track before any S-D or cut edits
+v2.5
+"Classical Take Record" script is now a toggle
+v2.4
+Improve "Edit Crossfade" script to expand items further
+v2.3
+Add polarity and automation trim linking to "create source group" script
+v2.2
+Fix Crossfade Editor exit
+v2.1
+Crossfade Editor View: remembers previous arrange zoom
+Crossfade Editor View: centers on crossfade and zooms in
+Remove need for 3-point script as project startup
+v2.0
+Replaced numeric command IDs with a reaper.NamedCommandLookup
+3-point edit functionality complete
+v1.9
+Fix further commandID issue with S-D edit scripts
+v1.8
+Fix commandID issue with 3-point replace toggle
+v1.7
+Add 3-point editing (replace) functionality
+v1.6
+Add 3-point editing (insert) functionality
+v1.5
+Add bugfixed BirdBird razor area extend to children script
+Begin to add comments to numerical reaper.Main_OnCommand() lines
+v1.4
+  Remove original auto_solo script
+  Remove auto_solo functionality from Create source groups script
+  Add custom audition script
+  Audition & Take Record scripts both auto-filter active mixer tracks
+v1.3
+  Prepare Takes scripts are now single press
+  Renamed scripts]]></changelog>
+        <source main="main" file="BethHarmon_Add Destination IN marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Add%20Destination%20IN%20marker.lua</source>
+        <source main="main" file="BethHarmon_Add Destination OUT Marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Add%20Destination%20OUT%20Marker.lua</source>
+        <source main="main" file="BethHarmon_Add Source IN marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Add%20Source%20IN%20marker.lua</source>
+        <source main="main" file="BethHarmon_Add Source OUT marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Add%20Source%20OUT%20marker.lua</source>
+        <source main="main" file="BethHarmon_Classical Crossfade Editor.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Classical%20Crossfade%20Editor.lua</source>
+        <source main="main" file="BethHarmon_Classical Crossfade.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Classical%20Crossfade.lua</source>
+        <source main="main" file="BethHarmon_Classical Take Record.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Classical%20Take%20Record.lua</source>
+        <source main="main" file="BethHarmon_Crossfade Editor View.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Crossfade%20Editor%20View.lua</source>
+        <source main="main" file="BethHarmon_Delete All S-D markers.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Delete%20All%20S-D%20markers.lua</source>
+        <source main="main" file="BethHarmon_Duplicate folder (No items).lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Duplicate%20folder%20(No%20items).lua</source>
+        <source main="main" file="BethHarmon_Edit Classical Crossfade.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Edit%20Classical%20Crossfade.lua</source>
+        <source main="main" file="BethHarmon_Prepare Takes.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Prepare%20Takes.lua</source>
+        <source main="main" file="BethHarmon_S-D Edit.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_S-D%20Edit.lua</source>
+        <source main="main" file="BethHarmon_Whole Project View.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Whole%20Project%20View.lua</source>
+        <source main="main" file="BethHarmon_Create source groups (vertical).lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Create%20source%20groups%20(vertical).lua</source>
+        <source main="main" file="BethHarmon_Audition.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Audition.lua</source>
+        <source main="main" file="BethHarmon_BirdBird Razor Children.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_BirdBird%20Razor%20Children.lua</source>
+        <source main="main" file="BethHarmon_3-point edit replace.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_3-point%20edit%20replace.lua</source>
+        <source main="main" file="BethHarmon_Delete Leaving Silence.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Delete%20Leaving%20Silence.lua</source>
+        <source main="main" file="BethHarmon_Delete With Ripple.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Delete%20With%20Ripple.lua</source>
+        <source main="main" file="BethHarmon_Classical Assembly Line.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/6080522d92adc03da90c9763dd897a43e91617c8/classical/BethHarmon_Classical%20Assembly%20Line.lua</source>
       </version>
     </reapack>
   </category>
