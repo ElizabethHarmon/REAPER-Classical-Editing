@@ -93,6 +93,10 @@ local function main()
   razor_edit = reaper.NamedCommandLookup("_RS2a78b865dca5f05176044b6d8801f19e4d7af562")
   reaper.Main_OnCommand(razor_edit, 0)
   
+  reaper.Main_OnCommand(40340, 0) -- unsolo all tracks
+  first = reaper.GetTrack(0, 0)
+  reaper.SetMediaTrackInfo_Value(first, "I_SOLO", 2)
+  
   reaper.Undo_EndBlock('Link Vol & Pan', 0)
   reaper.PreventUIRefresh(-1)
   reaper.UpdateArrange()
