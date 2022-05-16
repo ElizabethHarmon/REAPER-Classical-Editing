@@ -22,7 +22,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 local function dest_out()
   retval, num_markers, num_regions = reaper.CountProjectMarkers(0)
   exists = false
-  for i = 1, num_markers, 1
+  for i = 0, num_markers, 1
   do
     retval, isrgn, pos, rgnend, label, markrgnindexnumber = reaper.EnumProjectMarkers(i)
     if (label == "DEST-OUT")

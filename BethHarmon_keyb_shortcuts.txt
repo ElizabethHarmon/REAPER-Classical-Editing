@@ -11,7 +11,6 @@ T       Prepare Takes
 
 S       Split
 J       Join (glue)
-
 G       Group items
 U       Ungroup items
 

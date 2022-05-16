@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.4
+@version 3.4.1
 @changelog
+  v3.4.1
+  Fix marker counting from 0
   v3.4
   New "Insert with Timestretching" script
   v3.3.1
