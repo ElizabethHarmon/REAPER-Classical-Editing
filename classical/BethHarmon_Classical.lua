@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.3.1
+@version 3.4
 @changelog
+  v3.4
+  New "Insert with Timestretching" script
   v3.3.1
   Solo first track group as part of running "Create Source Groups" script
   v3.3
@@ -75,6 +77,7 @@
   [main] BethHarmon_Delete Leaving Silence.lua
   [main] BethHarmon_Delete With Ripple.lua
   [main] BethHarmon_Classical Assembly Line.lua
+  [main] BethHarmon_Insert with timestretching.lua
 
 
 
