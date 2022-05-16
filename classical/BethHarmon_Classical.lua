@@ -1,7 +1,10 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.4.1
+@version 3.4.2
 @changelog
+  v3.4.2
+  New error messages when incorect number of S-D markers are used
+  Further fix to marker counting
   v3.4.1
   Fix marker counting from 0
   v3.4

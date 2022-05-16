@@ -19,18 +19,26 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ]]--
 
-local function dest_out()
+local function markers()
   retval, num_markers, num_regions = reaper.CountProjectMarkers(0)
-  exists = false
-  for i = 0, num_markers, 1
+  source_count = 0
+  dest_in = 0
+  dest_out = 0
+  for i = 0, num_markers - 1, 1
   do
     retval, isrgn, pos, rgnend, label, markrgnindexnumber = reaper.EnumProjectMarkers(i)
-    if (label == "DEST-OUT")
+    if (label == "DEST-IN")
     then
-      exists = true
+      dest_in = 1
+    elseif (label == "DEST-OUT")
+    then
+      dest_out = 1
+    elseif (label == "SOURCE-IN" or label == "SOURCE-OUT")
+    then
+      source_count = source_count + 1
     end
   end
-  return exists
+  return dest_in, dest_out, source_count
 end
 
 local function main()
@@ -59,7 +67,8 @@ local function main()
   reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
   
   replace_toggle = reaper.NamedCommandLookup("_RSa7436efacaf0efb8ba704fdec38e3caed3499a22")
-  if (reaper.GetToggleCommandState(replace_toggle) == 1 and dest_out() == false)
+  dest_in, dest_out, source_count = markers() 
+  if (reaper.GetToggleCommandState(replace_toggle) == 1 and dest_in == 1 and dest_out == 0 and source_count == 2)
   then
     reaper.MoveEditCursor(sel_length, true)
     reaper.Main_OnCommand(41990, 0) -- Toggle ripple editing per-track
@@ -69,7 +78,8 @@ local function main()
     reaper.Main_OnCommand(53460, 0) -- Go to start of time selection
     reaper.Main_OnCommand(42398, 0) -- Item: Paste items/tracks
     reaper.Main_OnCommand(41990, 0) -- Toggle ripple editing per-track
-  else
+  elseif (dest_in == 1 and source_count == 2)
+  then
     reaper.Main_OnCommand(40625, 0) -- Time Selection: Set start point
     reaper.GoToMarker(0, 101, false)
     reaper.Main_OnCommand(40626, 0) -- Time Selection: Set end point
@@ -78,6 +88,10 @@ local function main()
     reaper.Main_OnCommand(40630, 0) -- XENAKIOS_TSADEL
     reaper.Main_OnCommand(53460, 0) -- Go to start of time selection
     reaper.Main_OnCommand(53573, 0) -- SWS_AWPASTE
+  else
+  reaper.Main_OnCommand(40020, 0) -- Time Selection: Remove time selection and loop point selection
+  reaper.ShowMessageBox("Please add at least 3 valid source-destination markers: \n 3-point edit: DEST-IN, SOURCE-IN and SOURCE-OUT \n 4-point edit: DEST-IN, DEST-OUT, SOURCE-IN and SOURCE-OUT", "Source-Destination Edit", 0)
+  return
   end
   reaper.Main_OnCommand(41173, 0) -- Item navigation: Move cursor to start of items
   reaper.Main_OnCommand(53616, 0) -- SWS_MOVECURFADELEFT

@@ -19,15 +19,18 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ]]--
 
-local function dest_out()
+local function assembly_markers()
   retval, num_markers, num_regions = reaper.CountProjectMarkers(0)
-  exists = false
-  for i = 0, num_markers, 1
+  exists = 0
+  for i = 0, num_markers - 1, 1
   do
     retval, isrgn, pos, rgnend, label, markrgnindexnumber = reaper.EnumProjectMarkers(i)
-    if (label == "DEST-OUT")
+    if (label == "DEST-IN" or label == "SOURCE-IN" or label == "SOURCE-OUT" )
     then
-      exists = true
+      exists = exists + 1
+    elseif (label == "DEST-OUT")
+    then
+      exists = -1
     end
   end
   return exists
@@ -38,7 +41,7 @@ local function main()
   reaper.Undo_BeginBlock()
   
   replace_toggle = reaper.NamedCommandLookup("_RSa7436efacaf0efb8ba704fdec38e3caed3499a22")
-  if (reaper.GetToggleCommandState(replace_toggle) ~= 1 and dest_out() == false)
+  if (reaper.GetToggleCommandState(replace_toggle) ~= 1 and assembly_markers() == 3)
   then
     reaper.Main_OnCommand(54499, 0) -- BR_FOCUS_ARRANGE_WND
     reaper.Main_OnCommand(40310, 0) -- Set ripple per-track
@@ -83,6 +86,8 @@ local function main()
     local cur_pos = (reaper.GetPlayState() == 0) and reaper.GetCursorPosition() or reaper.GetPlayPosition()
     reaper.AddProjectMarker2(0, false, cur_pos, 0, "DEST-IN", 100, reaper.ColorToNative(22,141,195)|0x1000000)
     reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
+  else
+  reaper.ShowMessageBox("Please use 3 markers: DEST-IN, SOURCE-IN and SOURCE-OUT", "Classical Assembly Line", 0)
   end
   reaper.Undo_EndBlock('Classical Assembly Line', 0)
   reaper.PreventUIRefresh(-1)

@@ -19,9 +19,26 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ]]--
 
+ local function source_markers()
+  retval, num_markers, num_regions = reaper.CountProjectMarkers(0)
+   exists = 0
+   for i = 0, num_markers - 1, 1
+   do
+     retval, isrgn, pos, rgnend, label, markrgnindexnumber = reaper.EnumProjectMarkers(i)
+     if (label == "SOURCE-IN" or label == "SOURCE-OUT")
+     then
+       exists = exists + 1
+     end
+   end
+   return exists
+ end
+
  local function main()
    reaper.PreventUIRefresh(1)
    reaper.Undo_BeginBlock()
+   
+   if (source_markers() == 2)
+  then
  
   reaper.Main_OnCommand(54499, 0) -- BR_FOCUS_ARRANGE_WND
   reaper.Main_OnCommand(40310, 0) -- Set ripple per-track
@@ -40,6 +57,9 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   reaper.DeleteProjectMarker(NULL, 103, false)
   reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
   reaper.Main_OnCommand(41990, 0) -- Toggle ripple per-track (off)
+  else
+  reaper.ShowMessageBox("Please use SOURCE-IN and SOURCE-OUT markers", "Delete Leaving Silence", 0)
+  end
    
    reaper.Undo_EndBlock('Cut and Ripple', 0)
    reaper.PreventUIRefresh(-1)

@@ -22,7 +22,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 local function SDmarkers()
   retval, num_markers, num_regions = reaper.CountProjectMarkers(0)
   exists = 0
-  for i = 0, num_markers, 1
+  for i = 0, num_markers - 1, 1
   do
     retval, isrgn, pos, rgnend, label, markrgnindexnumber = reaper.EnumProjectMarkers(i)
     if (label == "DEST-IN" or label == "DEST-OUT" or label == "SOURCE-IN" or label == "SOURCE-OUT" )
@@ -85,6 +85,8 @@ local function main()
     reaper.DeleteProjectMarker(NULL, 103, false)
     reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
     reaper.Main_OnCommand(41990, 0) -- Toggle ripple per-track (off)
+  else
+    reaper.ShowMessageBox("Please add 4 markers: DEST-IN, DEST-OUT, SOURCE-IN and SOURCE-OUT", "Insert with timestretching", 0)
   end
   reaper.Undo_EndBlock('Insert with Timestretching', 0)
   reaper.PreventUIRefresh(-1)
