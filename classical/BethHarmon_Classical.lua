@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.4.2
+@version 3.5
 @changelog
+  v3.5
+  New "Group Play" function
   v3.4.2
   New error messages when incorect number of S-D markers are used
   Further fix to marker counting
@@ -83,6 +85,7 @@
   [main] BethHarmon_Delete With Ripple.lua
   [main] BethHarmon_Classical Assembly Line.lua
   [main] BethHarmon_Insert with timestretching.lua
+  [main] BethHarmon_Group Play.lua
 
 
 
