@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.5
+@version 3.6
 @changelog
+  v3.6
+  Added sync routing/fx functionality to "Create Source Group" script
   v3.5
   New "Group Play" function
   v3.4.2
