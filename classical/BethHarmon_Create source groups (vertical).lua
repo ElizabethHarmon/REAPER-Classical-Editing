@@ -67,12 +67,17 @@ local function sync_routing_and_fx()
     reaper.Main_OnCommand(53625, 0) -- collapse folder
     
     for i=1, folder_check() - 1, 1 do
+      reaper.Main_OnCommand(54962, 0) -- copy folder track routing
+      
       reaper.Main_OnCommand(53773, 0) --duplicate folder
       reaper.Main_OnCommand(54959, 0)
       reaper.Main_OnCommand(53426, 0)
       reaper.Main_OnCommand(53573, 0)
       reaper.Main_OnCommand(40421, 0)
       reaper.Main_OnCommand(53629, 0)
+      
+      reaper.Main_OnCommand(53774, 0) -- select only parent
+      reaper.Main_OnCommand(54963, 0) -- paste folder track routing
       
       reaper.Main_OnCommand(40042, 0) --move edit cursor to start
       reaper.Main_OnCommand(53781, 0) --select next folder
@@ -133,6 +138,8 @@ local function main()
      reaper.GetSetTrackGroupMembership(track,"POLARITY_FOLLOW",2^i,2^i)
      reaper.GetSetTrackGroupMembership(track,"AUTOMODE_LEAD",2^i,2^i)
      reaper.GetSetTrackGroupMembership(track,"AUTOMODE_FOLLOW",2^i,2^i)
+     reaper.GetSetTrackGroupMembership(track,"MUTE_LEAD",2^i,2^i)
+     reaper.GetSetTrackGroupMembership(track,"MUTE_FOLLOW",2^i,2^i)
      i = i + 1
     end
     local first_track = reaper.GetTrack(0,0)

@@ -1,7 +1,10 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.6
+@version 3.6.1
 @changelog
+  v3.6.1
+  Add parent routing copy/pasting
+  Add select only parent to Duplicate Folder script
   v3.6
   Added sync routing/fx functionality to "Create Source Group" script
   v3.5
