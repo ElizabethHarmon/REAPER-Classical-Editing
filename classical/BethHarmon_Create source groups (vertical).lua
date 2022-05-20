@@ -20,7 +20,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 ]]--
 
 local function create_destination_group()
-  boolean, num = reaper.GetUserInputs("Create Destination & Source Groups", 1, "How many tracks per group", 10)
+  boolean, num = reaper.GetUserInputs("Create Destination & Source Groups", 1, "How many tracks per group?", 10)
 
   if (boolean == true) then
     for i=1, tonumber(num), 1 do
