@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.7
+@version 3.7.1
 @changelog
+  v3.7.1
+  Make dialog box wording clearer
   v3.7
   Add creation of microphone tracks as part of "Create Source Group" script
   v3.6.2
