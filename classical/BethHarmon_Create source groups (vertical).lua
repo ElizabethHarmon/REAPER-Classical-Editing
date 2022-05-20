@@ -187,7 +187,9 @@ function main()
   if (reaper.CountTracks(0) == 0) then
   
   create_destination_group()
-  create_source_groups()
+    if (folder_check() == 1 ) then
+      create_source_groups()
+    end
   
   elseif (folder_check() > 1 ) then
     sync_routing_and_fx()

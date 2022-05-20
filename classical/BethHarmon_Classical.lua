@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.7.1
+@version 3.7.2
 @changelog
+  v3.7.2
+  Fix error in event user clicks cancel on dialog box
   v3.7.1
   Make dialog box wording clearer
   v3.7
