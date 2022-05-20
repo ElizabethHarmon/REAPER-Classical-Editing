@@ -76,7 +76,7 @@ local function sync_routing_and_fx()
       reaper.Main_OnCommand(40421, 0)
       reaper.Main_OnCommand(53629, 0)
       
-      reaper.Main_OnCommand(53774, 0) -- select only parent
+      reaper.Main_OnCommand(53777, 0) -- unselect children
       reaper.Main_OnCommand(54963, 0) -- paste folder track routing
       
       reaper.Main_OnCommand(40042, 0) --move edit cursor to start

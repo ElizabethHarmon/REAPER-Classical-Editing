@@ -29,7 +29,7 @@ local function main()
   reaper.Main_OnCommand(53573, 0)
   reaper.Main_OnCommand(40421, 0)
   reaper.Main_OnCommand(53629, 0)
-  reaper.Main_OnCommand(53774, 0) -- select only parent
+  reaper.Main_OnCommand(53777, 0) -- select only folder
 
   reaper.Undo_EndBlock('Duplicate folder (No items)', 0)
   reaper.PreventUIRefresh(-1)

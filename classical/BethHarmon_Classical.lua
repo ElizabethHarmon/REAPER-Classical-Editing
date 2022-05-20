@@ -1,10 +1,13 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.6.1
+@version 3.6.2
 @changelog
+  v3.6.2
+  Fix duplicate folder unselect of children
   v3.6.1
   Add parent routing copy/pasting
   Add select only parent to Duplicate Folder script
+  Add mute as group parameter
   v3.6
   Added sync routing/fx functionality to "Create Source Group" script
   v3.5
