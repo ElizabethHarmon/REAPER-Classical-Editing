@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.6.2
+@version 3.7
 @changelog
+  v3.7
+  Add creation of microphone tracks as part of "Create Source Group" script
   v3.6.2
   Fix duplicate folder unselect of children
   v3.6.1

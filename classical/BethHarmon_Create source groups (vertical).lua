@@ -19,6 +19,25 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ]]--
 
+local function create_destination_group()
+  boolean, num = reaper.GetUserInputs("Create Destination & Source Groups", 1, "How many tracks?", 10)
+
+  if (boolean == true) then
+    for i=1, tonumber(num), 1 do
+      reaper.InsertTrackAtIndex(0, true)
+    end
+    for i=0, tonumber(num)-1, 1 do
+      tr = reaper.GetTrack(0, i)
+      reaper.SetTrackSelected(tr, 1)
+    end
+    reaper.Main_OnCommand(53622, 0) -- make folder from tracks
+    for i=0, tonumber(num)-1, 1 do
+      tr = reaper.GetTrack(0, i)
+      reaper.SetTrackSelected(tr, 0)
+    end
+  end
+end
+
 local function solo()
     track = reaper.GetSelectedTrack(0, 0)
     reaper.SetMediaTrackInfo_Value(track, "I_SOLO", 1)
@@ -113,40 +132,29 @@ local function sync_routing_and_fx()
   end
 end
 
-
-local function main()
-
-  reaper.PreventUIRefresh(1)
-  reaper.Undo_BeginBlock()
-  
-  if (folder_check() > 1 ) then
-  
-    sync_routing_and_fx()
-  
-  else
-
-    local total_tracks = reaper.CountTracks(0)
-    i = 0
-    while (i < total_tracks)
-    do
-     local track = reaper.GetTrack(0, i)
-     reaper.GetSetTrackGroupMembership(track,"VOLUME_LEAD",2^i,2^i)
-     reaper.GetSetTrackGroupMembership(track,"VOLUME_FOLLOW",2^i,2^i)
-     reaper.GetSetTrackGroupMembership(track,"PAN_LEAD",2^i,2^i)
-     reaper.GetSetTrackGroupMembership(track,"PAN_FOLLOW",2^i,2^i)
-     reaper.GetSetTrackGroupMembership(track,"POLARITY_LEAD",2^i,2^i)
-     reaper.GetSetTrackGroupMembership(track,"POLARITY_FOLLOW",2^i,2^i)
-     reaper.GetSetTrackGroupMembership(track,"AUTOMODE_LEAD",2^i,2^i)
-     reaper.GetSetTrackGroupMembership(track,"AUTOMODE_FOLLOW",2^i,2^i)
-     reaper.GetSetTrackGroupMembership(track,"MUTE_LEAD",2^i,2^i)
-     reaper.GetSetTrackGroupMembership(track,"MUTE_FOLLOW",2^i,2^i)
-     i = i + 1
-    end
-    local first_track = reaper.GetTrack(0,0)
-    reaper.SetOnlyTrackSelected(first_track)
-    i=0
-    while (i < 6)
-    do
+function create_source_groups()
+  local total_tracks = reaper.CountTracks(0)
+  i = 0
+  while (i < total_tracks)
+  do
+   local track = reaper.GetTrack(0, i)
+   reaper.GetSetTrackGroupMembership(track,"VOLUME_LEAD",2^i,2^i)
+   reaper.GetSetTrackGroupMembership(track,"VOLUME_FOLLOW",2^i,2^i)
+   reaper.GetSetTrackGroupMembership(track,"PAN_LEAD",2^i,2^i)
+   reaper.GetSetTrackGroupMembership(track,"PAN_FOLLOW",2^i,2^i)
+   reaper.GetSetTrackGroupMembership(track,"POLARITY_LEAD",2^i,2^i)
+   reaper.GetSetTrackGroupMembership(track,"POLARITY_FOLLOW",2^i,2^i)
+   reaper.GetSetTrackGroupMembership(track,"AUTOMODE_LEAD",2^i,2^i)
+   reaper.GetSetTrackGroupMembership(track,"AUTOMODE_FOLLOW",2^i,2^i)
+   reaper.GetSetTrackGroupMembership(track,"MUTE_LEAD",2^i,2^i)
+   reaper.GetSetTrackGroupMembership(track,"MUTE_FOLLOW",2^i,2^i)
+   i = i + 1
+  end
+  local first_track = reaper.GetTrack(0,0)
+  reaper.SetOnlyTrackSelected(first_track)
+  i=0
+  while (i < 6)
+  do
     reaper.Main_OnCommand(53773, 0)
     reaper.Main_OnCommand(54959, 0)
     reaper.Main_OnCommand(53426, 0)
@@ -154,21 +162,39 @@ local function main()
     reaper.Main_OnCommand(40421, 0)
     reaper.Main_OnCommand(53629, 0)
     i = i+1
-    end
-    reaper.Main_OnCommand(40296, 0)
-    reaper.Main_OnCommand(53625, 0)
-    reaper.Main_OnCommand(40297, 0)
-    reaper.Main_OnCommand(40939, 0)
-    reaper.Main_OnCommand(53773, 0)
+  end
+  reaper.Main_OnCommand(40296, 0)
+  reaper.Main_OnCommand(53625, 0)
+  reaper.Main_OnCommand(40297, 0)
+  reaper.Main_OnCommand(40939, 0)
+  reaper.Main_OnCommand(53773, 0)
+
+  solo()
+  reaper.Main_OnCommand(53773, 0) -- SWS: Select children of selected folder track(s)
+  mixer()
+  reaper.Main_OnCommand(53777, 0) -- SWS: Unselect children of selected folder track(s)
   
-    solo()
-    reaper.Main_OnCommand(53773, 0) -- SWS: Select children of selected folder track(s)
-    mixer()
-    reaper.Main_OnCommand(53777, 0) -- SWS: Unselect children of selected folder track(s)
-    
-    reaper.Main_OnCommand(40297, 0)
-    razor_edit = reaper.NamedCommandLookup("_RS2a78b865dca5f05176044b6d8801f19e4d7af562")
-    reaper.Main_OnCommand(razor_edit, 0)
+  reaper.Main_OnCommand(40297, 0)
+  razor_edit = reaper.NamedCommandLookup("_RS2a78b865dca5f05176044b6d8801f19e4d7af562")
+  reaper.Main_OnCommand(razor_edit, 0)
+end
+
+function main()
+
+  reaper.PreventUIRefresh(1)
+  reaper.Undo_BeginBlock()
+  
+  if (reaper.CountTracks(0) == 0) then
+  
+  create_destination_group()
+  create_source_groups()
+  
+  elseif (folder_check() > 1 ) then
+    sync_routing_and_fx()
+  elseif (folder_check() == 1) then
+  create_source_groups()
+  else
+  reaper.ShowMessageBox("In order to use this script either:\n1. Run on an empty project\n2. Run with one existing folder\n3. Run on multiple existing folders to sync routing/fx", "Create Source Groups", 0)
   end  
     reaper.Undo_EndBlock('Create Source Groups', 0)
     reaper.PreventUIRefresh(-1)
