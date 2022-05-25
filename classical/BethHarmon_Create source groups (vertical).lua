@@ -30,7 +30,8 @@ local function create_destination_group()
       tr = reaper.GetTrack(0, i)
       reaper.SetTrackSelected(tr, 1)
     end
-    reaper.Main_OnCommand(53622, 0) -- make folder from tracks
+    make_folder = reaper.NamedCommandLookup("_SWS_MAKEFOLDER")
+    reaper.Main_OnCommand(make_folder, 0) -- make folder from tracks
     for i=0, tonumber(num)-1, 1 do
       tr = reaper.GetTrack(0, i)
       reaper.SetTrackSelected(tr, 0)
@@ -83,23 +84,32 @@ local function sync_routing_and_fx()
   if (ans == 6) then
     local first_track = reaper.GetTrack(0,0)
     reaper.SetOnlyTrackSelected(first_track)
-    reaper.Main_OnCommand(53625, 0) -- collapse folder
+    collapse = reaper.NamedCommandLookup("_SWS_COLLAPSE")
+    reaper.Main_OnCommand(collapse, 0) -- collapse folder
     
     for i=1, folder_check() - 1, 1 do
-      reaper.Main_OnCommand(54962, 0) -- copy folder track routing
+      copy_folder_routing = reaper.NamedCommandLookup("_S&M_COPYSNDRCV2")
+      reaper.Main_OnCommand(copy_folder_routing, 0) -- copy folder track routing
+      select_children = reaper.NamedCommandLookup("_SWS_SELCHILDREN2")
+      reaper.Main_OnCommand(select_children, 0) --SWS_SELCHILDREN2
+      copy = reaper.NamedCommandLookup("_S&M_COPYSNDRCV1") -- SWS/S&M: Copy selected tracks (with routing)
+      reaper.Main_OnCommand(copy, 0)
+      --reaper.NamedCommandLookup("")
+      --reaper.Main_OnCommand(53426, 0)
+      paste = reaper.NamedCommandLookup("_SWS_AWPASTE")
+      reaper.Main_OnCommand(paste, 0) -- SWS_AWPASTE
+      reaper.Main_OnCommand(40421, 0) -- Item: Select all items in track
+      delete_items = reaper.NamedCommandLookup("_SWS_DELALLITEMS")
+      reaper.Main_OnCommand(delete_items, 0)
       
-      reaper.Main_OnCommand(53773, 0) --duplicate folder
-      reaper.Main_OnCommand(54959, 0)
-      reaper.Main_OnCommand(53426, 0)
-      reaper.Main_OnCommand(53573, 0)
-      reaper.Main_OnCommand(40421, 0)
-      reaper.Main_OnCommand(53629, 0)
-      
-      reaper.Main_OnCommand(53777, 0) -- unselect children
-      reaper.Main_OnCommand(54963, 0) -- paste folder track routing
+      unselect_children = reaper.NamedCommandLookup("_SWS_UNSELCHILDREN")
+      reaper.Main_OnCommand(unselect_children, 0) -- unselect children
+      paste_folder_routing = reaper.NamedCommandLookup("_S&M_PASTSNDRCV2")
+      reaper.Main_OnCommand(paste_folder_routing, 0) -- paste folder track routing
       
       reaper.Main_OnCommand(40042, 0) --move edit cursor to start
-      reaper.Main_OnCommand(53781, 0) --select next folder
+      next_folder = reaper.NamedCommandLookup("_SWS_SELNEXTFOLDER")
+      reaper.Main_OnCommand(next_folder, 0) --select next folder
       
       --Account for empty folders
       length = reaper.GetProjectLength(0)
@@ -107,7 +117,8 @@ local function sync_routing_and_fx()
       new_item = reaper.AddMediaItemToTrack(old_tr)
       reaper.SetMediaItemPosition(new_item, length + 1, false)
       
-      reaper.Main_OnCommand(53773, 0) --select child tracks
+      select_children = reaper.NamedCommandLookup("_SWS_SELCHILDREN2")
+      reaper.Main_OnCommand(select_children, 0) --SWS_SELCHILDREN2
       reaper.Main_OnCommand(40421, 0) --select all items on track
       
       selected_tracks = reaper.CountSelectedTracks(0)
@@ -115,7 +126,8 @@ local function sync_routing_and_fx()
         reaper.Main_OnCommand(40117, 0) -- Move items up to previous folder
       end
       reaper.Main_OnCommand(40005, 0) --delete selected tracks
-      reaper.Main_OnCommand(53770, 0) --SWS: Select only track(s) with selected item(s)
+      select_only = reaper.NamedCommandLookup("_SWS_SELTRKWITEM")
+      reaper.Main_OnCommand(select_only, 0) --SWS: Select only track(s) with selected item(s)
       dup_tr = reaper.GetSelectedTrack(0, 0)
       tr_items = reaper.CountTrackMediaItems(dup_tr)
       last_item = reaper.GetTrackMediaItem(dup_tr, tr_items - 1)
@@ -126,9 +138,11 @@ local function sync_routing_and_fx()
     local first_track = reaper.GetTrack(0,0)
     reaper.SetOnlyTrackSelected(first_track)
     solo()
-    reaper.Main_OnCommand(53773, 0) -- SWS: Select children of selected folder track(s)
+    select_children = reaper.NamedCommandLookup("_SWS_SELCHILDREN2")
+    reaper.Main_OnCommand(select_children, 0) -- SWS: Select children of selected folder track(s)
     mixer()
-    reaper.Main_OnCommand(53777, 0) -- SWS: Unselect children of selected folder track(s)
+    unselect_children = reaper.NamedCommandLookup("_SWS_UNSELCHILDREN")
+    reaper.Main_OnCommand(unselect_children, 0) -- SWS: Unselect children of selected folder track(s)
   end
 end
 
@@ -155,26 +169,34 @@ function create_source_groups()
   i=0
   while (i < 6)
   do
-    reaper.Main_OnCommand(53773, 0)
-    reaper.Main_OnCommand(54959, 0)
-    reaper.Main_OnCommand(53426, 0)
-    reaper.Main_OnCommand(53573, 0)
-    reaper.Main_OnCommand(40421, 0)
-    reaper.Main_OnCommand(53629, 0)
+    select_children = reaper.NamedCommandLookup("_SWS_SELCHILDREN2")
+    reaper.Main_OnCommand(select_children, 0) -- SWS: Select children of selected folder track(s)
+    copy = reaper.NamedCommandLookup("_S&M_COPYSNDRCV1") -- SWS/S&M: Copy selected tracks (with routing)
+    reaper.Main_OnCommand(copy, 0)
+    --reaper.Main_OnCommand(53426, 0)
+    paste = reaper.NamedCommandLookup("_SWS_AWPASTE")
+    reaper.Main_OnCommand(paste, 0) -- SWS_AWPASTE
+    reaper.Main_OnCommand(40421, 0) -- Item: Select all items in track
+    delete_items = reaper.NamedCommandLookup("_SWS_DELALLITEMS")
+    reaper.Main_OnCommand(delete_items, 0)
     i = i+1
   end
-  reaper.Main_OnCommand(40296, 0)
-  reaper.Main_OnCommand(53625, 0)
-  reaper.Main_OnCommand(40297, 0)
-  reaper.Main_OnCommand(40939, 0)
-  reaper.Main_OnCommand(53773, 0)
+  reaper.Main_OnCommand(40296, 0) -- Track: Select all tracks
+  collapse = reaper.NamedCommandLookup("_SWS_COLLAPSE")
+  reaper.Main_OnCommand(collapse, 0) -- collapse folder
+  reaper.Main_OnCommand(40297, 0) -- Track: Unselect (clear selection of) all tracks
+  reaper.Main_OnCommand(40939, 0) -- Track: Select track 01
+  select_children = reaper.NamedCommandLookup("_SWS_SELCHILDREN2")
+  reaper.Main_OnCommand(select_children, 0) -- SWS: Select children of selected folder track(s)
 
   solo()
-  reaper.Main_OnCommand(53773, 0) -- SWS: Select children of selected folder track(s)
+    select_children = reaper.NamedCommandLookup("_SWS_SELCHILDREN2")
+    reaper.Main_OnCommand(select_children, 0) -- SWS: Select children of selected folder track(s)
   mixer()
-  reaper.Main_OnCommand(53777, 0) -- SWS: Unselect children of selected folder track(s)
+    unselect_children = reaper.NamedCommandLookup("_SWS_UNSELCHILDREN")
+    reaper.Main_OnCommand(unselect_children, 0) -- SWS: Unselect children of selected folder track(s)
   
-  reaper.Main_OnCommand(40297, 0)
+  reaper.Main_OnCommand(40297, 0) -- Track: Unselect (clear selection of) all tracks
   razor_edit = reaper.NamedCommandLookup("_RS2a78b865dca5f05176044b6d8801f19e4d7af562")
   reaper.Main_OnCommand(razor_edit, 0)
 end

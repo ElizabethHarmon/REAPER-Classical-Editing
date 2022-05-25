@@ -40,7 +40,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
    if (source_markers() == 2)
   then
  
-  reaper.Main_OnCommand(54499, 0) -- BR_FOCUS_ARRANGE_WND
+  focus = reaper.NamedCommandLookup("_BR_FOCUS_ARRANGE_WND")
+  reaper.Main_OnCommand(focus, 0) -- BR_FOCUS_ARRANGE_WND
   reaper.Main_OnCommand(40310, 0) -- Set ripple per-track
   reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
   reaper.GoToMarker(0, 102, false)
@@ -50,7 +51,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   reaper.Main_OnCommand(40718, 0) -- Select all items on selected tracks in current time selection
   reaper.Main_OnCommand(40034, 0) -- Item Grouping: Select all items in group(s)
   reaper.Main_OnCommand(41990, 0) -- Toggle ripple per-track (off)
-  reaper.Main_OnCommand(53460, 0) -- XENAKIOS_TSADEL
+  delete = reaper.NamedCommandLookup("_XENAKIOS_TSADEL")
+  reaper.Main_OnCommand(delete, 0) -- XENAKIOS_TSADEL
   reaper.Main_OnCommand(40630, 0) -- Go to start of time selection
   reaper.Main_OnCommand(40020, 0) -- Time Selection: Remove time selection and loop point selection
   reaper.DeleteProjectMarker(NULL, 102, false)

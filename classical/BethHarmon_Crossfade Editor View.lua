@@ -23,9 +23,11 @@ local function main()
   reaper.PreventUIRefresh(1)
   reaper.Undo_BeginBlock()
 
-  reaper.Main_OnCommand(55769, 0)
-  reaper.Main_OnCommand(40113, 0)
-  reaper.Main_OnCommand(53451, 0)
+  track1 = reaper.NamedCommandLookup("_SWS_SEL1")
+  reaper.Main_OnCommand(track1, 0) -- select only track 1
+  reaper.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
+  scroll_home = reaper.NamedCommandLookup("_XENAKIOS_TVPAGEHOME")
+  reaper.Main_OnCommand(scroll_home, 0) -- XENAKIOS_TVPAGEHOME
 
   reaper.Undo_EndBlock('Crossfade Editor View', 0)
   reaper.PreventUIRefresh(-1)

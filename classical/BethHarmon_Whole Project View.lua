@@ -24,7 +24,8 @@ local function main()
   reaper.Undo_BeginBlock()
 
   reaper.Main_OnCommand(40296, 0) -- Track: Select all tracks
-  reaper.Main_OnCommand(53801, 0) -- SWS: Vertical zoom to selected tracks
+  zoom = reaper.NamedCommandLookup("_SWS_VZOOMFIT")
+  reaper.Main_OnCommand(zoom, 0) -- SWS: Vertical zoom to selected tracks
   reaper.Main_OnCommand(40297, 0) -- Track: Unselect (clear selection of) all tracks
   reaper.Main_OnCommand(40295, 0) -- View: Zoom out project
 

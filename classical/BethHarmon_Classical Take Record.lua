@@ -56,9 +56,11 @@ local function main()
     reaper.RefreshToolbar2(1, take_record_toggle)
     solo()
     reaper.Main_OnCommand(40491, 0) -- Track: Unarm all tracks for recording
-    reaper.Main_OnCommand(53773, 0) -- SWS: Select children of selected folder track(s)
+    select_children = reaper.NamedCommandLookup("_SWS_SELCHILDREN2")
+    reaper.Main_OnCommand(select_children, 0) -- SWS: Select children of selected folder track(s)
     mixer()
-    reaper.Main_OnCommand(53342, 0) -- Xenakios/SWS: Set selected tracks record armed
+    arm = reaper.NamedCommandLookup("_XENAKIOS_SELTRAX_RECARMED")
+    reaper.Main_OnCommand(arm, 0) -- Xenakios/SWS: Set selected tracks record armed
     reaper.Main_OnCommand(1013, 0) -- Transport: Record
 
     reaper.Undo_EndBlock('Classical Take Record', 0)
@@ -71,8 +73,10 @@ local function main()
     reaper.SetToggleCommandState(1, take_record_toggle, 0)
     reaper.RefreshToolbar2(1, take_record_toggle)
     reaper.Main_OnCommand(40667, 0) -- Transport: Stop (save all recorded media)
-    reaper.Main_OnCommand(53343, 0) -- Xenakios/SWS: Set selected tracks record unarmed
-    reaper.Main_OnCommand(53777, 0) -- SWS: Unselect children of selected folder track(s)
+    unarm = reaper.NamedCommandLookup("_XENAKIOS_SELTRAX_RECUNARMED")
+    reaper.Main_OnCommand(unarm, 0) -- Xenakios/SWS: Set selected tracks record unarmed
+    unselect_children = reaper.NamedCommandLookup("_SWS_UNSELCHILDREN")
+    reaper.Main_OnCommand(unselect_children, 0) -- SWS: Unselect children of selected folder track(s)
 
     reaper.Undo_EndBlock('Classical Take Record Stop', 0)
     reaper.PreventUIRefresh(-1)

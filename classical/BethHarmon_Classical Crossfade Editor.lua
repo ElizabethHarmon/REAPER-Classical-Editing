@@ -26,11 +26,14 @@ local function fadeStart()
   file = io.open(reaper.GetResourcePath().."/Scripts/BethHarmon Scripts/classical/BethHarmon_zoom_level.txt", "w")
   file:write(start_time,"\n",end_time)
   file:close()
-  reaper.Main_OnCommand(55769, 0) -- select only track 1
+  
+  select_1 = reaper.NamedCommandLookup("_SWS_SEL1")
+  reaper.Main_OnCommand(select_1, 0)
   reaper.Main_OnCommand(40319, 0) -- move edit cursor to end of item
   reaper.Main_OnCommand(41190, 0) -- Change horizontal zoom to default project setting
   reaper.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
-  reaper.Main_OnCommand(53451, 0) -- Xenakios/SWS: Scroll track view to home
+  scroll = reaper.NamedCommandLookup("_XENAKIOS_TVPAGEHOME")
+  reaper.Main_OnCommand(scroll, 0)
   reaper.Main_OnCommand(40507, 0) -- Options: Show overlapping media items in lanes
   reaper.Main_OnCommand(41827, 0) -- View: Show crossfade editor window
 end

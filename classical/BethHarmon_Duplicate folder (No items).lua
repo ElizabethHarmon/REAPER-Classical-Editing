@@ -19,22 +19,57 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ]]--
 
+local function solo()
+    track = reaper.GetSelectedTrack(0, 0)
+    reaper.SetMediaTrackInfo_Value(track, "I_SOLO", 1)
+
+  for i = 0, reaper.CountTracks(0)-1, 1
+  do
+    track = reaper.GetTrack(0, i)
+    if reaper.IsTrackSelected(track) == false
+    then
+      reaper.SetMediaTrackInfo_Value(track, "I_SOLO", 0)
+    i = i + 1
+    end
+  end
+end
+
+local function mixer()
+  for i = 0, reaper.CountTracks(0)-1, 1
+  do
+    tr = reaper.GetTrack(0, i)    
+    if reaper.IsTrackSelected(tr) then 
+      reaper.SetMediaTrackInfo_Value(tr, 'B_SHOWINMIXER',1)
+    else 
+      reaper.SetMediaTrackInfo_Value(tr, 'B_SHOWINMIXER',0)
+    end
+  end
+end
+
 local function main()
   reaper.PreventUIRefresh(1)
   reaper.Undo_BeginBlock()
 
-  reaper.Main_OnCommand(53773, 0)
-  reaper.Main_OnCommand(54959, 0)
-  reaper.Main_OnCommand(53426, 0)
-  reaper.Main_OnCommand(53573, 0)
-  reaper.Main_OnCommand(40421, 0)
-  reaper.Main_OnCommand(53629, 0)
-  reaper.Main_OnCommand(53777, 0) -- select only folder
+  reaper.Main_OnCommand(40340, 0)
+  select_children = reaper.NamedCommandLookup("_SWS_SELCHILDREN2")
+  reaper.Main_OnCommand(select_children, 0) -- SWS_SELCHILDREN2
+  copy = reaper.NamedCommandLookup("_S&M_COPYSNDRCV1") -- SWS/S&M: Copy selected tracks (with routing)
+  reaper.Main_OnCommand(copy, 0)
+  paste = reaper.NamedCommandLookup("_SWS_AWPASTE")
+  reaper.Main_OnCommand(paste, 0) -- SWS_AWPASTE
+  reaper.Main_OnCommand(40421, 0) -- Item: Select all items in track
+  delete_items = reaper.NamedCommandLookup("_SWS_DELALLITEMS")
+  reaper.Main_OnCommand(delete_items, 0)
+  mixer()
+  unselect_children = reaper.NamedCommandLookup("_SWS_UNSELCHILDREN")
+  reaper.Main_OnCommand(unselect_children, 0) -- SWS: Unselect children of selected folder track(s)
+  solo()
 
   reaper.Undo_EndBlock('Duplicate folder (No items)', 0)
   reaper.PreventUIRefresh(-1)
   reaper.UpdateArrange()
   reaper.UpdateTimeline()
+  reaper.TrackList_AdjustWindows(false)
 end
 
 main()

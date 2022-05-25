@@ -23,11 +23,14 @@ local function main()
   reaper.PreventUIRefresh(1)
   reaper.Undo_BeginBlock()
 
-  reaper.Main_OnCommand(53459, 0) -- Xenakios/SWS: Select items under edit cursor on selected tracks
+  select_items = reaper.NamedCommandLookup("_XENAKIOS_SELITEMSUNDEDCURSELTX")
+  reaper.Main_OnCommand(select_items, 0) -- Xenakios/SWS: Select items under edit cursor on selected tracks
   reaper.Main_OnCommand(40297, 0) -- Track: Unselect (clear selection of) all tracks
-  reaper.Main_OnCommand(53616, 0) -- SWS: Move cursor left by default fade length
+  fade_left = reaper.NamedCommandLookup("_SWS_MOVECURFADELEFT")
+  reaper.Main_OnCommand(fade_left, 0) -- SWS: Move cursor left by default fade length
   reaper.Main_OnCommand(40625, 0) -- Time selection: Set start point
-  reaper.Main_OnCommand(53617, 0) -- SWS: Move cursor right by default fade length
+  fade_right = reaper.NamedCommandLookup("_SWS_MOVECURFADERIGHT")
+  reaper.Main_OnCommand(fade_right, 0) -- SWS: Move cursor right by default fade length
   reaper.Main_OnCommand(40626, 0) -- Time selection: Set end point
   reaper.Main_OnCommand(40717, 0) -- Item: Select all items in current time selection
   reaper.Main_OnCommand(40916, 0) -- Item: Crossfade items within time selection

@@ -1,7 +1,11 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.7.3
+@version 3.8
 @changelog
+  v3.8
+  Massive fix for command ID issues
+  Duplicate Folder script fixed issue with repeated action
+  Duplicate Folder script now solos and auto-hides mixer tracks
   v3.7.3
   Fix missing question mark in dialog box
   v3.7.2

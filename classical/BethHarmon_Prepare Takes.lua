@@ -21,7 +21,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 local function shift()
   reaper.Main_OnCommand(40182, 0) -- select all items
-  reaper.Main_OnCommand(53282, 0) -- shift items by 1 sample to the right
+  nudge_right = reaper.NamedCommandLookup("_SWS_NUDGESAMPLERIGHT")
+  reaper.Main_OnCommand(nudge_right, 0) -- shift items by 1 sample to the right
   reaper.Main_OnCommand(40289, 0) -- unselect all items
 end
 
@@ -31,7 +32,8 @@ end
 
 local function vertical_color()
   reaper.Main_OnCommand(40042, 0) -- Transport: Go to start of project
-  reaper.Main_OnCommand(53773, 0) -- SWS_SELCHILDREN2
+  select_children = reaper.NamedCommandLookup("_SWS_SELCHILDREN2")
+  reaper.Main_OnCommand(select_children, 0) -- SWS_SELCHILDREN2
   reaper.Main_OnCommand(40421, 0) -- Item: Select all items in track
   reaper.Main_OnCommand(40706, 0) -- Item: Set to one random color
 end
@@ -39,7 +41,8 @@ end
 local function horizontal_group()
   reaper.Main_OnCommand(40296, 0) -- Track: Select all tracks
   reaper.Main_OnCommand(40417, 0) -- Item navigation: Select and move to next item
-  reaper.Main_OnCommand(53459, 0) -- XENAKIOS_SELITEMSUNDEDCURSELTX
+  select_under = reaper.NamedCommandLookup("_XENAKIOS_SELITEMSUNDEDCURSELTX")
+  reaper.Main_OnCommand(select_under, 0) -- XENAKIOS_SELITEMSUNDEDCURSELTX
   reaper.Main_OnCommand(40032, 0) -- Item grouping: Group items
 end
 
@@ -51,7 +54,8 @@ reaper.SetMediaItemPosition(item, length + 1, false)
   while (reaper.IsMediaItemSelected(item) == false)
   do
   reaper.Main_OnCommand(40417, 0) -- Item navigation: Select and move to next item
-  reaper.Main_OnCommand(53459, 0) -- XENAKIOS_SELITEMSUNDEDCURSELTX
+  select_under = reaper.NamedCommandLookup("_XENAKIOS_SELITEMSUNDEDCURSELTX")
+  reaper.Main_OnCommand(select_under, 0) -- XENAKIOS_SELITEMSUNDEDCURSELTX
   reaper.Main_OnCommand(40032, 0) -- Item grouping: Group items
   end
   reaper.DeleteTrackMediaItem(track, item)
