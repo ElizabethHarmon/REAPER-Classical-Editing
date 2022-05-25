@@ -2,7 +2,7 @@ Home    Project Start
 End     Project End
 `       Whole Project View
 
-F8      Create Source Groups (vertical)
+F8      Create Source Groups (vertical) / Sync Routing/FX
 \       Duplicate Folder (no items)
 
 Num.    Classical Take Record
@@ -40,6 +40,9 @@ Z       Edit existing crossfade across two lanes (when in Fade Editor view)
 Ctrl+Delete    Delete all S-D Markers
 Backspace      Delete with ripple (between 2 source markers)
 Ctrl+Backspace Delete Leaving Silence (between 2 source markers)
+
+F3             Classical Assembly Line (Dest IN + both source markers)
+F4             Insert with time-stretching (All 4 S-D markers)
 =====================================================
 
 
@@ -72,7 +75,7 @@ R       Render
 Required files
 ==============
 SWS, ReaPack
-BethHarmon_Classical (BethHarmon via import of https://raw.githubusercontent.com/ElizabethHarmon/REAPER-Classical-Editing/master/index.xml)
+BethHarmon_Classical (BethHarmon via import of https://elizabethharmon.github.io/REAPER-Classical-Editing/index.xml)
 Various_functions (MPL)
 JS reascript API (juliansader)
 Generate CUE from project markers (MPL)

@@ -3,14 +3,9 @@ SCR 4 32060 RS7d3c_1ee9bb229dabffe151848d7efa3c10f748e1a1cf "Custom: lyrics.lua"
 SCR 4 0 RS1cbf05b0c4f875518496f34a5ce45adefe05cb67 "Custom: Default_6.0_theme_adjuster.lua" Cockos/Default_6.0_theme_adjuster.lua
 SCR 4 0 RS3e8cc367dc95c9cc784436c861fa030f022ca8a6 "Custom: mpl_Generate CUE from project markers.lua" "MPL Scripts/Regions/mpl_Generate CUE from project markers.lua"
 SCR 4 0 RS910b1dac79abc70a10add6f5e433a1acd8317536 "Custom: mpl_Various_functions.lua" "MPL Scripts/Functions/mpl_Various_functions.lua"
-SCR 4 0 RSbe0935cc3962e9e56634238c9c6bc350b0fd46b4 "Custom: ply_Source-Destination configuration.lua" "ply Scripts/Items Editing/Source-Destination/ply_Source-Destination configuration.lua"
-SCR 4 0 RS395bb8278945338b19b825f3d1019da8705b8c9c "Custom: ply_Source-Destination edit.lua" "ply Scripts/Items Editing/Source-Destination/ply_Source-Destination edit.lua"
-SCR 4 0 RSe580fc8c058652fcb4ab0183c61358e105dbef1b "Custom: ply_Source-Destination setup.lua" "ply Scripts/Items Editing/Source-Destination/ply_Source-Destination setup.lua"
 SCR 4 0 RS4d2aa3d4867bf866fc418c2ca12f567effa917f6 "Custom: X-Raym_Solo exclusive track under mouse and play.lua" "X-Raym Scripts/Transport/X-Raym_Solo exclusive track under mouse and play.lua"
 SCR 4 0 RS28677e60720bb76c4f379f62125b15adb2fd6af4 "Custom: mpl_Convert CUE file into markers (DDP formatted).lua" "MPL Scripts/Regions/mpl_Convert CUE file into markers (DDP formatted).lua"
 SCR 4 0 RS102cada7b98ebda2bbad102df88c52c01d7cbdd4 "Custom: mpl_Convert CUE file into markers.lua" "MPL Scripts/Regions/mpl_Convert CUE file into markers.lua"
-SCR 4 0 RS1c6ad1164e1d29bb4b1f2c1acf82f5853ce77875 "Custom: Set Lokasenna_GUI v2 library path.lua" "ReaTeam Scripts/Development/Lokasenna_GUI v2/Library/Set Lokasenna_GUI v2 library path.lua"
-SCR 4 0 RS3bd078fbbbacf2a4ce23abbab4e1ec59a8947f9d "Custom: Lokasenna_Generate script from custom action.lua" "ReaTeam Scripts/Various/Lokasenna_Generate script from custom action.lua"
 SCR 4 0 RS32c624d3a18b3109316a17bafa192670a8047d1f "Custom: BethHarmon_Add Destination IN marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Destination IN marker.lua"
 SCR 4 0 RSc48c7d72b89ae4ee52d5f8a1ba08e2f266fff1aa "Custom: BethHarmon_Add Destination OUT Marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Destination OUT Marker.lua"
 SCR 4 0 RS485da334f88a4f2ffa1d084612566589833c35e6 "Custom: BethHarmon_Add Source IN marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Source IN marker.lua"
@@ -26,14 +21,16 @@ SCR 4 0 RS9955d327581b58ca4381ed90a162792e7e2c2f66 "Custom: BethHarmon_Whole Pro
 SCR 4 0 RS7cabeec720993dfeedef4b7a48cb427bdd1e66c5 "Custom: BethHarmon_Create source groups (vertical).lua" "BethHarmon Scripts/classical/BethHarmon_Create source groups (vertical).lua"
 SCR 4 0 RS9aebe6a6a706099d8a0af623f132ce89ed88ac10 "Custom: cfillion_Interactive ReaScript.lua" "ReaTeam Scripts/Development/cfillion_Interactive ReaScript.lua"
 SCR 4 0 RS98094db59befdb22a828f4f784ceec2ce595a68b "Custom: BethHarmon_Audition.lua" "BethHarmon Scripts/classical/BethHarmon_Audition.lua"
-SCR 4 0 RSc53dbb13079a35e83097b3946d332ab42acd56af "Custom: X-Raym_Export markers and regions as tab-delimited CSV file.lua" "X-Raym Scripts/Regions/X-Raym_Export markers and regions as tab-delimited CSV file.lua"
-SCR 4 0 RS3f135ac0f4b505a69d294097dc09e568345d5173 "Custom: X-Raym_Import markers and regions from tab-delimited CSV file.lua" "X-Raym Scripts/Regions/X-Raym_Import markers and regions from tab-delimited CSV file.lua"
 SCR 516 0 RS2a78b865dca5f05176044b6d8801f19e4d7af562 "Custom: BethHarmon_BirdBird Razor Children.lua" "BethHarmon Scripts/classical/BethHarmon_BirdBird Razor Children.lua"
 SCR 4 0 RSa7436efacaf0efb8ba704fdec38e3caed3499a22 "Custom: BethHarmon_3-point edit replace.lua" "BethHarmon Scripts/classical/BethHarmon_3-point edit replace.lua"
 SCR 4 0 RS20a8d20b71ffcee24fd8808498c9052d55812c46 "Custom: BethHarmon_S-D Edit.lua" "BethHarmon Scripts/classical/BethHarmon_S-D Edit.lua"
 SCR 4 0 RSc5dda88c2a8cee1326915b8ed57f1e8dbc64cd4f "Custom: BethHarmon_Prepare Takes.lua" "BethHarmon Scripts/classical/BethHarmon_Prepare Takes.lua"
 SCR 4 0 RS0509e23e5acd09ad977a52f12287855a4052d3c7 "Custom: BethHarmon_Delete Leaving Silence.lua" "BethHarmon Scripts/classical/BethHarmon_Delete Leaving Silence.lua"
 SCR 4 0 RS18ce59b41c91695767a0fb7b8610560c479df683 "Custom: BethHarmon_Delete With Ripple.lua" "BethHarmon Scripts/classical/BethHarmon_Delete With Ripple.lua"
+SCR 4 0 RSf254abaa36ff403693c63f6bef92cfd9f064fb21 "Custom: BethHarmon_Group Play.lua" "BethHarmon Scripts/classical/BethHarmon_Group Play.lua"
+SCR 4 0 RS8216fa84539b5acd62a4b8b0ec8eb211fa2c2d1e "Custom: BethHarmon_Classical Assembly Line.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Assembly Line.lua"
+SCR 4 0 RSf769d9330acb0090519eb739dd2a8b8b8fa764e8 "Custom: BethHarmon_Insert with timestretching.lua" "BethHarmon Scripts/classical/BethHarmon_Insert with timestretching.lua"
+SCR 4 0 RSd5e887a1697485049a97f79203f4fe52676e7166 "Custom: BethHarmon_Create Destination Group.lua" "BethHarmon Scripts/classical/BethHarmon_Create Destination Group.lua"
 KEY 25 82 0 0
 KEY 9 80 0 0
 KEY 17 13 0 0
@@ -54,12 +51,14 @@ KEY 13 70 0 0
 KEY 13 68 0 0
 KEY 9 68 0 0
 KEY 5 84 0 0
+KEY 1 120 0 0
 KEY 1 89 0 0
 KEY 1 75 1135 0
 KEY 17 80 1155 0
 KEY 1 82 40015 0
 KEY 1 79 40016 0
 KEY 1 80 40021 0
+KEY 1 32 40044 0
 KEY 1 78 40171 0
 KEY 0 44 40172 0
 KEY 0 46 40173 0
@@ -82,9 +81,6 @@ KEY 1 9 _SWS_FINDITEMPEAK 0
 KEY 1 69 _SWS_COLLAPSE 0
 KEY 1 68 _SWS_FOLDSMALL 0
 KEY 1 67 _RS3e8cc367dc95c9cc784436c861fa030f022ca8a6 0
-KEY 1 120 _RSbe0935cc3962e9e56634238c9c6bc350b0fd46b4 0
-KEY 1 101 _RS395bb8278945338b19b825f3d1019da8705b8c9c 0
-KEY 1 121 _RSe580fc8c058652fcb4ab0183c61358e105dbef1b 0
 KEY 1 49 _RS32c624d3a18b3109316a17bafa192670a8047d1f 0
 KEY 9 32804 _RS32c624d3a18b3109316a17bafa192670a8047d1f 0
 KEY 1 50 _RSc48c7d72b89ae4ee52d5f8a1ba08e2f266fff1aa 0
@@ -109,4 +105,6 @@ KEY 1 32813 _RS20a8d20b71ffcee24fd8808498c9052d55812c46 0
 KEY 1 84 _RSc5dda88c2a8cee1326915b8ed57f1e8dbc64cd4f 0
 KEY 9 8 _RS0509e23e5acd09ad977a52f12287855a4052d3c7 0
 KEY 1 8 _RS18ce59b41c91695767a0fb7b8610560c479df683 0
+KEY 1 114 _RS8216fa84539b5acd62a4b8b0ec8eb211fa2c2d1e 0
+KEY 1 115 _RSf769d9330acb0090519eb739dd2a8b8b8fa764e8 0
 KEY 1 9 40440 32060
