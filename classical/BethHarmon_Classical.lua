@@ -1,7 +1,11 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.8
+@version 3.9
 @changelog
+  v3.9
+  Add Create Folder script
+  Remove need for Classical Assembly Line to be in 3-point insert mode
+  Fix Delete with Ripple tool
   v3.8
   Massive fix for command ID issues
   Duplicate Folder script fixed issue with repeated action
@@ -106,6 +110,7 @@
   [main] BethHarmon_Classical Assembly Line.lua
   [main] BethHarmon_Insert with timestretching.lua
   [main] BethHarmon_Group Play.lua
+  [main] BethHarmon_Create Folder.lua
 
 
 

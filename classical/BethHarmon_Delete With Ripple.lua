@@ -51,12 +51,16 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   reaper.Main_OnCommand(40034, 0) -- Item Grouping: Select all items in group(s)
   delete = reaper.NamedCommandLookup("_XENAKIOS_TSADEL")
   reaper.Main_OnCommand(delete, 0) -- XENAKIOS_TSADEL
+  reaper.Main_OnCommand(40630, 0) -- Go to start of time selection
+  
+  fade_right = reaper.NamedCommandLookup("_SWS_MOVECURFADERIGHT")
+  reaper.Main_OnCommand(fade_right, 0)
   select_under = reaper.NamedCommandLookup("_XENAKIOS_SELITEMSUNDEDCURSELTX")
   reaper.Main_OnCommand(select_under, 0) -- Xenakios/SWS: Select items under edit cursor on selected tracks
-  reaper.Main_OnCommand(40630, 0) -- Go to start of time selection
   
    fade_left = reaper.NamedCommandLookup("_SWS_MOVECURFADELEFT")
    reaper.Main_OnCommand(fade_left, 0) -- SWS_MOVECURFADELEFT
+  reaper.Main_OnCommand(fade_left, 0) -- SWS_MOVECURFADELEFT
    reaper.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
    reaper.Main_OnCommand(40020, 0) -- Time Selection: Remove time selection and loop point selection
    reaper.DeleteProjectMarker(NULL, 102, false)

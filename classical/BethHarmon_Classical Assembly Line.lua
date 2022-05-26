@@ -41,7 +41,7 @@ local function main()
   reaper.Undo_BeginBlock()
   
   replace_toggle = reaper.NamedCommandLookup("_RSa7436efacaf0efb8ba704fdec38e3caed3499a22")
-  if (reaper.GetToggleCommandState(replace_toggle) ~= 1 and assembly_markers() == 3)
+  if (assembly_markers() == 3)
   then
     focus = reaper.NamedCommandLookup("_BR_FOCUS_ARRANGE_WND")
     reaper.Main_OnCommand(focus, 0)

@@ -2,7 +2,8 @@ Home    Project Start
 End     Project End
 `       Whole Project View
 
-F8      Create Source Groups (vertical) / Sync Routing/FX
+F7      Create Folder (prompts for number of tracks)
+F8      Create Source Groups (vertical)(from scratch or from existing folder) / Sync Routing/FX
 \       Duplicate Folder (no items)
 
 Num.    Classical Take Record
