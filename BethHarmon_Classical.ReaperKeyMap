@@ -7,6 +7,7 @@ SCR 4 0 RS8216fa84539b5acd62a4b8b0ec8eb211fa2c2d1e "Custom: BethHarmon_Classical
 SCR 4 0 RS9c61ac0478c3de96f276137a249e9339ed76fc16 "Custom: BethHarmon_Classical Crossfade Editor.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Crossfade Editor.lua"
 SCR 4 0 RS3a37848e27e182da552661629fe6cda880e72b87 "Custom: BethHarmon_Classical Crossfade.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Crossfade.lua"
 SCR 4 0 RSd51d37e55d67816b4d247aa707f3f7caca9b404b "Custom: BethHarmon_Classical Take Record.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Take Record.lua"
+SCR 4 0 RS73f9e0d5a1afeebc7df383a68ca9d02b8a51c49b "Custom: BethHarmon_Create Folder.lua" "BethHarmon Scripts/classical/BethHarmon_Create Folder.lua"
 SCR 4 0 RS7cabeec720993dfeedef4b7a48cb427bdd1e66c5 "Custom: BethHarmon_Create source groups (vertical).lua" "BethHarmon Scripts/classical/BethHarmon_Create source groups (vertical).lua"
 SCR 4 0 RS11490fe5592dd62143523cb4b57ab54549d69de9 "Custom: BethHarmon_Crossfade Editor View.lua" "BethHarmon Scripts/classical/BethHarmon_Crossfade Editor View.lua"
 SCR 4 0 RS5d06a61d2931d0e481139b76b0c9580bf0f6e9d1 "Custom: BethHarmon_Delete All S-D markers.lua" "BethHarmon Scripts/classical/BethHarmon_Delete All S-D markers.lua"
@@ -31,6 +32,7 @@ KEY 1 114 _RS8216fa84539b5acd62a4b8b0ec8eb211fa2c2d1e 0
 KEY 1 70 _RS9c61ac0478c3de96f276137a249e9339ed76fc16 0
 KEY 1 88 _RS3a37848e27e182da552661629fe6cda880e72b87 0
 KEY 1 110 _RSd51d37e55d67816b4d247aa707f3f7caca9b404b 0
+KEY 1 118 _RS73f9e0d5a1afeebc7df383a68ca9d02b8a51c49b 0
 KEY 1 119 _RS7cabeec720993dfeedef4b7a48cb427bdd1e66c5 0
 KEY 1 116 _RS11490fe5592dd62143523cb4b57ab54549d69de9 0
 KEY 5 32814 _RS5d06a61d2931d0e481139b76b0c9580bf0f6e9d1 0
