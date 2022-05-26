@@ -22,7 +22,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
  local function source_markers()
   retval, num_markers, num_regions = reaper.CountProjectMarkers(0)
    exists = 0
-   for i = 0, num_markers - 1, 1
+   for i = 0, num_markers + num_regions - 1, 1
    do
      retval, isrgn, pos, rgnend, label, markrgnindexnumber = reaper.EnumProjectMarkers(i)
      if (label == "SOURCE-IN" or label == "SOURCE-OUT")
