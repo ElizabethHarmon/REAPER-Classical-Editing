@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.9.1
+@version 3.9.2
 @changelog
+  v3.9.2
+  Improve S-D edit script (separate into functions) and contain completely within if statement.
   v3.9.1
   Allow for region existence while using S-D markers
   v3.9
