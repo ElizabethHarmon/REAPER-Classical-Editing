@@ -25,13 +25,27 @@ local function SDmarkers()
   for i = 0, num_markers + num_regions - 1, 1
   do
     retval, isrgn, pos, rgnend, label, markrgnindexnumber = reaper.EnumProjectMarkers(i)
-    if (label == "DEST-IN" or label == "DEST-OUT" or label == "SOURCE-IN" or label == "SOURCE-OUT" )
+    if (label == "DEST-IN" or label == "DEST-OUT" or string.match(label, "%d+:SOURCE[-]IN") or string.match(label, "%d+:SOURCE[-]OUT") )
     then
       exists = exists + 1
     end
   end
   return exists
 end
+
+ local function select_matching_folder()
+  cursor =  reaper.GetCursorPosition()
+  marker_id, _ = reaper.GetLastMarkerAndCurRegion(0, cursor)
+  _, _, _, _, label, _, _ = reaper.EnumProjectMarkers3(0, marker_id)
+  folder_number = tonumber(string.match(label, "(%d*):SOURCE*"))
+  for i = 0, reaper.CountTracks(0) - 1, 1 do
+    tr = reaper.GetTrack(0, i)
+    if ( reaper.GetMediaTrackInfo_Value(tr, "IP_TRACKNUMBER") == folder_number ) then
+      reaper.SetOnlyTrackSelected(tr)
+      break
+    end
+  end
+ end
 
 local function main()
   reaper.PreventUIRefresh(1)
@@ -44,6 +58,7 @@ local function main()
     reaper.Main_OnCommand(40310, 0) -- Set ripple per-track
     reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
     reaper.GoToMarker(0, 102, false)
+    select_matching_folder()
     reaper.Main_OnCommand(40625, 0) -- Time Selection: Set start point
     reaper.GoToMarker(0, 103, false)
     reaper.Main_OnCommand(40626, 0) -- Time Selection: Set end point

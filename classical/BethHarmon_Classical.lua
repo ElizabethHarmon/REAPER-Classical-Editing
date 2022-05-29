@@ -1,7 +1,10 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 3.9.2
+@version 4.0
 @changelog
+  v4.0
+  Source marker labels now include folder number
+  Source folder is taken from source marker name
   v3.9.2
   Improve S-D edit script (separate into functions) and contain completely within if statement.
   v3.9.1
