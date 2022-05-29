@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 4.0
+@version 4.0.1
 @changelog
+  v4.0.1
+  Allow for source marker use in horizontal mode with no folders
   v4.0
   Source marker labels now include folder number
   Source folder is taken from source marker name

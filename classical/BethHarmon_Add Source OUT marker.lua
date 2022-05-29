@@ -19,15 +19,28 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ]]--
 
+local function folder_check()
+  folders = 0
+  total_tracks = reaper.CountTracks(0)
+  for i=0, total_tracks - 1, 1 do
+    tr = reaper.GetTrack(0, i)
+    if (reaper.GetMediaTrackInfo_Value(tr, "I_FOLDERDEPTH") == 1) then
+      folders = folders + 1
+    end
+  end
+  return folders
+end
+
 local function get_track_number()
   selected = reaper.GetSelectedTrack(0, 0)
-  if (reaper.GetMediaTrackInfo_Value(selected, "I_FOLDERDEPTH")) == 1 then
+  if ( folder_check() == 0 ) then
+    return 1
+  elseif (reaper.GetMediaTrackInfo_Value(selected, "I_FOLDERDEPTH") == 1) then
     return reaper.GetMediaTrackInfo_Value(selected, "IP_TRACKNUMBER")
   else
     folder = reaper.GetParentTrack(selected)
     return reaper.GetMediaTrackInfo_Value(folder, "IP_TRACKNUMBER")
-end
-    
+  end
 end
 
 function main()
