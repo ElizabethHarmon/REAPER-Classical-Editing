@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 4.0.1
+@version 4.0.2
 @changelog
+  v4.0.2
+  Fix crossfade for "Insert with time-stretching"
   v4.0.1
   Allow for source marker use in horizontal mode with no folders
   v4.0

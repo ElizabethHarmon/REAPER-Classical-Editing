@@ -95,8 +95,7 @@ local function main()
     reaper.Main_OnCommand(fade_left, 0) -- SWS_MOVECURFADELEFT
     reaper.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
     reaper.Main_OnCommand(40417, 0) -- Item Navigation: Select and move to next item
-    fade_right = reaper.NamedCommandLookup("_SWS_MOVECURFADERIGHT")
-    reaper.Main_OnCommand(fade_right, 0) -- SWS_MOVECURFADELEFT
+    reaper.Main_OnCommand(fade_left, 0) -- SWS_MOVECURFADELEFT
     reaper.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
     reaper.Main_OnCommand(40912, 0) -- Options: Toggle auto-crossfade on split (OFF) 
     reaper.Main_OnCommand(40020, 0) -- Time Selection: Remove time selection and loop point selection
