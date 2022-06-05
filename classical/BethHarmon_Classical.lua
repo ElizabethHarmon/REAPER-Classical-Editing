@@ -1,7 +1,10 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 4.0.2
+@version 22.06.05
 @changelog
+  v22.06.05
+  All S-D operations now ripple regular markers and regions
+  Switch to YY.MM.DD versioning
   v4.0.2
   Fix crossfade for "Insert with time-stretching"
   v4.0.1

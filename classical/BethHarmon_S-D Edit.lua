@@ -58,7 +58,7 @@ end
 local function copy_source()
   focus = reaper.NamedCommandLookup("_BR_FOCUS_ARRANGE_WND")
   reaper.Main_OnCommand(focus, 0) -- BR_FOCUS_ARRANGE_WND
-  reaper.Main_OnCommand(40310, 0) -- Set ripple per-track
+  reaper.Main_OnCommand(40311, 0) -- Set ripple-all-tracks
   reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
   reaper.GoToMarker(0, 102, false)
   select_matching_folder()
@@ -74,6 +74,7 @@ local function copy_source()
 end
 
 local function split_at_dest_in()
+  reaper.Main_OnCommand(40927, 0) -- Options: Enable auto-crossfade on split
   reaper.Main_OnCommand(40939, 0) -- Track: Select track 01
   reaper.GoToMarker(0, 100, false)
   select_under = reaper.NamedCommandLookup("_XENAKIOS_SELITEMSUNDEDCURSELTX")
@@ -103,6 +104,28 @@ local function delete_sd_markers()
   reaper.DeleteProjectMarker(NULL, 103, false)
 end
 
+local function lock_items()
+  reaper.Main_OnCommand(40182, 0) -- select all items
+  reaper.Main_OnCommand(40939, 0) -- select track 01
+  select_children = reaper.NamedCommandLookup("_SWS_SELCHILDREN2")
+  reaper.Main_OnCommand(select_children, 0) -- select children of track 1
+  unselect_items = reaper.NamedCommandLookup("_SWS_UNSELONTRACKS")
+  reaper.Main_OnCommand(unselect_items, 0) -- unselect items in first folder
+  total_items = reaper.CountSelectedMediaItems(0)
+  for i=0, total_items - 1, 1 do
+    item = reaper.GetSelectedMediaItem(0, i)
+    reaper.SetMediaItemInfo_Value(item, "C_LOCK", 1)
+  end
+ end
+ 
+ local function unlock_items()
+  total_items = reaper.CountMediaItems(0)
+  for i=0, total_items - 1, 1 do
+    item = reaper.GetMediaItem(0, i)
+    reaper.SetMediaItemInfo_Value(item, "C_LOCK", 0)
+  end
+ end
+
 local function main()
   reaper.PreventUIRefresh(1)
   reaper.Undo_BeginBlock()
@@ -111,22 +134,25 @@ local function main()
   dest_in, dest_out, source_count = markers() 
   if (reaper.GetToggleCommandState(replace_toggle) == 1 and dest_in == 1 and dest_out == 0 and source_count == 2)
   then
+    lock_items()
     copy_source()
     split_at_dest_in()
     reaper.MoveEditCursor(sel_length, true)
-    reaper.Main_OnCommand(41990, 0) -- Toggle ripple editing per-track
+    reaper.Main_OnCommand(40309, 0) -- Toggle ripple editing per-track
     reaper.Main_OnCommand(40718, 0) -- Select all items on selected tracks in current time selection
     reaper.Main_OnCommand(40034, 0) -- Item Grouping: Select all items in group(s)
     reaper.Main_OnCommand(40630, 0) -- Go to start of time selection
     delete = reaper.NamedCommandLookup("_XENAKIOS_TSADEL")
     reaper.Main_OnCommand(delete, 0) -- Adaptive Delete
     reaper.Main_OnCommand(42398, 0) -- Item: Paste items/tracks
-    reaper.Main_OnCommand(41990, 0) -- Toggle ripple editing per-track
+    reaper.Main_OnCommand(40310, 0) -- Toggle ripple editing per-track
+    unlock_items()
     create_crossfades()
     delete_sd_markers()
     reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
   elseif (dest_in == 1 and source_count == 2)
   then
+    lock_items()
     copy_source()
     split_at_dest_in()
     reaper.Main_OnCommand(40625, 0) -- Time Selection: Set start point
@@ -139,9 +165,11 @@ local function main()
     reaper.Main_OnCommand(delete, 0) -- Adaptive Delete
     paste = reaper.NamedCommandLookup("_SWS_AWPASTE")
     reaper.Main_OnCommand(paste, 0) -- SWS_AWPASTE
+    unlock_items()
     create_crossfades()
     delete_sd_markers()
     reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
+    reaper.Main_OnCommand(40310, 0) -- Toggle ripple editing per-track
   else
   reaper.ShowMessageBox("Please add at least 3 valid source-destination markers: \n 3-point edit: DEST-IN, SOURCE-IN and SOURCE-OUT \n 4-point edit: DEST-IN, DEST-OUT, SOURCE-IN and SOURCE-OUT", "Source-Destination Edit", 0)
   return

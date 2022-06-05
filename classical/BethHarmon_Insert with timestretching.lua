@@ -53,6 +53,7 @@ local function main()
   
   if ( SDmarkers() == 4 )
   then
+    reaper.Main_OnCommand(40927, 0) -- Options: Enable auto-crossfade on split
     focus = reaper.NamedCommandLookup("_BR_FOCUS_ARRANGE_WND")
     reaper.Main_OnCommand(focus, 0) -- BR_FOCUS_ARRANGE_WND
     reaper.Main_OnCommand(40310, 0) -- Set ripple per-track
@@ -82,7 +83,7 @@ local function main()
     reaper.Main_OnCommand(40626, 0) -- Time Selection: Set end point
     reaper.Main_OnCommand(40718, 0) -- Select all items on selected tracks in current time selection
     reaper.Main_OnCommand(40034, 0) -- Item Grouping: Select all items in group(s)
-    reaper.Main_OnCommand(41990, 0) -- Toggle ripple per-track (off)
+    reaper.Main_OnCommand(40309, 0) -- ripple off
     reaper.Main_OnCommand(40630, 0) -- Go to start of time selection
     delete = reaper.NamedCommandLookup("_XENAKIOS_TSADEL")
     reaper.Main_OnCommand(delete, 0) -- Adaptive delete
@@ -104,7 +105,7 @@ local function main()
     reaper.DeleteProjectMarker(NULL, 102, false)
     reaper.DeleteProjectMarker(NULL, 103, false)
     reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
-    reaper.Main_OnCommand(41990, 0) -- Toggle ripple per-track (off)
+    reaper.Main_OnCommand(40310, 0) -- Ripple per-track
   else
     reaper.ShowMessageBox("Please add 4 markers: DEST-IN, DEST-OUT, SOURCE-IN and SOURCE-OUT", "Insert with timestretching", 0)
   end

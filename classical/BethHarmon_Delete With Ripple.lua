@@ -47,18 +47,47 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   end
  end
  
+ local function lock_items()
+   select_matching_folder()
+   reaper.Main_OnCommand(40182, 0) -- select all items
+   select_children = reaper.NamedCommandLookup("_SWS_SELCHILDREN2")
+   reaper.Main_OnCommand(select_children, 0) -- select children of folder
+   unselect_items = reaper.NamedCommandLookup("_SWS_UNSELONTRACKS")
+   reaper.Main_OnCommand(unselect_items, 0) -- unselect items in folder
+   unselect_children = reaper.NamedCommandLookup("_SWS_UNSELCHILDREN")
+   reaper.Main_OnCommand(unselect_children, 0) -- unselect children of folder
+   total_items = reaper.CountSelectedMediaItems(0)
+   for i=0, total_items - 1, 1 do
+     item = reaper.GetSelectedMediaItem(0, i)
+     reaper.SetMediaItemInfo_Value(item, "C_LOCK", 1)
+   end
+  end
+  
+  local function unlock_items()
+   total_items = reaper.CountMediaItems(0)
+   for i=0, total_items - 1, 1 do
+     item = reaper.GetMediaItem(0, i)
+     reaper.SetMediaItemInfo_Value(item, "C_LOCK", 0)
+   end
+  end
+ 
  local function main()
    reaper.PreventUIRefresh(1)
    reaper.Undo_BeginBlock()
- 
+ reaper.Main_OnCommand(40927, 0) -- Options: Enable auto-crossfade on split
  if (source_markers() == 2)
   then
+  lock_items()
   focus = reaper.NamedCommandLookup("_BR_FOCUS_ARRANGE_WND")
   reaper.Main_OnCommand(focus, 0) -- BR_FOCUS_ARRANGE_WND
-  reaper.Main_OnCommand(40310, 0) -- Set ripple per-track
+  folder = reaper.GetSelectedTrack(0, 0)
+  if ( reaper.GetMediaTrackInfo_Value(folder, "IP_TRACKNUMBER") == 1 ) then
+    reaper.Main_OnCommand(40311, 0) -- Set ripple-all-tracks
+  else
+    reaper.Main_OnCommand(40310, 0) -- Set ripple-per-track
+  end
   reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
   reaper.GoToMarker(0, 102, false)
-  select_matching_folder()
   reaper.Main_OnCommand(40625, 0) -- Time Selection: Set start point
   reaper.GoToMarker(0, 103, false)
   reaper.Main_OnCommand(40626, 0) -- Time Selection: Set end point
@@ -68,7 +97,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   delete = reaper.NamedCommandLookup("_XENAKIOS_TSADEL")
   reaper.Main_OnCommand(delete, 0) -- XENAKIOS_TSADEL
   reaper.Main_OnCommand(40630, 0) -- Go to start of time selection
-  
+  unlock_items()
   fade_right = reaper.NamedCommandLookup("_SWS_MOVECURFADERIGHT")
   reaper.Main_OnCommand(fade_right, 0)
   select_under = reaper.NamedCommandLookup("_XENAKIOS_SELITEMSUNDEDCURSELTX")
@@ -82,6 +111,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
    reaper.DeleteProjectMarker(NULL, 102, false)
    reaper.DeleteProjectMarker(NULL, 103, false)
    reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
+   reaper.Main_OnCommand(40310, 0) -- Ripple per-track
  else
    reaper.ShowMessageBox("Please use SOURCE-IN and SOURCE-OUT markers", "Delete With Ripple", 0)
 end

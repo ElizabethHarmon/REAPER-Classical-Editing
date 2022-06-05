@@ -49,6 +49,28 @@ end
     end
   end
  end
+ 
+local function lock_items()
+  reaper.Main_OnCommand(40182, 0) -- select all items
+  reaper.Main_OnCommand(40939, 0) -- select track 01
+  select_children = reaper.NamedCommandLookup("_SWS_SELCHILDREN2")
+  reaper.Main_OnCommand(select_children, 0) -- select children of track 1
+  unselect_items = reaper.NamedCommandLookup("_SWS_UNSELONTRACKS")
+  reaper.Main_OnCommand(unselect_items, 0) -- unselect items in first folder
+  total_items = reaper.CountSelectedMediaItems(0)
+  for i=0, total_items - 1, 1 do
+    item = reaper.GetSelectedMediaItem(0, i)
+    reaper.SetMediaItemInfo_Value(item, "C_LOCK", 1)
+  end
+ end
+ 
+ local function unlock_items()
+  total_items = reaper.CountMediaItems(0)
+  for i=0, total_items - 1, 1 do
+    item = reaper.GetMediaItem(0, i)
+    reaper.SetMediaItemInfo_Value(item, "C_LOCK", 0)
+  end
+ end
 
 local function main()
   reaper.PreventUIRefresh(1)
@@ -57,9 +79,11 @@ local function main()
   replace_toggle = reaper.NamedCommandLookup("_RSa7436efacaf0efb8ba704fdec38e3caed3499a22")
   if (assembly_markers() == 3)
   then
+    reaper.Main_OnCommand(40927, 0) -- Options: Enable auto-crossfade on split
+    lock_items()
     focus = reaper.NamedCommandLookup("_BR_FOCUS_ARRANGE_WND")
     reaper.Main_OnCommand(focus, 0)
-    reaper.Main_OnCommand(40310, 0) -- Set ripple per-track
+    reaper.Main_OnCommand(40311, 0) -- Set ripple-all-tracks
     reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
     reaper.GoToMarker(0, 102, false)
     reaper.Main_OnCommand(40625, 0) -- Time Selection: Set start point
@@ -91,7 +115,7 @@ local function main()
     reaper.Main_OnCommand(adaptive_delete, 0)
     paste = reaper.NamedCommandLookup("_SWS_AWPASTE")
     reaper.Main_OnCommand(paste, 0)
-
+    unlock_items()
     reaper.Main_OnCommand(41173, 0) -- Item navigation: Move cursor to start of items
     fade_left = reaper.NamedCommandLookup("_SWS_MOVECURFADELEFT")
     reaper.Main_OnCommand(fade_left, 0)
@@ -106,6 +130,7 @@ local function main()
     local cur_pos = (reaper.GetPlayState() == 0) and reaper.GetCursorPosition() or reaper.GetPlayPosition()
     reaper.AddProjectMarker2(0, false, cur_pos, 0, "DEST-IN", 100, reaper.ColorToNative(22,141,195)|0x1000000)
     reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
+    reaper.Main_OnCommand(40310, 0) -- Ripple per-track
   else
   reaper.ShowMessageBox("Please use 3 markers: DEST-IN, SOURCE-IN and SOURCE-OUT", "Classical Assembly Line", 0)
   end
