@@ -16,18 +16,16 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
-
 ]]
+
 local r = reaper
 local track_check
 
 function Main()
 
-  if (track_check() == 0) then
-
+  if track_check() == 0 then
     local boolean, num = r.GetUserInputs("Create Folder", 1, "How many tracks?", 10)
-
-    if (boolean == true) then
+    if boolean == true then
       for i = 1, tonumber(num), 1 do
         r.InsertTrackAtIndex(0, true)
       end

@@ -17,9 +17,9 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 
+Thanks Embass for the function!
 ]]
 
---Thanks Embass for the function!
 local r = reaper
 local l_proj_count = -1
 local get_child_tracks, edit_is_envelope, extend_razor_edits

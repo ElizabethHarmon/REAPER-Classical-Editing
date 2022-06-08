@@ -16,8 +16,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
-
 ]]
+
 local r = reaper
 local select_matching_folder, source_markers
 
@@ -25,7 +25,7 @@ function Main()
   r.PreventUIRefresh(1)
   r.Undo_BeginBlock()
 
-  if (source_markers() == 2) then
+  if source_markers() == 2 then
     local focus = r.NamedCommandLookup("_BR_FOCUS_ARRANGE_WND")
     r.Main_OnCommand(focus, 0) -- BR_FOCUS_ARRANGE_WND
     r.Main_OnCommand(40310, 0) -- Set ripple per-track
@@ -62,7 +62,7 @@ function source_markers()
   local exists = 0
   for i = 0, num_markers + num_regions - 1, 1 do
     local retval, isrgn, pos, rgnend, label, markrgnindexnumber = r.EnumProjectMarkers(i)
-    if (string.match(label, "%d+:SOURCE[-]IN") or string.match(label, "%d+:SOURCE[-]OUT")) then
+    if string.match(label, "%d+:SOURCE[-]IN") or string.match(label, "%d+:SOURCE[-]OUT") then
       exists = exists + 1
     end
   end
@@ -76,7 +76,7 @@ function select_matching_folder()
   local folder_number = tonumber(string.match(label, "(%d*):SOURCE*"))
   for i = 0, r.CountTracks(0) - 1, 1 do
     track = r.GetTrack(0, i)
-    if (r.GetMediaTrackInfo_Value(track, "IP_TRACKNUMBER") == folder_number) then
+    if r.GetMediaTrackInfo_Value(track, "IP_TRACKNUMBER") == folder_number then
       r.SetOnlyTrackSelected(track)
       break
     end

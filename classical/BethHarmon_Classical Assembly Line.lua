@@ -16,17 +16,17 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
-
 ]]
+
 local r = reaper
-local assembly_markers, lock_items, unlock_items, select_matching_folder
+local assembly_markers, lock_items, unlock_items, select_matching_folder, ripple_lock_mode
 
 function Main()
   r.PreventUIRefresh(1)
   r.Undo_BeginBlock()
-
   local replace_toggle = r.NamedCommandLookup("_RSa7436efacaf0efb8ba704fdec38e3caed3499a22")
-  if (assembly_markers() == 3) then
+  if assembly_markers() == 3 then
+    ripple_lock_mode()
     r.Main_OnCommand(40927, 0) -- Options: Enable auto-crossfade on split
     lock_items()
     local focus = r.NamedCommandLookup("_BR_FOCUS_ARRANGE_WND")
@@ -93,9 +93,9 @@ function assembly_markers()
   local exists = 0
   for i = 0, num_markers + num_regions - 1, 1 do
     local retval, isrgn, pos, rgnend, label, markrgnindexnumber = r.EnumProjectMarkers(i)
-    if (label == "DEST-IN" or string.match(label, "%d+:SOURCE[-]IN") or string.match(label, "%d+:SOURCE[-]OUT")) then
+    if label == "DEST-IN" or string.match(label, "%d+:SOURCE[-]IN") or string.match(label, "%d+:SOURCE[-]OUT") then
       exists = exists + 1
-    elseif (label == "DEST-OUT") then
+    elseif label == "DEST-OUT" then
       exists = -1
     end
   end
@@ -109,7 +109,7 @@ function select_matching_folder()
   local folder_number = tonumber(string.match(label, "(%d*):SOURCE*"))
   for i = 0, r.CountTracks(0) - 1, 1 do
     track = r.GetTrack(0, i)
-    if (r.GetMediaTrackInfo_Value(track, "IP_TRACKNUMBER") == folder_number) then
+    if r.GetMediaTrackInfo_Value(track, "IP_TRACKNUMBER") == folder_number then
       r.SetOnlyTrackSelected(track)
       break
     end
@@ -135,6 +135,14 @@ function unlock_items()
   for i = 0, total_items - 1, 1 do
     local item = r.GetMediaItem(0, i)
     r.SetMediaItemInfo_Value(item, "C_LOCK", 0)
+  end
+end
+
+function ripple_lock_mode()
+  local _, original_ripple_lock_mode = reaper.get_config_var_string("ripplelockmode")
+  original_ripple_lock_mode = tonumber(original_ripple_lock_mode)
+  if original_ripple_lock_mode ~= 2 then
+    reaper.SNM_SetIntConfigVar("ripplelockmode", 2)
   end
 end
 

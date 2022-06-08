@@ -16,14 +16,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
-
 ]]
 
 local r = reaper
 local replace_toggle = r.NamedCommandLookup("_RSa7436efacaf0efb8ba704fdec38e3caed3499a22")
 local state = r.GetToggleCommandState(replace_toggle)
 
-if (state == 0 or state == -1) then
+if state == 0 or state == -1 then
   r.SetToggleCommandState(1, replace_toggle, 1)
   r.RefreshToolbar2(1, replace_toggle)
 else

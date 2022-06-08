@@ -16,8 +16,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
-
 ]]
+
 local r = reaper
 local folder_check, get_track_number
 
@@ -33,7 +33,7 @@ function folder_check()
   local total_tracks = r.CountTracks(0)
   for i = 0, total_tracks - 1, 1 do
     local track = r.GetTrack(0, i)
-    if (r.GetMediaTrackInfo_Value(track, "I_FOLDERDEPTH") == 1) then
+    if r.GetMediaTrackInfo_Value(track, "I_FOLDERDEPTH") == 1 then
       folders = folders + 1
     end
   end
@@ -42,9 +42,9 @@ end
 
 function get_track_number()
   local selected = r.GetSelectedTrack(0, 0)
-  if (folder_check() == 0 or selected == nil) then
+  if folder_check() == 0 or selected == nil then
     return 1
-  elseif (r.GetMediaTrackInfo_Value(selected, "I_FOLDERDEPTH") == 1) then
+  elseif r.GetMediaTrackInfo_Value(selected, "I_FOLDERDEPTH") == 1 then
     return r.GetMediaTrackInfo_Value(selected, "IP_TRACKNUMBER")
   else
     local folder = r.GetParentTrack(selected)

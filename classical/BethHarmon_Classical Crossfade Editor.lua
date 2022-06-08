@@ -16,8 +16,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
-
 ]]
+
 local r = reaper
 local fadeStart, fadeEnd
 local fade_editor_toggle = r.NamedCommandLookup("_RS9c61ac0478c3de96f276137a249e9339ed76fc16")
@@ -28,10 +28,10 @@ function Main()
   r.Undo_BeginBlock()
 
 
-  if (state == -1) then
+  if state == -1 then
     r.SetToggleCommandState(1, fade_editor_toggle, 0)
     fadeStart()
-  elseif (state == 0) then
+  elseif state == 0 then
     fadeStart()
   else
     fadeEnd()
@@ -48,8 +48,10 @@ function fadeStart()
   r.RefreshToolbar2(1, fade_editor_toggle)
   local start_time, end_time = r.GetSet_ArrangeView2(0, false, 0, 0, 0, 0)
   local file = io.open(r.GetResourcePath() .. "/Scripts/BethHarmon Scripts/classical/BethHarmon_zoom_level.txt", "w")
-  file:write(start_time, "\n", end_time)
-  file:close()
+  if file ~= nil then
+    file:write(start_time, "\n", end_time)
+    file:close()
+  end
 
   local select_1 = r.NamedCommandLookup("_SWS_SEL1")
   r.Main_OnCommand(select_1, 0)
@@ -66,13 +68,15 @@ function fadeEnd()
   r.SetToggleCommandState(1, fade_editor_toggle, 0)
   r.RefreshToolbar2(1, fade_editor_toggle)
   local file = io.open(r.GetResourcePath() .. "/Scripts/BethHarmon Scripts/classical/BethHarmon_zoom_level.txt", "r")
-  local start_time = file:read("*line")
-  local end_time = file:read("*line")
-  file:close()
   r.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
   r.Main_OnCommand(40507, 0) -- Options: Show overlapping media items in lanes
   r.Main_OnCommand(41827, 0) -- View: Show crossfade editor window
-  r.GetSet_ArrangeView2(0, true, 0, 0, start_time, end_time)
+  if file ~= nil then
+    local start_time = file:read("*line")
+    local end_time = file:read("*line")
+    file:close()
+    r.GetSet_ArrangeView2(0, true, 0, 0, start_time, end_time)
+  end
   os.remove(r.GetResourcePath() .. "/Scripts/BethHarmon Scripts/classical/BethHarmon_zoom_level.txt")
 end
 

@@ -16,19 +16,19 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
-
 ]]
+
 local r = reaper
 local copy_source, create_crossfades, delete_sd_markers, lock_items
-local markers, select_matching_folder, split_at_dest_in, unlock_items
+local markers, select_matching_folder, split_at_dest_in, unlock_items, ripple_lock_mode
 
 function Main()
   r.PreventUIRefresh(1)
   r.Undo_BeginBlock()
-
   local replace_toggle = r.NamedCommandLookup("_RSa7436efacaf0efb8ba704fdec38e3caed3499a22")
   local dest_in, dest_out, source_count = markers()
-  if (r.GetToggleCommandState(replace_toggle) == 1 and dest_in == 1 and dest_out == 0 and source_count == 2) then
+  ripple_lock_mode()
+  if r.GetToggleCommandState(replace_toggle) == 1 and dest_in == 1 and dest_out == 0 and source_count == 2 then
     lock_items()
     local sel_length = copy_source()
     split_at_dest_in()
@@ -45,7 +45,7 @@ function Main()
     create_crossfades()
     delete_sd_markers()
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
-  elseif (dest_in == 1 and source_count == 2) then
+  elseif dest_in == 1 and source_count == 2 then
     lock_items()
     copy_source()
     split_at_dest_in()
@@ -82,11 +82,11 @@ function markers()
   local dest_out = 0
   for i = 0, num_markers + num_regions - 1, 1 do
     local retval, isrgn, pos, rgnend, label, markrgnindexnumber = r.EnumProjectMarkers(i)
-    if (label == "DEST-IN") then
+    if label == "DEST-IN" then
       dest_in = 1
-    elseif (label == "DEST-OUT") then
+    elseif label == "DEST-OUT" then
       dest_out = 1
-    elseif (label == string.match(label, "%d+:SOURCE[-]IN") or string.match(label, "%d+:SOURCE[-]OUT")) then
+    elseif label == string.match(label, "%d+:SOURCE[-]IN") or string.match(label, "%d+:SOURCE[-]OUT") then
       source_count = source_count + 1
     end
   end
@@ -100,7 +100,7 @@ function select_matching_folder()
   local folder_number = tonumber(string.match(label, "(%d*):SOURCE*"))
   for i = 0, r.CountTracks(0) - 1, 1 do
     track = r.GetTrack(0, i)
-    if (r.GetMediaTrackInfo_Value(track, "IP_TRACKNUMBER") == folder_number) then
+    if r.GetMediaTrackInfo_Value(track, "IP_TRACKNUMBER") == folder_number then
       r.SetOnlyTrackSelected(track)
       break
     end
@@ -176,6 +176,14 @@ function unlock_items()
   for i = 0, total_items - 1, 1 do
     local item = r.GetMediaItem(0, i)
     r.SetMediaItemInfo_Value(item, "C_LOCK", 0)
+  end
+end
+
+function ripple_lock_mode()
+  local _, original_ripple_lock_mode = reaper.get_config_var_string("ripplelockmode")
+  original_ripple_lock_mode = tonumber(original_ripple_lock_mode)
+  if original_ripple_lock_mode ~= 2 then
+    reaper.SNM_SetIntConfigVar("ripplelockmode", 2)
   end
 end
 

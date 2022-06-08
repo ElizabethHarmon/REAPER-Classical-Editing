@@ -1,7 +1,11 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.06.08.1
+@version 22.06.09
 @changelog
+  v22.06.09
+  Remove superfluous parentheses for conditionals and loops
+  Add nil tests for file open, read, write & close operations
+  Add ripple lock check before ripple-capable S-D operations
   v22.06.08.1
   Add nil test for no selected tracks when adding source markers
   v22.06.08

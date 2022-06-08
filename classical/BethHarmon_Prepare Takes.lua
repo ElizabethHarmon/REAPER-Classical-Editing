@@ -16,8 +16,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
-
 ]]
+
 local r = reaper
 local horizontal, horizontal_color, horizontal_group, shift, vertical, vertical_color, vertical_group
 
@@ -28,18 +28,18 @@ function Main()
   local folders = 0
   for i = 0, total_tracks - 1, 1 do
     track = r.GetTrack(0, i)
-    if (r.GetMediaTrackInfo_Value(track, "I_FOLDERDEPTH") == 1.0) then
+    if r.GetMediaTrackInfo_Value(track, "I_FOLDERDEPTH") == 1.0 then
       folders = folders + 1
     end
   end
 
   local first_item = r.GetMediaItem(0, 0)
   local position = r.GetMediaItemInfo_Value(first_item, "D_POSITION")
-  if (position == 0.0) then
+  if position == 0.0 then
     shift()
   end
 
-  if (folders == 0 or folders == 1) then
+  if folders == 0 or folders == 1 then
     horizontal()
   else
     vertical()
@@ -84,7 +84,7 @@ function vertical_group()
   local item = r.AddMediaItemToTrack(track)
   r.SetMediaItemPosition(item, length + 1, false)
 
-  while (r.IsMediaItemSelected(item) == false) do
+  while r.IsMediaItemSelected(item) == false do
     r.Main_OnCommand(40417, 0) -- Item navigation: Select and move to next item
     local select_under = r.NamedCommandLookup("_XENAKIOS_SELITEMSUNDEDCURSELTX")
     r.Main_OnCommand(select_under, 0) -- XENAKIOS_SELITEMSUNDEDCURSELTX
@@ -103,34 +103,30 @@ function horizontal()
   local last_item = r.GetMediaItem(0, num_of_items - 1)
   r.SetEditCurPos(0, false, false)
 
-  while (r.IsMediaItemSelected(last_item) == false) do
+  while r.IsMediaItemSelected(last_item) == false do
     horizontal_group()
     horizontal_color()
   end
 
   r.DeleteTrackMediaItem(last_track, last_item)
   r.SelectAllMediaItems(0, false)
-  r.Main_OnCommand(40297, 0)
+  r.Main_OnCommand(40297, 0) -- Track: Unselect (clear selection of) all tracks
   r.SetEditCurPos(0, false, false)
 end
 
 function vertical()
   r.Undo_BeginBlock()
-  -- select all folders and count them
   local select_all_folders = r.NamedCommandLookup("_SWS_SELALLPARENTS")
-  r.Main_OnCommand(select_all_folders, 0)
+  r.Main_OnCommand(select_all_folders, 0) -- select all folders
   local num_of_folders = r.CountSelectedTracks(0)
   length = r.GetProjectLength(0)
-
-  -- select track 1
-
   local first_track = r.GetTrack(0, 0)
   r.SetOnlyTrackSelected(first_track)
   for i = 1, num_of_folders, 1 do
     vertical_color()
     vertical_group()
     local next_folder = r.NamedCommandLookup("_SWS_SELNEXTFOLDER")
-    r.Main_OnCommand(next_folder, 0)
+    r.Main_OnCommand(next_folder, 0) -- select next folder
   end
   r.SelectAllMediaItems(0, false)
   r.Main_OnCommand(40297, 0) -- Track: Unselect (clear selection of) all tracks

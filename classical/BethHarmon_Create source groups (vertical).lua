@@ -16,8 +16,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
-
 ]]
+
 local r = reaper
 local create_destination_group, create_source_groups, folder_check, mixer, solo, sync_routing_and_fx
 
@@ -26,15 +26,14 @@ function Main()
   r.PreventUIRefresh(1)
   r.Undo_BeginBlock()
 
-  if (r.CountTracks(0) == 0) then
+  if r.CountTracks(0) == 0 then
     create_destination_group()
-    if (folder_check() == 1) then
+    if folder_check() == 1 then
       create_source_groups()
     end
-
-  elseif (folder_check() > 1) then
+  elseif folder_check() > 1 then
     sync_routing_and_fx()
-  elseif (folder_check() == 1) then
+  elseif folder_check() == 1 then
     create_source_groups()
   else
     r.ShowMessageBox("In order to use this script either:\n1. Run on an empty project\n2. Run with one existing folder\n3. Run on multiple existing folders to sync routing/fx", "Create Source Groups", 0)
@@ -48,7 +47,7 @@ end
 function create_destination_group()
   local boolean, num = r.GetUserInputs("Create Destination & Source Groups", 1, "How many tracks per group?", 10)
 
-  if (boolean == true) then
+  if boolean == true then
     for i = 1, tonumber(num), 1 do
       r.InsertTrackAtIndex(0, true)
     end
@@ -94,7 +93,7 @@ function folder_check()
   local total_tracks = r.CountTracks(0)
   for i = 0, total_tracks - 1, 1 do
     track = r.GetTrack(0, i)
-    if (r.GetMediaTrackInfo_Value(track, "I_FOLDERDEPTH") == 1) then
+    if r.GetMediaTrackInfo_Value(track, "I_FOLDERDEPTH") == 1 then
       folders = folders + 1
     end
   end
@@ -104,7 +103,7 @@ end
 function sync_routing_and_fx()
   local ans = r.ShowMessageBox("This will sync your source group routing and fx \nto match that of the destination group. Continue?", "Sync Source & Destination", 4)
 
-  if (ans == 6) then
+  if ans == 6 then
     local first_track = r.GetTrack(0, 0)
     r.SetOnlyTrackSelected(first_track)
     local collapse = r.NamedCommandLookup("_SWS_COLLAPSE")
@@ -117,8 +116,6 @@ function sync_routing_and_fx()
       r.Main_OnCommand(select_children, 0) --SWS_SELCHILDREN2
       local copy = r.NamedCommandLookup("_S&M_COPYSNDRCV1") -- SWS/S&M: Copy selected tracks (with routing)
       r.Main_OnCommand(copy, 0)
-      --r.NamedCommandLookup("")
-      --r.Main_OnCommand(53426, 0)
       local paste = r.NamedCommandLookup("_SWS_AWPASTE")
       r.Main_OnCommand(paste, 0) -- SWS_AWPASTE
       r.Main_OnCommand(40421, 0) -- Item: Select all items in track
@@ -172,7 +169,7 @@ end
 function create_source_groups()
   local total_tracks = r.CountTracks(0)
   local i = 0
-  while (i < total_tracks) do
+  while i < total_tracks do
     local track = r.GetTrack(0, i)
     r.GetSetTrackGroupMembership(track, "VOLUME_LEAD", 2 ^ i, 2 ^ i)
     r.GetSetTrackGroupMembership(track, "VOLUME_FOLLOW", 2 ^ i, 2 ^ i)
@@ -189,12 +186,11 @@ function create_source_groups()
   local first_track = r.GetTrack(0, 0)
   r.SetOnlyTrackSelected(first_track)
   i = 0
-  while (i < 6) do
+  while i < 6 do
     local select_children = r.NamedCommandLookup("_SWS_SELCHILDREN2")
     r.Main_OnCommand(select_children, 0) -- SWS: Select children of selected folder track(s)
     local copy = r.NamedCommandLookup("_S&M_COPYSNDRCV1") -- SWS/S&M: Copy selected tracks (with routing)
     r.Main_OnCommand(copy, 0)
-    --r.Main_OnCommand(53426, 0)
     local paste = r.NamedCommandLookup("_SWS_AWPASTE")
     r.Main_OnCommand(paste, 0) -- SWS_AWPASTE
     r.Main_OnCommand(40421, 0) -- Item: Select all items in track
