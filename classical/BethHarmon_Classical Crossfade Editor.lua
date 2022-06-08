@@ -17,62 +17,63 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-]]--
+]]
+local r = reaper
+local fadeStart, fadeEnd
+local fade_editor_toggle = r.NamedCommandLookup("_RS9c61ac0478c3de96f276137a249e9339ed76fc16")
+local state = r.GetToggleCommandState(fade_editor_toggle)
 
-local function fadeStart()
-  reaper.SetToggleCommandState(1, fade_editor_toggle, 1)
-  reaper.RefreshToolbar2(1, fade_editor_toggle)
-  start_time, end_time = reaper.GetSet_ArrangeView2(0, false, 0, 0, 0, 0)
-  file = io.open(reaper.GetResourcePath().."/Scripts/BethHarmon Scripts/classical/BethHarmon_zoom_level.txt", "w")
-  file:write(start_time,"\n",end_time)
-  file:close()
-  
-  select_1 = reaper.NamedCommandLookup("_SWS_SEL1")
-  reaper.Main_OnCommand(select_1, 0)
-  reaper.Main_OnCommand(40319, 0) -- move edit cursor to end of item
-  reaper.Main_OnCommand(41190, 0) -- Change horizontal zoom to default project setting
-  reaper.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
-  scroll = reaper.NamedCommandLookup("_XENAKIOS_TVPAGEHOME")
-  reaper.Main_OnCommand(scroll, 0)
-  reaper.Main_OnCommand(40507, 0) -- Options: Show overlapping media items in lanes
-  reaper.Main_OnCommand(41827, 0) -- View: Show crossfade editor window
-end
+function Main()
+  r.PreventUIRefresh(1)
+  r.Undo_BeginBlock()
 
-local function fadeEnd()
-  reaper.SetToggleCommandState(1, fade_editor_toggle, 0)
-  reaper.RefreshToolbar2(1, fade_editor_toggle) 
-  file = io.open(reaper.GetResourcePath().."/Scripts/BethHarmon Scripts/classical/BethHarmon_zoom_level.txt", "r")
-  start_time = file:read("*line")
-  end_time = file:read("*line")
-  file:close()
-  reaper.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
-  reaper.Main_OnCommand(40507, 0) -- Options: Show overlapping media items in lanes
-  reaper.Main_OnCommand(41827, 0) -- View: Show crossfade editor window
-  reaper.GetSet_ArrangeView2(0, true, 0, 0, start_time, end_time)
-  os.remove(reaper.GetResourcePath().."/Scripts/BethHarmon Scripts/classical/BethHarmon_zoom_level.txt")
-end
 
-local function main()
-  reaper.PreventUIRefresh(1)
-  reaper.Undo_BeginBlock()
-  
-  fade_editor_toggle = reaper.NamedCommandLookup("_RS9c61ac0478c3de96f276137a249e9339ed76fc16")
-  state = reaper.GetToggleCommandState(fade_editor_toggle)
-  if (state == -1)
-  then
-  reaper.SetToggleCommandState(1, fade_editor_toggle, 0)
-  fadeStart()
-  elseif(state ==0)
-  then
-  fadeStart()
+  if (state == -1) then
+    r.SetToggleCommandState(1, fade_editor_toggle, 0)
+    fadeStart()
+  elseif (state == 0) then
+    fadeStart()
   else
-  fadeEnd() 
+    fadeEnd()
   end
 
-  reaper.Undo_EndBlock('Classical Crossfade Editor', 0)
-  reaper.PreventUIRefresh(-1)
-  reaper.UpdateArrange()
-  reaper.UpdateTimeline()
+  r.Undo_EndBlock('Classical Crossfade Editor', 0)
+  r.PreventUIRefresh(-1)
+  r.UpdateArrange()
+  r.UpdateTimeline()
 end
 
-main()
+function fadeStart()
+  r.SetToggleCommandState(1, fade_editor_toggle, 1)
+  r.RefreshToolbar2(1, fade_editor_toggle)
+  local start_time, end_time = r.GetSet_ArrangeView2(0, false, 0, 0, 0, 0)
+  local file = io.open(r.GetResourcePath() .. "/Scripts/BethHarmon Scripts/classical/BethHarmon_zoom_level.txt", "w")
+  file:write(start_time, "\n", end_time)
+  file:close()
+
+  local select_1 = r.NamedCommandLookup("_SWS_SEL1")
+  r.Main_OnCommand(select_1, 0)
+  r.Main_OnCommand(40319, 0) -- move edit cursor to end of item
+  r.Main_OnCommand(41190, 0) -- Change horizontal zoom to default project setting
+  r.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
+  local scroll = r.NamedCommandLookup("_XENAKIOS_TVPAGEHOME")
+  r.Main_OnCommand(scroll, 0)
+  r.Main_OnCommand(40507, 0) -- Options: Show overlapping media items in lanes
+  r.Main_OnCommand(41827, 0) -- View: Show crossfade editor window
+end
+
+function fadeEnd()
+  r.SetToggleCommandState(1, fade_editor_toggle, 0)
+  r.RefreshToolbar2(1, fade_editor_toggle)
+  local file = io.open(r.GetResourcePath() .. "/Scripts/BethHarmon Scripts/classical/BethHarmon_zoom_level.txt", "r")
+  local start_time = file:read("*line")
+  local end_time = file:read("*line")
+  file:close()
+  r.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
+  r.Main_OnCommand(40507, 0) -- Options: Show overlapping media items in lanes
+  r.Main_OnCommand(41827, 0) -- View: Show crossfade editor window
+  r.GetSet_ArrangeView2(0, true, 0, 0, start_time, end_time)
+  os.remove(r.GetResourcePath() .. "/Scripts/BethHarmon Scripts/classical/BethHarmon_zoom_level.txt")
+end
+
+Main()

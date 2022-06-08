@@ -17,73 +17,70 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-]]--
+]]
+local r = reaper
+local select_matching_folder, source_markers
 
- local function source_markers()
-  retval, num_markers, num_regions = reaper.CountProjectMarkers(0)
-   exists = 0
-   for i = 0, num_markers + num_regions - 1, 1
-   do
-     retval, isrgn, pos, rgnend, label, markrgnindexnumber = reaper.EnumProjectMarkers(i)
-     if ( string.match(label, "%d+:SOURCE[-]IN") or string.match(label, "%d+:SOURCE[-]OUT") )
-     then
-       exists = exists + 1
-     end
-   end
-   return exists
- end
- 
- local function select_matching_folder()
-  cursor =  reaper.GetCursorPosition()
-  marker_id, _ = reaper.GetLastMarkerAndCurRegion(0, cursor)
-  _, _, _, _, label, _, _ = reaper.EnumProjectMarkers3(0, marker_id)
-  folder_number = tonumber(string.match(label, "(%d*):SOURCE*"))
-  for i = 0, reaper.CountTracks(0) - 1, 1 do
-    tr = reaper.GetTrack(0, i)
-    if ( reaper.GetMediaTrackInfo_Value(tr, "IP_TRACKNUMBER") == folder_number ) then
-      reaper.SetOnlyTrackSelected(tr)
+function Main()
+  r.PreventUIRefresh(1)
+  r.Undo_BeginBlock()
+
+  if (source_markers() == 2) then
+    local focus = r.NamedCommandLookup("_BR_FOCUS_ARRANGE_WND")
+    r.Main_OnCommand(focus, 0) -- BR_FOCUS_ARRANGE_WND
+    r.Main_OnCommand(40310, 0) -- Set ripple per-track
+    r.Main_OnCommand(40289, 0) -- Item: Unselect all items
+    r.GoToMarker(0, 102, false)
+    select_matching_folder()
+    r.Main_OnCommand(40625, 0) -- Time Selection: Set start point
+    r.GoToMarker(0, 103, false)
+    r.Main_OnCommand(40626, 0) -- Time Selection: Set end point
+    r.Main_OnCommand(40718, 0) -- Select all items on selected tracks in current time selection
+    r.Main_OnCommand(40034, 0) -- Item Grouping: Select all items in group(s)
+    r.Main_OnCommand(41990, 0) -- Toggle ripple per-track (off)
+    local delete = r.NamedCommandLookup("_XENAKIOS_TSADEL")
+    r.Main_OnCommand(delete, 0) -- XENAKIOS_TSADEL
+    r.Main_OnCommand(40630, 0) -- Go to start of time selection
+    r.Main_OnCommand(40020, 0) -- Time Selection: Remove time selection and loop point selection
+    r.DeleteProjectMarker(NULL, 102, false)
+    r.DeleteProjectMarker(NULL, 103, false)
+    r.Main_OnCommand(40289, 0) -- Item: Unselect all items
+    r.Main_OnCommand(41990, 0) -- Toggle ripple per-track (off)
+  else
+    r.ShowMessageBox("Please use SOURCE-IN and SOURCE-OUT markers", "Delete Leaving Silence", 0)
+  end
+
+  r.Undo_EndBlock('Cut and Ripple', 0)
+  r.PreventUIRefresh(-1)
+  r.UpdateArrange()
+  r.UpdateTimeline()
+
+end
+
+function source_markers()
+  local retval, num_markers, num_regions = r.CountProjectMarkers(0)
+  local exists = 0
+  for i = 0, num_markers + num_regions - 1, 1 do
+    local retval, isrgn, pos, rgnend, label, markrgnindexnumber = r.EnumProjectMarkers(i)
+    if (string.match(label, "%d+:SOURCE[-]IN") or string.match(label, "%d+:SOURCE[-]OUT")) then
+      exists = exists + 1
+    end
+  end
+  return exists
+end
+
+function select_matching_folder()
+  local cursor = r.GetCursorPosition()
+  local marker_id, _ = r.GetLastMarkerAndCurRegion(0, cursor)
+  local _, _, _, _, label, _, _ = r.EnumProjectMarkers3(0, marker_id)
+  local folder_number = tonumber(string.match(label, "(%d*):SOURCE*"))
+  for i = 0, r.CountTracks(0) - 1, 1 do
+    track = r.GetTrack(0, i)
+    if (r.GetMediaTrackInfo_Value(track, "IP_TRACKNUMBER") == folder_number) then
+      r.SetOnlyTrackSelected(track)
       break
     end
   end
- end
+end
 
- local function main()
-   reaper.PreventUIRefresh(1)
-   reaper.Undo_BeginBlock()
-   
-   if (source_markers() == 2)
-  then
- 
-  focus = reaper.NamedCommandLookup("_BR_FOCUS_ARRANGE_WND")
-  reaper.Main_OnCommand(focus, 0) -- BR_FOCUS_ARRANGE_WND
-  reaper.Main_OnCommand(40310, 0) -- Set ripple per-track
-  reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
-  reaper.GoToMarker(0, 102, false)
-  select_matching_folder()
-  reaper.Main_OnCommand(40625, 0) -- Time Selection: Set start point
-  reaper.GoToMarker(0, 103, false)
-  reaper.Main_OnCommand(40626, 0) -- Time Selection: Set end point
-  reaper.Main_OnCommand(40718, 0) -- Select all items on selected tracks in current time selection
-  reaper.Main_OnCommand(40034, 0) -- Item Grouping: Select all items in group(s)
-  reaper.Main_OnCommand(41990, 0) -- Toggle ripple per-track (off)
-  delete = reaper.NamedCommandLookup("_XENAKIOS_TSADEL")
-  reaper.Main_OnCommand(delete, 0) -- XENAKIOS_TSADEL
-  reaper.Main_OnCommand(40630, 0) -- Go to start of time selection
-  reaper.Main_OnCommand(40020, 0) -- Time Selection: Remove time selection and loop point selection
-  reaper.DeleteProjectMarker(NULL, 102, false)
-  reaper.DeleteProjectMarker(NULL, 103, false)
-  reaper.Main_OnCommand(40289, 0) -- Item: Unselect all items
-  reaper.Main_OnCommand(41990, 0) -- Toggle ripple per-track (off)
-  else
-  reaper.ShowMessageBox("Please use SOURCE-IN and SOURCE-OUT markers", "Delete Leaving Silence", 0)
-  end
-   
-   reaper.Undo_EndBlock('Cut and Ripple', 0)
-   reaper.PreventUIRefresh(-1)
-   reaper.UpdateArrange()
-   reaper.UpdateTimeline()
-   
-   end
-   
-   main()
-  
+Main()

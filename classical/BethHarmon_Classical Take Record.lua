@@ -17,72 +17,70 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-]]--
+]]
+local r = reaper
+local mixer, solo
 
-local function solo()
-    track = reaper.GetSelectedTrack(0, 0)
-    reaper.SetMediaTrackInfo_Value(track, "I_SOLO", 1)
-
-  for i = 0, reaper.CountTracks(0)-1, 1
-  do
-    track = reaper.GetTrack(0, i)
-    if reaper.IsTrackSelected(track) == false
-    then
-      reaper.SetMediaTrackInfo_Value(track, "I_SOLO", 0)
-    i = i + 1
-    end
-  end
-end
-
-local function mixer()
-  for i = 0, reaper.CountTracks(0)-1, 1
-  do
-    tr = reaper.GetTrack(0, i)    
-    if reaper.IsTrackSelected(tr) then 
-      reaper.SetMediaTrackInfo_Value(tr, 'B_SHOWINMIXER',1)
-    else
-      reaper.SetMediaTrackInfo_Value(tr, 'B_SHOWINMIXER',0)
-    end
-  end
-end
-
-local function main()
-  take_record_toggle = reaper.NamedCommandLookup("_RSd51d37e55d67816b4d247aa707f3f7caca9b404b")
-  if reaper.GetPlayState() == 0
-  then
-    reaper.PreventUIRefresh(1)
-    reaper.Undo_BeginBlock()
-    reaper.SetToggleCommandState(1, take_record_toggle, 1)
-    reaper.RefreshToolbar2(1, take_record_toggle)
+function Main()
+  local take_record_toggle = r.NamedCommandLookup("_RSd51d37e55d67816b4d247aa707f3f7caca9b404b")
+  if r.GetPlayState() == 0 then
+    r.PreventUIRefresh(1)
+    r.Undo_BeginBlock()
+    r.SetToggleCommandState(1, take_record_toggle, 1)
+    r.RefreshToolbar2(1, take_record_toggle)
     solo()
-    reaper.Main_OnCommand(40491, 0) -- Track: Unarm all tracks for recording
-    select_children = reaper.NamedCommandLookup("_SWS_SELCHILDREN2")
-    reaper.Main_OnCommand(select_children, 0) -- SWS: Select children of selected folder track(s)
+    r.Main_OnCommand(40491, 0) -- Track: Unarm all tracks for recording
+    local select_children = r.NamedCommandLookup("_SWS_SELCHILDREN2")
+    r.Main_OnCommand(select_children, 0) -- SWS: Select children of selected folder track(s)
     mixer()
-    arm = reaper.NamedCommandLookup("_XENAKIOS_SELTRAX_RECARMED")
-    reaper.Main_OnCommand(arm, 0) -- Xenakios/SWS: Set selected tracks record armed
-    reaper.Main_OnCommand(1013, 0) -- Transport: Record
+    local arm = r.NamedCommandLookup("_XENAKIOS_SELTRAX_RECARMED")
+    r.Main_OnCommand(arm, 0) -- Xenakios/SWS: Set selected tracks record armed
+    r.Main_OnCommand(1013, 0) -- Transport: Record
 
-    reaper.Undo_EndBlock('Classical Take Record', 0)
-    reaper.PreventUIRefresh(-1)
-    reaper.UpdateArrange()
-    reaper.UpdateTimeline()
+    r.Undo_EndBlock('Classical Take Record', 0)
+    r.PreventUIRefresh(-1)
+    r.UpdateArrange()
+    r.UpdateTimeline()
   else
-    reaper.PreventUIRefresh(1)
-    reaper.Undo_BeginBlock()
-    reaper.SetToggleCommandState(1, take_record_toggle, 0)
-    reaper.RefreshToolbar2(1, take_record_toggle)
-    reaper.Main_OnCommand(40667, 0) -- Transport: Stop (save all recorded media)
-    unarm = reaper.NamedCommandLookup("_XENAKIOS_SELTRAX_RECUNARMED")
-    reaper.Main_OnCommand(unarm, 0) -- Xenakios/SWS: Set selected tracks record unarmed
-    unselect_children = reaper.NamedCommandLookup("_SWS_UNSELCHILDREN")
-    reaper.Main_OnCommand(unselect_children, 0) -- SWS: Unselect children of selected folder track(s)
+    r.PreventUIRefresh(1)
+    r.Undo_BeginBlock()
+    r.SetToggleCommandState(1, take_record_toggle, 0)
+    r.RefreshToolbar2(1, take_record_toggle)
+    r.Main_OnCommand(40667, 0) -- Transport: Stop (save all recorded media)
+    local unarm = r.NamedCommandLookup("_XENAKIOS_SELTRAX_RECUNARMED")
+    r.Main_OnCommand(unarm, 0) -- Xenakios/SWS: Set selected tracks record unarmed
+    local unselect_children = r.NamedCommandLookup("_SWS_UNSELCHILDREN")
+    r.Main_OnCommand(unselect_children, 0) -- SWS: Unselect children of selected folder track(s)
 
-    reaper.Undo_EndBlock('Classical Take Record Stop', 0)
-    reaper.PreventUIRefresh(-1)
-    reaper.UpdateArrange()
-    reaper.UpdateTimeline()
+    r.Undo_EndBlock('Classical Take Record Stop', 0)
+    r.PreventUIRefresh(-1)
+    r.UpdateArrange()
+    r.UpdateTimeline()
   end
 end
 
-main()
+function solo()
+  track = r.GetSelectedTrack(0, 0)
+  r.SetMediaTrackInfo_Value(track, "I_SOLO", 1)
+
+  for i = 0, r.CountTracks(0) - 1, 1 do
+    track = r.GetTrack(0, i)
+    if r.IsTrackSelected(track) == false then
+      r.SetMediaTrackInfo_Value(track, "I_SOLO", 0)
+      i = i + 1
+    end
+  end
+end
+
+function mixer()
+  for i = 0, r.CountTracks(0) - 1, 1 do
+    track = r.GetTrack(0, i)
+    if r.IsTrackSelected(track) then
+      r.SetMediaTrackInfo_Value(track, 'B_SHOWINMIXER', 1)
+    else
+      r.SetMediaTrackInfo_Value(track, 'B_SHOWINMIXER', 0)
+    end
+  end
+end
+
+Main()

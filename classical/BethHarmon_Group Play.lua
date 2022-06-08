@@ -1,4 +1,4 @@
- --[[
+--[[
 @noindex
 
 This file is a part of "BethHarmon_Classical" package.
@@ -17,54 +17,53 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-]]--
+]]
+local r = reaper
+local mixer, solo
 
-local function solo()
-    track = reaper.GetSelectedTrack(0, 0)
-    reaper.SetMediaTrackInfo_Value(track, "I_SOLO", 1)
+function Main()
+  r.PreventUIRefresh(1)
+  r.Undo_BeginBlock()
+  if (r.GetPlayState()) ~= 0 then
+    r.OnStopButton()
+  else
+    solo()
+    local select_children = r.NamedCommandLookup("_SWS_SELCHILDREN2") -- SWS: Select children of selected folder track(s)
+    r.Main_OnCommand(select_children, 0)
+    mixer()
+    local unselect_children = r.NamedCommandLookup("_SWS_UNSELCHILDREN")
+    r.Main_OnCommand(unselect_children, 0) -- SWS: Unselect children of selected folder track(s)
+    r.OnPlayButton()
+    r.Undo_EndBlock('Classical Group Play', 0)
+    r.PreventUIRefresh(-1)
+    r.UpdateArrange()
+    r.UpdateTimeline()
+    r.TrackList_AdjustWindows(false)
+  end
+end
 
-  for i = 0, reaper.CountTracks(0)-1, 1
-  do
-    track = reaper.GetTrack(0, i)
-    if reaper.IsTrackSelected(track) == false
-    then
-      reaper.SetMediaTrackInfo_Value(track, "I_SOLO", 0)
-    i = i + 1
+function solo()
+  track = r.GetSelectedTrack(0, 0)
+  r.SetMediaTrackInfo_Value(track, "I_SOLO", 1)
+
+  for i = 0, r.CountTracks(0) - 1, 1 do
+    track = r.GetTrack(0, i)
+    if r.IsTrackSelected(track) == false then
+      r.SetMediaTrackInfo_Value(track, "I_SOLO", 0)
+      i = i + 1
     end
   end
 end
 
-local function mixer()
-  for i = 0, reaper.CountTracks(0)-1, 1
-  do
-    tr = reaper.GetTrack(0, i)    
-    if reaper.IsTrackSelected(tr) then 
-      reaper.SetMediaTrackInfo_Value(tr, 'B_SHOWINMIXER',1)
-    else 
-      reaper.SetMediaTrackInfo_Value(tr, 'B_SHOWINMIXER',0)
-    end
-  end
-end
-
-function main()
-    reaper.PreventUIRefresh(1)
-    reaper.Undo_BeginBlock()
-    if (reaper.GetPlayState()) ~= 0 then
-      reaper.OnStopButton()
+function mixer()
+  for i = 0, r.CountTracks(0) - 1, 1 do
+    track = r.GetTrack(0, i)
+    if r.IsTrackSelected(track) then
+      r.SetMediaTrackInfo_Value(track, 'B_SHOWINMIXER', 1)
     else
-      solo()
-      select_children = reaper.NamedCommandLookup("_SWS_SELCHILDREN2") -- SWS: Select children of selected folder track(s)
-      reaper.Main_OnCommand(select_children, 0) 
-      mixer() 
-      unselect_children = reaper.NamedCommandLookup("_SWS_UNSELCHILDREN")
-      reaper.Main_OnCommand(unselect_children, 0) -- SWS: Unselect children of selected folder track(s)
-      reaper.OnPlayButton()
-      reaper.Undo_EndBlock('Classical Group Play', 0)
-      reaper.PreventUIRefresh(-1)
-      reaper.UpdateArrange()
-      reaper.UpdateTimeline()
-      reaper.TrackList_AdjustWindows(false)
+      r.SetMediaTrackInfo_Value(track, 'B_SHOWINMIXER', 0)
     end
+  end
 end
 
-main()
+Main()

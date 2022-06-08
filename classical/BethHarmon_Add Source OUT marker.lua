@@ -17,37 +17,39 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-]]--
+]]
+local r = reaper
+local folder_check, get_track_number
 
-local function folder_check()
-  folders = 0
-  total_tracks = reaper.CountTracks(0)
-  for i=0, total_tracks - 1, 1 do
-    tr = reaper.GetTrack(0, i)
-    if (reaper.GetMediaTrackInfo_Value(tr, "I_FOLDERDEPTH") == 1) then
+function Main()
+  local cur_pos = (r.GetPlayState() == 0) and r.GetCursorPosition() or r.GetPlayPosition()
+  local track_number = math.floor(get_track_number())
+  r.DeleteProjectMarker(NULL, 103, false)
+  r.AddProjectMarker2(0, false, cur_pos, 0, track_number .. ":SOURCE-OUT", 103, r.ColorToNative(23, 223, 143) | 0x1000000)
+end
+
+function folder_check()
+  local folders = 0
+  local total_tracks = r.CountTracks(0)
+  for i = 0, total_tracks - 1, 1 do
+    local track = r.GetTrack(0, i)
+    if (r.GetMediaTrackInfo_Value(track, "I_FOLDERDEPTH") == 1) then
       folders = folders + 1
     end
   end
   return folders
 end
 
-local function get_track_number()
-  selected = reaper.GetSelectedTrack(0, 0)
-  if ( folder_check() == 0 ) then
+function get_track_number()
+  local selected = r.GetSelectedTrack(0, 0)
+  if (folder_check() == 0) then
     return 1
-  elseif (reaper.GetMediaTrackInfo_Value(selected, "I_FOLDERDEPTH") == 1) then
-    return reaper.GetMediaTrackInfo_Value(selected, "IP_TRACKNUMBER")
+  elseif (r.GetMediaTrackInfo_Value(selected, "I_FOLDERDEPTH") == 1) then
+    return r.GetMediaTrackInfo_Value(selected, "IP_TRACKNUMBER")
   else
-    folder = reaper.GetParentTrack(selected)
-    return reaper.GetMediaTrackInfo_Value(folder, "IP_TRACKNUMBER")
+    local folder = r.GetParentTrack(selected)
+    return r.GetMediaTrackInfo_Value(folder, "IP_TRACKNUMBER")
   end
 end
 
-function main()
-  local cur_pos = (reaper.GetPlayState() == 0) and reaper.GetCursorPosition() or reaper.GetPlayPosition()
-  track_number = math.floor(get_track_number())
-  reaper.DeleteProjectMarker(NULL, 103, false)
-  reaper.AddProjectMarker2(0, false, cur_pos, 0,track_number .. ":SOURCE-OUT", 103, reaper.ColorToNative(23,223,143)|0x1000000)
-end
-
-main()
+Main()

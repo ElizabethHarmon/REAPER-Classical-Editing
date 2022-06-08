@@ -17,22 +17,18 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-]]--
+]]
+local r = reaper
+r.PreventUIRefresh(1)
+r.Undo_BeginBlock()
 
-local function main()
-  reaper.PreventUIRefresh(1)
-  reaper.Undo_BeginBlock()
+r.Main_OnCommand(40296, 0) -- Track: Select all tracks
+local zoom = r.NamedCommandLookup("_SWS_VZOOMFIT")
+r.Main_OnCommand(zoom, 0) -- SWS: Vertical zoom to selected tracks
+r.Main_OnCommand(40297, 0) -- Track: Unselect (clear selection of) all tracks
+r.Main_OnCommand(40295, 0) -- View: Zoom out project
 
-  reaper.Main_OnCommand(40296, 0) -- Track: Select all tracks
-  zoom = reaper.NamedCommandLookup("_SWS_VZOOMFIT")
-  reaper.Main_OnCommand(zoom, 0) -- SWS: Vertical zoom to selected tracks
-  reaper.Main_OnCommand(40297, 0) -- Track: Unselect (clear selection of) all tracks
-  reaper.Main_OnCommand(40295, 0) -- View: Zoom out project
-
-  reaper.Undo_EndBlock('Whole Project View', 0)
-  reaper.PreventUIRefresh(-1)
-  reaper.UpdateArrange()
-  reaper.UpdateTimeline()
-end
-
-main()
+r.Undo_EndBlock('Whole Project View', 0)
+r.PreventUIRefresh(-1)
+r.UpdateArrange()
+r.UpdateTimeline()

@@ -1,7 +1,13 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.06.05
+@version 22.06.08
 @changelog
+  v22.06.08
+  Delete with Ripple now uses correct cursor position
+  Forward declarations of functions to allow main() at top
+  Add r = reaper for readability
+  Correct localization of variables
+  Corrected indentation of code
   v22.06.05
   All S-D operations now ripple regular markers and regions
   Switch to YY.MM.DD versioning

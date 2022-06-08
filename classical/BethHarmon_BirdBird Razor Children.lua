@@ -17,21 +17,37 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-]]--
+]]
 
 --Thanks Embass for the function!
+local r = reaper
+local l_proj_count = -1
+local get_child_tracks, edit_is_envelope, extend_razor_edits
+
+function Main()
+  local proj_count = r.GetProjectStateChangeCount(0)
+  if l_proj_count ~= proj_count then
+    local action = r.Undo_CanUndo2(0)
+    if action and string.find(string.lower(action), "razor") then
+      extend_razor_edits()
+    end
+  end
+  l_proj_count = proj_count
+  r.defer(Main)
+end
+
 function get_child_tracks(folder_track)
   local all_tracks = {}
-  if reaper.GetMediaTrackInfo_Value(folder_track, "I_FOLDERDEPTH") ~= 1 then
+  if r.GetMediaTrackInfo_Value(folder_track, "I_FOLDERDEPTH") ~= 1 then
     return all_tracks
   end
-  local tracks_count = reaper.CountTracks(0)
-  local folder_track_depth = reaper.GetTrackDepth(folder_track)  
-  local track_index = reaper.GetMediaTrackInfo_Value(folder_track, "IP_TRACKNUMBER")
+  local tracks_count = r.CountTracks(0)
+  local folder_track_depth = r.GetTrackDepth(folder_track)
+  local track_index = r.GetMediaTrackInfo_Value(folder_track, "IP_TRACKNUMBER")
   for i = track_index, tracks_count - 1 do
-    local track = reaper.GetTrack(0, i)
-    local track_depth = reaper.GetTrackDepth(track)
-    if track_depth > folder_track_depth then      
+    local track = r.GetTrack(0, i)
+    local track_depth = r.GetTrackDepth(track)
+    if track_depth > folder_track_depth then
       table.insert(all_tracks, track)
     else
       break
@@ -46,52 +62,40 @@ function edit_is_envelope(edit)
     table.insert(t, match);
   end
   local is_env = true
-  for i = 1, #t/3 do
-    is_env = is_env and t[i*3] ~= '""'
+  for i = 1, #t / 3 do
+    is_env = is_env and t[i * 3] ~= '""'
   end
   return is_env
 end
 
 function extend_razor_edits()
   local t_tracks = {}
-  local track_count = reaper.CountTracks(0)
+  local track_count = r.CountTracks(0)
   for i = 0, track_count - 1 do
-    local track = reaper.GetTrack(0, i)
-    local rv, edits = reaper.GetSetMediaTrackInfo_String(track, 'P_RAZOREDITS', '', false)
-    if edits ~= "" and not edit_is_envelope(edits) then     
+    local track = r.GetTrack(0, i)
+    local rv, edits = r.GetSetMediaTrackInfo_String(track, 'P_RAZOREDITS', '', false)
+    if edits ~= "" and not edit_is_envelope(edits) then
       local child_tracks = get_child_tracks(track)
       if #child_tracks > 0 then
         for i = 1, #child_tracks do
           local c_track = child_tracks[i]
-          table.insert(t_tracks, {track = c_track, edits = edits})
+          table.insert(t_tracks, { track = c_track, edits = edits })
         end
       end
       -- table.insert(t_tracks, {track = track, edits = edits})
     end
   end
   if #t_tracks > 0 then
-    reaper.PreventUIRefresh(1)
+    r.PreventUIRefresh(1)
     for i = 1, #t_tracks do
       local track = t_tracks[i].track
       local edits = t_tracks[i].edits
-      if reaper.IsTrackVisible(track, false) then
-        reaper.GetSetMediaTrackInfo_String(track, 'P_RAZOREDITS', edits, true)
+      if r.IsTrackVisible(track, false) then
+        r.GetSetMediaTrackInfo_String(track, 'P_RAZOREDITS', edits, true)
       end
     end
-    reaper.PreventUIRefresh(-1)
+    r.PreventUIRefresh(-1)
   end
 end
 
-local l_proj_count = -1
-function main()
-  local proj_count = reaper.GetProjectStateChangeCount(0)
-  if l_proj_count ~= proj_count then
-    local action = reaper.Undo_CanUndo2(0)
-    if action and string.find(string.lower(action), "razor") then
-      extend_razor_edits()
-    end
-  end
-  l_proj_count = proj_count
-  reaper.defer(main)
-end
-main()
+Main()

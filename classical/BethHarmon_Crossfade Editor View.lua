@@ -17,22 +17,18 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-]]--
+]]
+local r = reaper
+r.PreventUIRefresh(1)
+r.Undo_BeginBlock()
 
-local function main()
-  reaper.PreventUIRefresh(1)
-  reaper.Undo_BeginBlock()
+local track1 = r.NamedCommandLookup("_SWS_SEL1")
+r.Main_OnCommand(track1, 0) -- select only track 1
+r.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
+local scroll_home = r.NamedCommandLookup("_XENAKIOS_TVPAGEHOME")
+r.Main_OnCommand(scroll_home, 0) -- XENAKIOS_TVPAGEHOME
 
-  track1 = reaper.NamedCommandLookup("_SWS_SEL1")
-  reaper.Main_OnCommand(track1, 0) -- select only track 1
-  reaper.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
-  scroll_home = reaper.NamedCommandLookup("_XENAKIOS_TVPAGEHOME")
-  reaper.Main_OnCommand(scroll_home, 0) -- XENAKIOS_TVPAGEHOME
-
-  reaper.Undo_EndBlock('Crossfade Editor View', 0)
-  reaper.PreventUIRefresh(-1)
-  reaper.UpdateArrange()
-  reaper.UpdateTimeline()
-end
-
-main()
+r.Undo_EndBlock('Crossfade Editor View', 0)
+r.PreventUIRefresh(-1)
+r.UpdateArrange()
+r.UpdateTimeline()

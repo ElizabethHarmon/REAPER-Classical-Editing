@@ -17,29 +17,25 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-]]--
+]]
+local r = reaper
+r.PreventUIRefresh(1)
+r.Undo_BeginBlock()
 
-local function main()
-  reaper.PreventUIRefresh(1)
-  reaper.Undo_BeginBlock()
+local select_items = r.NamedCommandLookup("_XENAKIOS_SELITEMSUNDEDCURSELTX")
+r.Main_OnCommand(select_items, 0) -- Xenakios/SWS: Select items under edit cursor on selected tracks
+r.Main_OnCommand(40297, 0) -- Track: Unselect (clear selection of) all tracks
+local fade_left = r.NamedCommandLookup("_SWS_MOVECURFADELEFT")
+r.Main_OnCommand(fade_left, 0) -- SWS: Move cursor left by default fade length
+r.Main_OnCommand(40625, 0) -- Time selection: Set start point
+local fade_right = r.NamedCommandLookup("_SWS_MOVECURFADERIGHT")
+r.Main_OnCommand(fade_right, 0) -- SWS: Move cursor right by default fade length
+r.Main_OnCommand(40626, 0) -- Time selection: Set end point
+r.Main_OnCommand(40717, 0) -- Item: Select all items in current time selection
+r.Main_OnCommand(40916, 0) -- Item: Crossfade items within time selection
+r.Main_OnCommand(40635, 0) -- Time selection: Remove time selection
 
-  select_items = reaper.NamedCommandLookup("_XENAKIOS_SELITEMSUNDEDCURSELTX")
-  reaper.Main_OnCommand(select_items, 0) -- Xenakios/SWS: Select items under edit cursor on selected tracks
-  reaper.Main_OnCommand(40297, 0) -- Track: Unselect (clear selection of) all tracks
-  fade_left = reaper.NamedCommandLookup("_SWS_MOVECURFADELEFT")
-  reaper.Main_OnCommand(fade_left, 0) -- SWS: Move cursor left by default fade length
-  reaper.Main_OnCommand(40625, 0) -- Time selection: Set start point
-  fade_right = reaper.NamedCommandLookup("_SWS_MOVECURFADERIGHT")
-  reaper.Main_OnCommand(fade_right, 0) -- SWS: Move cursor right by default fade length
-  reaper.Main_OnCommand(40626, 0) -- Time selection: Set end point
-  reaper.Main_OnCommand(40717, 0) -- Item: Select all items in current time selection
-  reaper.Main_OnCommand(40916, 0) -- Item: Crossfade items within time selection
-  reaper.Main_OnCommand(40635, 0) -- Time selection: Remove time selection
-
-  reaper.Undo_EndBlock('Classical Crossfade', 0)
-  reaper.PreventUIRefresh(-1)
-  reaper.UpdateArrange()
-  reaper.UpdateTimeline()
-end
-
-main()
+r.Undo_EndBlock('Classical Crossfade', 0)
+r.PreventUIRefresh(-1)
+r.UpdateArrange()
+r.UpdateTimeline()

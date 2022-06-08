@@ -17,37 +17,33 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-]]--
+]]
+local r = reaper
+r.PreventUIRefresh(1)
+r.Undo_BeginBlock()
 
-local function main()
-  reaper.PreventUIRefresh(1)
-  reaper.Undo_BeginBlock()
+r.Main_OnCommand(40034, 0) -- Item grouping: Select all items in groups
+r.Main_OnCommand(41174, 0) -- Item navigation: Move cursor to end of items
+r.Main_OnCommand(40839, 0) -- Move edit cursor forward one measure (no seek)
+r.Main_OnCommand(40839, 0) -- Move edit cursor forward one measure (no seek)
+local trim_right = r.NamedCommandLookup("_XENAKIOS_TRIM_RIGHTEDGETO_EDCURSOR")
+r.Main_OnCommand(trim_right, 0) -- XENAKIOS_TRIM_RIGHTEDGETO_EDCURSOR
+r.Main_OnCommand(40841, 0) -- Move edit cursor forward one beat (no seek)
+local select_under = r.NamedCommandLookup("_XENAKIOS_SELITEMSUNDEDCURSELTX")
+r.Main_OnCommand(select_under, 0) -- XENAKIOS_SELITEMSUNDEDCURSELTX
+r.Main_OnCommand(40034, 0) -- Item grouping: Select all items in groups
+r.Main_OnCommand(41173, 0) -- Item navigation: Move cursor to start of items
+r.Main_OnCommand(40840, 0) -- Move edit cursor back one measure (no seek)
+r.Main_OnCommand(40840, 0) -- Move edit cursor back one measure (no seek)
+local trim_left = r.NamedCommandLookup("_XENAKIOS_TRIM_LEFTEDGETO_EDCURSOR")
+r.Main_OnCommand(trim_left, 0) -- XENAKIOS_TRIM_LEFTEDGETO_EDCURSOR
+r.Main_OnCommand(40839, 0) -- Move edit cursor forward one measure (no seek)
+r.Main_OnCommand(40839, 0) -- Move edit cursor forward one measure (no seek)
+r.Main_OnCommand(40289, 0) -- Item: Unselect (clear selection of) all items
+r.NamedCommandLookup("_XENAKIOS_TVPAGEHOME")
+r.Main_OnCommand(53451, 0) -- XENAKIOS_TVPAGEHOME
 
-  reaper.Main_OnCommand(40034, 0) -- Item grouping: Select all items in groups
-  reaper.Main_OnCommand(41174, 0) -- Item navigation: Move cursor to end of items
-  reaper.Main_OnCommand(40839, 0) -- Move edit cursor forward one measure (no seek)
-  reaper.Main_OnCommand(40839, 0) -- Move edit cursor forward one measure (no seek)
-  trim_right = reaper.NamedCommandLookup("_XENAKIOS_TRIM_RIGHTEDGETO_EDCURSOR")
-  reaper.Main_OnCommand(trim_right, 0) -- XENAKIOS_TRIM_RIGHTEDGETO_EDCURSOR
-  reaper.Main_OnCommand(40841, 0) -- Move edit cursor forward one beat (no seek)
-  select_under = reaper.NamedCommandLookup("_XENAKIOS_SELITEMSUNDEDCURSELTX")
-  reaper.Main_OnCommand(select_under, 0) -- XENAKIOS_SELITEMSUNDEDCURSELTX
-  reaper.Main_OnCommand(40034, 0) -- Item grouping: Select all items in groups
-  reaper.Main_OnCommand(41173, 0) -- Item navigation: Move cursor to start of items
-  reaper.Main_OnCommand(40840, 0) -- Move edit cursor back one measure (no seek)
-  reaper.Main_OnCommand(40840, 0) -- Move edit cursor back one measure (no seek)
-  trim_left = reaper.NamedCommandLookup("_XENAKIOS_TRIM_LEFTEDGETO_EDCURSOR")
-  reaper.Main_OnCommand(trim_left, 0) -- XENAKIOS_TRIM_LEFTEDGETO_EDCURSOR
-  reaper.Main_OnCommand(40839, 0) -- Move edit cursor forward one measure (no seek)
-  reaper.Main_OnCommand(40839, 0) -- Move edit cursor forward one measure (no seek)
-  reaper.Main_OnCommand(40289, 0) -- Item: Unselect (clear selection of) all items
-  reaper.NamedCommandLookup("_XENAKIOS_TVPAGEHOME")
-  reaper.Main_OnCommand(53451, 0) -- XENAKIOS_TVPAGEHOME
-
-  reaper.Undo_EndBlock('Edit Classical Crossfade', 0)
-  reaper.PreventUIRefresh(-1)
-  reaper.UpdateArrange()
-  reaper.UpdateTimeline()
-end
-
-main()
+r.Undo_EndBlock('Edit Classical Crossfade', 0)
+r.PreventUIRefresh(-1)
+r.UpdateArrange()
+r.UpdateTimeline()

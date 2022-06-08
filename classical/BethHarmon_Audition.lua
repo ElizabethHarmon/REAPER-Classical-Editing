@@ -1,4 +1,4 @@
- --[[
+--[[
 @noindex
 
 This file is a part of "BethHarmon_Classical" package.
@@ -17,57 +17,54 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-]]--
-local function solo()
-    track = reaper.GetSelectedTrack(0, 0)
-    reaper.SetMediaTrackInfo_Value(track, "I_SOLO", 1)
+]]
+local r = reaper
+local solo, mixer
 
-  for i = 0, reaper.CountTracks(0)-1, 1
-  do
-    track = reaper.GetTrack(0, i)
-    if reaper.IsTrackSelected(track) == false
-    then
-      reaper.SetMediaTrackInfo_Value(track, "I_SOLO", 0)
-    i = i + 1
-    end
-  end
-end
-
-local function mixer()
-  for i = 0, reaper.CountTracks(0)-1, 1
-  do
-    tr = reaper.GetTrack(0, i)    
-    if reaper.IsTrackSelected(tr) then 
-      reaper.SetMediaTrackInfo_Value(tr, 'B_SHOWINMIXER',1)
-    else
-      reaper.SetMediaTrackInfo_Value(tr, 'B_SHOWINMIXER',0)
-    end
-  end
-end
-
-function main()
-    reaper.PreventUIRefresh(1)
-    reaper.Undo_BeginBlock()
-    local track, context, pos = reaper.BR_TrackAtMouseCursor()
-    if track then
-    reaper.SetOnlyTrackSelected(track)
+function Main()
+  r.PreventUIRefresh(1)
+  r.Undo_BeginBlock()
+  local track, context, pos = r.BR_TrackAtMouseCursor()
+  if track then
+    r.SetOnlyTrackSelected(track)
     solo()
-    select_children = reaper.NamedCommandLookup("_SWS_SELCHILDREN2") -- SWS: Select children of selected folder track(s)
-    reaper.Main_OnCommand(select_children, 0) 
+    local select_children = r.NamedCommandLookup("_SWS_SELCHILDREN2") -- SWS: Select children of selected folder track(s)
+    r.Main_OnCommand(select_children, 0)
     mixer()
-    unselect_children = reaper.NamedCommandLookup("_SWS_UNSELCHILDREN")
-    reaper.Main_OnCommand(unselect_children, 0) -- SWS: Unselect children of selected folder track(s)
-    reaper.SetEditCurPos(pos, 0,0)
-    reaper.OnPlayButton()
-    reaper.Undo_EndBlock('Audition', 0)
-    reaper.PreventUIRefresh(-1)
-    reaper.UpdateArrange()
-    reaper.UpdateTimeline()
-    reaper.TrackList_AdjustWindows(false)
-    end
+    local unselect_children = r.NamedCommandLookup("_SWS_UNSELCHILDREN")
+    r.Main_OnCommand(unselect_children, 0) -- SWS: Unselect children of selected folder track(s)
+    r.SetEditCurPos(pos, 0, 0)
+    r.OnPlayButton()
+    r.Undo_EndBlock('Audition', 0)
+    r.PreventUIRefresh(-1)
+    r.UpdateArrange()
+    r.UpdateTimeline()
+    r.TrackList_AdjustWindows(false)
+  end
 end
 
-main()
+function solo()
+  track = r.GetSelectedTrack(0, 0)
+  r.SetMediaTrackInfo_Value(track, "I_SOLO", 1)
 
+  for i = 0, r.CountTracks(0) - 1, 1 do
+    track = r.GetTrack(0, i)
+    if r.IsTrackSelected(track) == false then
+      r.SetMediaTrackInfo_Value(track, "I_SOLO", 0)
+      i = i + 1
+    end
+  end
+end
 
+function mixer()
+  for i = 0, r.CountTracks(0) - 1, 1 do
+    local track = r.GetTrack(0, i)
+    if r.IsTrackSelected(track) then
+      r.SetMediaTrackInfo_Value(track, 'B_SHOWINMIXER', 1)
+    else
+      r.SetMediaTrackInfo_Value(track, 'B_SHOWINMIXER', 0)
+    end
+  end
+end
 
+Main()
