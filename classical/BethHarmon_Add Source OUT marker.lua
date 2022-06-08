@@ -42,7 +42,7 @@ end
 
 function get_track_number()
   local selected = r.GetSelectedTrack(0, 0)
-  if (folder_check() == 0) then
+  if (folder_check() == 0 or selected == nil) then
     return 1
   elseif (r.GetMediaTrackInfo_Value(selected, "I_FOLDERDEPTH") == 1) then
     return r.GetMediaTrackInfo_Value(selected, "IP_TRACKNUMBER")

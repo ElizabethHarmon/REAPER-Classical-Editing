@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.06.08
+@version 22.06.08.1
 @changelog
+  v22.06.08.1
+  Add nil test for no selected tracks when adding source markers
   v22.06.08
   Delete with Ripple now uses correct cursor position
   Forward declarations of functions to allow main() at top
