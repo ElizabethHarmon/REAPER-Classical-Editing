@@ -31,8 +31,6 @@
   [main] BethHarmon_Group Play.lua
   [main] BethHarmon_Create Folder.lua
 
-
-
 @about
   These scripts provide dedicated source-destination markers, edits, crossfade
   editor and more for classical music editing in REAPER.
