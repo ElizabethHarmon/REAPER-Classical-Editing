@@ -21,6 +21,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 local r = reaper
 local copy_source, create_crossfades, delete_sd_markers, lock_items
 local markers, select_matching_folder, split_at_dest_in, unlock_items, ripple_lock_mode
+local add_temp_marker, temp_to_dest_in
 
 function Main()
   r.PreventUIRefresh(1)
@@ -45,6 +46,7 @@ function Main()
     create_crossfades()
     delete_sd_markers()
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
+    temp_to_dest_in(dest_out)
   elseif dest_in == 1 and source_count == 2 then
     lock_items()
     copy_source()
@@ -64,8 +66,10 @@ function Main()
     delete_sd_markers()
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
     r.Main_OnCommand(40310, 0) -- Toggle ripple editing per-track
+    temp_to_dest_in(dest_out)
   else
-    r.ShowMessageBox("Please add at least 3 valid source-destination markers: \n 3-point edit: DEST-IN, SOURCE-IN and SOURCE-OUT \n 4-point edit: DEST-IN, DEST-OUT, SOURCE-IN and SOURCE-OUT", "Source-Destination Edit", 0)
+    r.ShowMessageBox("Please add at least 3 valid source-destination markers: \n 3-point edit: DEST-IN, SOURCE-IN and SOURCE-OUT \n 4-point edit: DEST-IN, DEST-OUT, SOURCE-IN and SOURCE-OUT"
+      , "Source-Destination Edit", 0)
     return
   end
 
@@ -143,6 +147,7 @@ function create_crossfades()
   local fade_left = r.NamedCommandLookup("_SWS_MOVECURFADELEFT")
   r.Main_OnCommand(fade_left, 0) -- SWS_MOVECURFADELEFT
   r.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
+  add_temp_marker()
   r.Main_OnCommand(40417, 0) -- Item Navigation: Select and move to next item
   r.Main_OnCommand(fade_left, 0) -- SWS_MOVECURFADELEFT
   r.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
@@ -184,6 +189,23 @@ function ripple_lock_mode()
   original_ripple_lock_mode = tonumber(original_ripple_lock_mode)
   if original_ripple_lock_mode ~= 2 then
     reaper.SNM_SetIntConfigVar("ripplelockmode", 2)
+  end
+end
+
+function add_temp_marker()
+  r.Main_OnCommand(41174, 0) -- Item navigation: Move cursor to end of items
+  local cur_pos = (r.GetPlayState() == 0) and r.GetCursorPosition() or r.GetPlayPosition()
+  r.AddProjectMarker2(0, false, cur_pos, 0, "TEMP", 10000, r.ColorToNative(176, 130, 151) | 0x1000000)
+  r.Main_OnCommand(41173, 0) -- Item navigation: Move cursor to start of items
+
+end
+
+function temp_to_dest_in(dest_out)
+  r.GoToMarker(0, 10000, false)
+  r.DeleteProjectMarker(NULL, 10000, false)
+  if dest_out == 0 then
+    local cur_pos = (r.GetPlayState() == 0) and r.GetCursorPosition() or r.GetPlayPosition()
+    r.AddProjectMarker2(0, false, cur_pos, 0, "DEST-IN", 100, r.ColorToNative(22, 141, 195) | 0x1000000)
   end
 end
 
