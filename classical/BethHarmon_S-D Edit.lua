@@ -19,9 +19,9 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 ]]
 
 local r = reaper
-local copy_source, create_crossfades, delete_sd_markers, lock_items
+local copy_source, create_crossfades, clean_up, lock_items
 local markers, select_matching_folder, split_at_dest_in, unlock_items, ripple_lock_mode
-local add_temp_marker, temp_to_dest_in
+local add_temp_marker, temp_to_dest_in, add_temp_item
 
 function Main()
   r.PreventUIRefresh(1)
@@ -43,8 +43,8 @@ function Main()
     r.Main_OnCommand(42398, 0) -- Item: Paste items/tracks
     r.Main_OnCommand(40310, 0) -- Toggle ripple editing per-track
     unlock_items()
-    create_crossfades()
-    delete_sd_markers()
+    local first_track, temp_item = create_crossfades()
+    clean_up(first_track, temp_item)
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
     temp_to_dest_in(dest_out)
   elseif dest_in == 1 and source_count == 2 then
@@ -62,8 +62,8 @@ function Main()
     local paste = r.NamedCommandLookup("_SWS_AWPASTE")
     r.Main_OnCommand(paste, 0) -- SWS_AWPASTE
     unlock_items()
-    create_crossfades()
-    delete_sd_markers()
+    local first_track, temp_item = create_crossfades()
+    clean_up(first_track, temp_item)
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
     r.Main_OnCommand(40310, 0) -- Toggle ripple editing per-track
     temp_to_dest_in(dest_out)
@@ -137,8 +137,11 @@ function split_at_dest_in()
   local select_under = r.NamedCommandLookup("_XENAKIOS_SELITEMSUNDEDCURSELTX")
   r.Main_OnCommand(select_under, 0) -- Xenakios/SWS: Select items under edit cursor on selected tracks
   r.Main_OnCommand(40034, 0) -- Item grouping: Select all items in groups
+  local selected_items = r.CountSelectedMediaItems(0)
   r.Main_OnCommand(40912, 0) -- Options: Toggle auto-crossfade on split (OFF)
-  r.Main_OnCommand(40186, 0) -- Item: Split items at edit or play cursor (ignoring grouping)
+  if selected_items > 0 then
+    r.Main_OnCommand(40186, 0) -- Item: Split items at edit or play cursor (ignoring grouping)
+  end
   r.Main_OnCommand(40289, 0) -- Item: Unselect all items
 end
 
@@ -148,18 +151,22 @@ function create_crossfades()
   r.Main_OnCommand(fade_left, 0) -- SWS_MOVECURFADELEFT
   r.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
   add_temp_marker()
+  local first_track, temp_item = add_temp_item()
   r.Main_OnCommand(40417, 0) -- Item Navigation: Select and move to next item
   r.Main_OnCommand(fade_left, 0) -- SWS_MOVECURFADELEFT
   r.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
   r.Main_OnCommand(40912, 0) -- Options: Toggle auto-crossfade on split (OFF) 
   r.Main_OnCommand(40020, 0) -- Time Selection: Remove time selection and loop point selection
+  return first_track, temp_item
 end
 
-function delete_sd_markers()
+function clean_up(track, item)
   r.DeleteProjectMarker(NULL, 100, false)
   r.DeleteProjectMarker(NULL, 101, false)
   r.DeleteProjectMarker(NULL, 102, false)
   r.DeleteProjectMarker(NULL, 103, false)
+  r.Main_OnCommand(42395, 0) -- Clear tempo envelope
+  r.DeleteTrackMediaItem(track, item)
 end
 
 function lock_items()
@@ -207,6 +214,14 @@ function temp_to_dest_in(dest_out)
     local cur_pos = (r.GetPlayState() == 0) and r.GetCursorPosition() or r.GetPlayPosition()
     r.AddProjectMarker2(0, false, cur_pos, 0, "DEST-IN", 100, r.ColorToNative(22, 141, 195) | 0x1000000)
   end
+end
+
+function add_temp_item()
+  length = r.GetProjectLength(0)
+  local first_track = r.GetTrack(0, 0)
+  local temp_item = r.AddMediaItemToTrack(first_track)
+  r.SetMediaItemPosition(temp_item, length + 1, false)
+  return first_track, temp_item
 end
 
 Main()
