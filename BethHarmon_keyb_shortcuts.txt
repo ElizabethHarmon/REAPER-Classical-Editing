@@ -42,7 +42,6 @@ Ctrl+Delete    Delete all S-D Markers
 Backspace      Delete with ripple (between 2 source markers)
 Ctrl+Backspace Delete Leaving Silence (between 2 source markers)
 
-F3             Classical Assembly Line (Dest IN + both source markers)
 F4             Insert with time-stretching (All 4 S-D markers)
 =====================================================
 
