@@ -3,7 +3,6 @@ SCR 4 0 RSc48c7d72b89ae4ee52d5f8a1ba08e2f266fff1aa "Custom: BethHarmon_Add Desti
 SCR 4 0 RS485da334f88a4f2ffa1d084612566589833c35e6 "Custom: BethHarmon_Add Source IN marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Source IN marker.lua"
 SCR 4 0 RS63aa2ec66b935b9c8ef8492979fdba9818f34939 "Custom: BethHarmon_Add Source OUT marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Source OUT marker.lua"
 SCR 4 0 RS98094db59befdb22a828f4f784ceec2ce595a68b "Custom: BethHarmon_Audition.lua" "BethHarmon Scripts/classical/BethHarmon_Audition.lua"
-SCR 4 0 RS8216fa84539b5acd62a4b8b0ec8eb211fa2c2d1e "Custom: BethHarmon_Classical Assembly Line.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Assembly Line.lua"
 SCR 4 0 RS9c61ac0478c3de96f276137a249e9339ed76fc16 "Custom: BethHarmon_Classical Crossfade Editor.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Crossfade Editor.lua"
 SCR 4 0 RS3a37848e27e182da552661629fe6cda880e72b87 "Custom: BethHarmon_Classical Crossfade.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Crossfade.lua"
 SCR 4 0 RSd51d37e55d67816b4d247aa707f3f7caca9b404b "Custom: BethHarmon_Classical Take Record.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Take Record.lua"
@@ -28,7 +27,6 @@ KEY 5 32804 _RS485da334f88a4f2ffa1d084612566589833c35e6 0
 KEY 1 52 _RS63aa2ec66b935b9c8ef8492979fdba9818f34939 0
 KEY 5 32803 _RS63aa2ec66b935b9c8ef8492979fdba9818f34939 0
 KEY 1 65 _RS98094db59befdb22a828f4f784ceec2ce595a68b 0
-KEY 1 114 _RS8216fa84539b5acd62a4b8b0ec8eb211fa2c2d1e 0
 KEY 1 70 _RS9c61ac0478c3de96f276137a249e9339ed76fc16 0
 KEY 1 88 _RS3a37848e27e182da552661629fe6cda880e72b87 0
 KEY 1 110 _RSd51d37e55d67816b4d247aa707f3f7caca9b404b 0
