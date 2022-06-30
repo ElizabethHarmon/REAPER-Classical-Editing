@@ -1,9 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.06.30
+@version 22.06.30.1
 @changelog
-  v22.06.30
-  Prepare Takes script checks for empty parent and copies muted first child items into parent as a guidetrack. Useful for engineers who use mono L & R foundation tracks.
+  v22.06.30.1
+  Fix positioning of muted items on parent
 @metapackage
 @provides
   [main] BethHarmon_Add Destination IN marker.lua
