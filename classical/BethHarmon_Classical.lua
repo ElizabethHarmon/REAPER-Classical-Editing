@@ -1,12 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.06.28.1
+@version 22.06.30
 @changelog
-  v22.06.28.1
-  Fix various corner cases involving S-D edits
-  v22.06.28
-  Absorb assembly line editing into main S-D edit shortcut
-  All 3-point S-D edits retain DEST-IN marker
+  v22.06.30
+  Prepare Takes script checks for empty parent and copies muted first child items into parent as a guidetrack. Useful for engineers who use mono L & R foundation tracks.
 @metapackage
 @provides
   [main] BethHarmon_Add Destination IN marker.lua

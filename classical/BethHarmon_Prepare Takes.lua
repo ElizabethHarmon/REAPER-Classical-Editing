@@ -20,6 +20,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 local r = reaper
 local horizontal, horizontal_color, horizontal_group, shift, vertical, vertical_color, vertical_group
+local empty_folder_check, copy_track_items, tracks_per_folder
 
 function Main()
   r.PreventUIRefresh(1)
@@ -37,6 +38,13 @@ function Main()
   local position = r.GetMediaItemInfo_Value(first_item, "D_POSITION")
   if position == 0.0 then
     shift()
+  end
+
+  local empty = empty_folder_check()
+
+  if empty then
+    local folder_size = tracks_per_folder()
+    copy_track_items(folder_size, total_tracks)
   end
 
   if folders == 0 or folders == 1 then
@@ -131,6 +139,44 @@ function vertical()
   r.SelectAllMediaItems(0, false)
   r.Main_OnCommand(40297, 0) -- Track: Unselect (clear selection of) all tracks
   r.SetEditCurPos(0, false, false)
+end
+
+function empty_folder_check()
+  local empty = false
+  local first_track = r.GetTrack(0, 0)
+  local items = r.CountTrackMediaItems(first_track)
+  if items == 0 then
+    empty = true
+  end
+  return empty
+end
+
+function copy_track_items(folder_size, total_tracks)
+  for i = 1, total_tracks - 1, folder_size do
+    r.Main_OnCommand(40042, 0) -- Transport: Go to start of project
+    local track = r.GetTrack(0, i)
+    r.SetOnlyTrackSelected(track)
+    for j = 0, r.CountTrackMediaItems(track) - 1 do
+      local item = r.GetTrackMediaItem(track, j)
+      r.SetMediaItemSelected(item, 1)
+    end
+    r.Main_OnCommand(40698, 0) -- Edit: Copy items
+    local previous_track = r.GetTrack(0, i - 1)
+    r.SetOnlyTrackSelected(previous_track)
+    r.Main_OnCommand(42398, 0) -- Item: Paste items/tracks
+    r.Main_OnCommand(40719, 0) -- Item properties: Mute
+    r.Main_OnCommand(40769, 0) -- Unselect (clear selection of) all tracks/items/envelope points
+  end
+end
+
+function tracks_per_folder()
+  local first_track = r.GetTrack(0, 0)
+  r.SetOnlyTrackSelected(first_track)
+  local select_children = r.NamedCommandLookup("_SWS_SELCHILDREN2")
+  r.Main_OnCommand(select_children, 0) -- SWS: Select children of selected folder track(s)
+  local selected_tracks = r.CountSelectedTracks(0)
+  r.Main_OnCommand(40297, 0) -- Track: Unselect (clear selection of) all tracks
+  return selected_tracks
 end
 
 Main()
