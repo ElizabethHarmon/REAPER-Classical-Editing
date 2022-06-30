@@ -54,6 +54,9 @@ function Main()
   end
   r.Main_OnCommand(40042, 0) -- go to start of project
   r.Main_OnCommand(40939, 0) -- select track 01
+  if empty then
+    r.ShowMessageBox("Your folder tracks were empty. Items from first child tracks were therefore copied to folder tracks and muted to act as guide tracks.", "Guide Tracks Created", 0)
+  end
   r.Undo_EndBlock('Prepare Takes', 0)
   r.PreventUIRefresh(-1)
   r.UpdateArrange()

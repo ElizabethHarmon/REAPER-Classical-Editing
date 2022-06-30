@@ -1,9 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.06.30.1
+@version 22.06.30.2
 @changelog
-  v22.06.30.1
-  Fix positioning of muted items on parent
+  v22.06.30.2
+  Message shown if guide tracks are created
 @metapackage
 @provides
   [main] BethHarmon_Add Destination IN marker.lua
