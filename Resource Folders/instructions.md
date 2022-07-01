@@ -11,6 +11,7 @@ MacOS-arm64.zip (M1 chip)
 2. Rename/backup your existing resource folder (important!)
 3. Replace with the downloaded folder
 4. Start REAPER
+5. Sync ReaPack (to get latest BethHarmon scripts)
 
 ### Notes
 
