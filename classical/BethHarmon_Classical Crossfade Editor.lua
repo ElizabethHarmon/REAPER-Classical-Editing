@@ -19,7 +19,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 ]]
 
 local r = reaper
-local fadeStart, fadeEnd, zoom
+local fadeStart, fadeEnd, zoom, view
 local fade_editor_toggle = r.NamedCommandLookup("_RS9c61ac0478c3de96f276137a249e9339ed76fc16")
 local state = r.GetToggleCommandState(fade_editor_toggle)
 
@@ -46,28 +46,20 @@ end
 function fadeStart()
   r.SetToggleCommandState(1, fade_editor_toggle, 1)
   r.RefreshToolbar2(1, fade_editor_toggle)
-
   local start_time, end_time = r.GetSet_ArrangeView2(0, false, 0, 0, 0, 0)
   r.SetExtState("Classical Crossfade Editor", "start_time", start_time, true)
   r.SetExtState("Classical Crossfade Editor", "end_time", end_time, true)
-
   local select_1 = r.NamedCommandLookup("_SWS_SEL1")
   r.Main_OnCommand(select_1, 0)
   r.Main_OnCommand(40319, 0) -- move edit cursor to end of item
+  view()
   zoom()
-  local scroll = r.NamedCommandLookup("_XENAKIOS_TVPAGEHOME")
-  r.Main_OnCommand(scroll, 0)
-  r.Main_OnCommand(40507, 0) -- Options: Show overlapping media items in lanes
-  r.Main_OnCommand(41827, 0) -- View: Show crossfade editor window
 end
 
 function fadeEnd()
   r.SetToggleCommandState(1, fade_editor_toggle, 0)
   r.RefreshToolbar2(1, fade_editor_toggle)
-  r.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
-  r.Main_OnCommand(40507, 0) -- Options: Show overlapping media items in lanes
-  r.Main_OnCommand(41827, 0) -- View: Show crossfade editor window
-
+  view()
   local start_time = r.GetExtState("Classical Crossfade Editor", "start_time")
   local end_time = r.GetExtState("Classical Crossfade Editor", "end_time")
   r.GetSet_ArrangeView2(0, true, 0, 0, start_time, end_time)
@@ -82,11 +74,20 @@ function zoom()
   r.Main_OnCommand(40626, 0) -- Time selection: Set end point
   local zoom = r.NamedCommandLookup("_SWS_ZOOMSIT")
   r.Main_OnCommand(zoom, 0) -- SWS: Zoom to selected items or time selection
-  r.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
   r.GoToMarker(0, 20000, false)
   r.DeleteProjectMarker(NULL, 20000, false)
   r.Main_OnCommand(1012, 0) -- View: Zoom in horizontal
   r.Main_OnCommand(40635, 0) -- Time selection: Remove (unselect) time selection
+end
+
+function view()
+  local track1 = r.NamedCommandLookup("_SWS_SEL1")
+  r.Main_OnCommand(track1, 0) -- select only track 1
+  r.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
+  local scroll_home = r.NamedCommandLookup("_XENAKIOS_TVPAGEHOME")
+  r.Main_OnCommand(scroll_home, 0) -- XENAKIOS_TVPAGEHOME
+  r.Main_OnCommand(41827, 0) -- View: Show crossfade editor window
+  r.Main_OnCommand(40507, 0) -- Options: Offset overlapping media items vertically
 end
 
 Main()
