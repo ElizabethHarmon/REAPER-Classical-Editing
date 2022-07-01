@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.07.01.2
+@version 22.07.01.3
 @changelog
+  v22.07.01.3
+  Switch to SetExtState & GetExtState for saving zoom information
   v22.07.01.2
   Improve crossfade editor initial zoom
   v22.07.01.1

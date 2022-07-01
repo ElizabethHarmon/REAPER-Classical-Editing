@@ -46,12 +46,10 @@ end
 function fadeStart()
   r.SetToggleCommandState(1, fade_editor_toggle, 1)
   r.RefreshToolbar2(1, fade_editor_toggle)
+
   local start_time, end_time = r.GetSet_ArrangeView2(0, false, 0, 0, 0, 0)
-  local file = io.open(r.GetResourcePath() .. "/Scripts/BethHarmon Scripts/classical/BethHarmon_zoom_level.txt", "w")
-  if file ~= nil then
-    file:write(start_time, "\n", end_time)
-    file:close()
-  end
+  r.SetExtState("Classical Crossfade Editor", "start_time", start_time, true)
+  r.SetExtState("Classical Crossfade Editor", "end_time", end_time, true)
 
   local select_1 = r.NamedCommandLookup("_SWS_SEL1")
   r.Main_OnCommand(select_1, 0)
@@ -66,17 +64,13 @@ end
 function fadeEnd()
   r.SetToggleCommandState(1, fade_editor_toggle, 0)
   r.RefreshToolbar2(1, fade_editor_toggle)
-  local file = io.open(r.GetResourcePath() .. "/Scripts/BethHarmon Scripts/classical/BethHarmon_zoom_level.txt", "r")
   r.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
   r.Main_OnCommand(40507, 0) -- Options: Show overlapping media items in lanes
   r.Main_OnCommand(41827, 0) -- View: Show crossfade editor window
-  if file ~= nil then
-    local start_time = file:read("*line")
-    local end_time = file:read("*line")
-    file:close()
-    r.GetSet_ArrangeView2(0, true, 0, 0, start_time, end_time)
-  end
-  os.remove(r.GetResourcePath() .. "/Scripts/BethHarmon Scripts/classical/BethHarmon_zoom_level.txt")
+
+  local start_time = r.GetExtState("Classical Crossfade Editor", "start_time")
+  local end_time = r.GetExtState("Classical Crossfade Editor", "end_time")
+  r.GetSet_ArrangeView2(0, true, 0, 0, start_time, end_time)
 end
 
 function zoom()
