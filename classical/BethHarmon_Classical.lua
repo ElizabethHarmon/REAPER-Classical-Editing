@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.07.01
+@version 22.07.01.1
 @changelog
+  v22.07.01.1
+  Replace one level of nesting with a guard clause
   v22.07.01
   Ignore empty first child tracks
 @metapackage

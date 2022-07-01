@@ -161,22 +161,22 @@ function copy_track_items(folder_size, total_tracks)
     local track = r.GetTrack(0, i)
     r.SetOnlyTrackSelected(track)
     local num_of_items = r.CountTrackMediaItems(track)
-    if num_of_items > 0 then
-      for j = 0, num_of_items - 1 do
-        local item = r.GetTrackMediaItem(track, j)
-        if j == 0 then
-          pos = r.GetMediaItemInfo_Value(item, "D_POSITION")
-        end
-        r.SetMediaItemSelected(item, 1)
+    if num_of_items == 0 then goto continue end -- guard clause for empty first child
+    for j = 0, num_of_items - 1 do
+      local item = r.GetTrackMediaItem(track, j)
+      if j == 0 then
+        pos = r.GetMediaItemInfo_Value(item, "D_POSITION")
       end
-      r.Main_OnCommand(40698, 0) -- Edit: Copy items
-      local previous_track = r.GetTrack(0, i - 1)
-      r.SetOnlyTrackSelected(previous_track)
-      r.SetEditCurPos(pos, false, false)
-      r.Main_OnCommand(42398, 0) -- Item: Paste items/tracks
-      r.Main_OnCommand(40719, 0) -- Item properties: Mute
+      r.SetMediaItemSelected(item, 1)
     end
+    r.Main_OnCommand(40698, 0) -- Edit: Copy items
+    local previous_track = r.GetTrack(0, i - 1)
+    r.SetOnlyTrackSelected(previous_track)
+    r.SetEditCurPos(pos, false, false)
+    r.Main_OnCommand(42398, 0) -- Item: Paste items/tracks
+    r.Main_OnCommand(40719, 0) -- Item properties: Mute
     r.Main_OnCommand(40769, 0) -- Unselect (clear selection of) all tracks/items/envelope points
+    ::continue::
   end
 end
 
