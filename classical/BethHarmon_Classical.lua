@@ -1,9 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.06.30.2
+@version 22.07.01
 @changelog
-  v22.06.30.2
-  Message shown if guide tracks are created
+  v22.07.01
+  Ignore empty first child tracks
 @metapackage
 @provides
   [main] BethHarmon_Add Destination IN marker.lua

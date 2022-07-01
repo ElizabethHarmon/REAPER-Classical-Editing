@@ -55,7 +55,8 @@ function Main()
   r.Main_OnCommand(40042, 0) -- go to start of project
   r.Main_OnCommand(40939, 0) -- select track 01
   if empty then
-    r.ShowMessageBox("Your folder tracks were empty. Items from first child tracks were therefore copied to folder tracks and muted to act as guide tracks.", "Guide Tracks Created", 0)
+    r.ShowMessageBox("Your folder tracks were empty. Items from first child tracks were therefore copied to folder tracks and muted to act as guide tracks."
+      , "Guide Tracks Created", 0)
   end
   r.Undo_EndBlock('Prepare Takes', 0)
   r.PreventUIRefresh(-1)
@@ -157,22 +158,24 @@ end
 function copy_track_items(folder_size, total_tracks)
   local pos = 0;
   for i = 1, total_tracks - 1, folder_size do
-    --r.Main_OnCommand(40042, 0) -- Transport: Go to start of project
     local track = r.GetTrack(0, i)
     r.SetOnlyTrackSelected(track)
-    for j = 0, r.CountTrackMediaItems(track) - 1 do
-      local item = r.GetTrackMediaItem(track, j)
-      if j == 0 then
-        pos = r.GetMediaItemInfo_Value(item, "D_POSITION")
+    local num_of_items = r.CountTrackMediaItems(track)
+    if num_of_items > 0 then
+      for j = 0, num_of_items - 1 do
+        local item = r.GetTrackMediaItem(track, j)
+        if j == 0 then
+          pos = r.GetMediaItemInfo_Value(item, "D_POSITION")
+        end
+        r.SetMediaItemSelected(item, 1)
       end
-      r.SetMediaItemSelected(item, 1)
+      r.Main_OnCommand(40698, 0) -- Edit: Copy items
+      local previous_track = r.GetTrack(0, i - 1)
+      r.SetOnlyTrackSelected(previous_track)
+      r.SetEditCurPos(pos, false, false)
+      r.Main_OnCommand(42398, 0) -- Item: Paste items/tracks
+      r.Main_OnCommand(40719, 0) -- Item properties: Mute
     end
-    r.Main_OnCommand(40698, 0) -- Edit: Copy items
-    local previous_track = r.GetTrack(0, i - 1)
-    r.SetOnlyTrackSelected(previous_track)
-    r.SetEditCurPos(pos, false, false)
-    r.Main_OnCommand(42398, 0) -- Item: Paste items/tracks
-    r.Main_OnCommand(40719, 0) -- Item properties: Mute
     r.Main_OnCommand(40769, 0) -- Unselect (clear selection of) all tracks/items/envelope points
   end
 end
