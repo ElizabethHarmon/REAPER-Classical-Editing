@@ -42,6 +42,7 @@ r.Main_OnCommand(40839, 0) -- Move edit cursor forward one measure (no seek)
 r.Main_OnCommand(40289, 0) -- Item: Unselect (clear selection of) all items
 r.NamedCommandLookup("_XENAKIOS_TVPAGEHOME")
 r.Main_OnCommand(53451, 0) -- XENAKIOS_TVPAGEHOME
+r.Main_OnCommand(1012, 0) -- View: Zoom in horizontal
 
 r.Undo_EndBlock('Edit Classical Crossfade', 0)
 r.PreventUIRefresh(-1)

@@ -19,7 +19,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 ]]
 
 local r = reaper
-local fadeStart, fadeEnd
+local fadeStart, fadeEnd, zoom
 local fade_editor_toggle = r.NamedCommandLookup("_RS9c61ac0478c3de96f276137a249e9339ed76fc16")
 local state = r.GetToggleCommandState(fade_editor_toggle)
 
@@ -56,8 +56,7 @@ function fadeStart()
   local select_1 = r.NamedCommandLookup("_SWS_SEL1")
   r.Main_OnCommand(select_1, 0)
   r.Main_OnCommand(40319, 0) -- move edit cursor to end of item
-  r.Main_OnCommand(41190, 0) -- Change horizontal zoom to default project setting
-  r.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
+  zoom()
   local scroll = r.NamedCommandLookup("_XENAKIOS_TVPAGEHOME")
   r.Main_OnCommand(scroll, 0)
   r.Main_OnCommand(40507, 0) -- Options: Show overlapping media items in lanes
@@ -78,6 +77,22 @@ function fadeEnd()
     r.GetSet_ArrangeView2(0, true, 0, 0, start_time, end_time)
   end
   os.remove(r.GetResourcePath() .. "/Scripts/BethHarmon Scripts/classical/BethHarmon_zoom_level.txt")
+end
+
+function zoom()
+  local cur_pos = (r.GetPlayState() == 0) and r.GetCursorPosition() or r.GetPlayPosition()
+  r.AddProjectMarker2(0, false, cur_pos, 0, "TEMP", 20000, r.ColorToNative(176, 130, 151) | 0x1000000)
+  reaper.SetEditCurPos(cur_pos - 4, false, false)
+  r.Main_OnCommand(40625, 0) -- Time selection: Set start point
+  reaper.SetEditCurPos(cur_pos + 4, false, false)
+  r.Main_OnCommand(40626, 0) -- Time selection: Set end point
+  local zoom = r.NamedCommandLookup("_SWS_ZOOMSIT")
+  r.Main_OnCommand(zoom, 0) -- SWS: Zoom to selected items or time selection
+  r.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
+  r.GoToMarker(0, 20000, false)
+  r.DeleteProjectMarker(NULL, 20000, false)
+  r.Main_OnCommand(1012, 0) -- View: Zoom in horizontal
+  r.Main_OnCommand(40635, 0) -- Time selection: Remove (unselect) time selection
 end
 
 Main()

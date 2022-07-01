@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.07.01.1
+@version 22.07.01.2
 @changelog
+  v22.07.01.2
+  Improve crossfade editor initial zoom
   v22.07.01.1
   Replace one level of nesting with a guard clause
   v22.07.01
