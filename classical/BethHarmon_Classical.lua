@@ -1,17 +1,10 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.07.01.4
+@version 22.07.02
 @changelog
-  v22.07.01.4
-  Refactor fade editor code
-  v22.07.01.3
-  Switch to SetExtState & GetExtState for saving zoom information
-  v22.07.01.2
-  Improve crossfade editor initial zoom
-  v22.07.01.1
-  Replace one level of nesting with a guard clause
-  v22.07.01
-  Ignore empty first child tracks
+  v22.07.02
+  Improved checks for empty folder tracks
+  Add guard clause for populated folder tracks
 @metapackage
 @provides
   [main] BethHarmon_Add Destination IN marker.lua

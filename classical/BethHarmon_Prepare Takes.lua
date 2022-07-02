@@ -25,12 +25,18 @@ local empty_folder_check, copy_track_items, tracks_per_folder
 function Main()
   r.PreventUIRefresh(1)
   r.Undo_BeginBlock()
+  r.Main_OnCommand(40769, 0) -- Unselect (clear selection of) all tracks/items/envelope points
   local total_tracks = r.CountTracks(0)
   local folders = 0
+  local empty = false
   for i = 0, total_tracks - 1, 1 do
     track = r.GetTrack(0, i)
     if r.GetMediaTrackInfo_Value(track, "I_FOLDERDEPTH") == 1.0 then
       folders = folders + 1
+      local items = r.CountTrackMediaItems(track)
+      if items == 0 then
+        empty = true
+      end
     end
   end
 
@@ -39,8 +45,6 @@ function Main()
   if position == 0.0 then
     shift()
   end
-
-  local empty = empty_folder_check()
 
   if empty then
     local folder_size = tracks_per_folder()
@@ -145,20 +149,13 @@ function vertical()
   r.SetEditCurPos(0, false, false)
 end
 
-function empty_folder_check()
-  local empty = false
-  local first_track = r.GetTrack(0, 0)
-  local items = r.CountTrackMediaItems(first_track)
-  if items == 0 then
-    empty = true
-  end
-  return empty
-end
-
 function copy_track_items(folder_size, total_tracks)
   local pos = 0;
   for i = 1, total_tracks - 1, folder_size do
     local track = r.GetTrack(0, i)
+    local previous_track = r.GetTrack(0, i - 1)
+    local count_items = r.CountTrackMediaItems(previous_track)
+    if count_items > 0 then goto continue end -- guard clause for populated folder
     r.SetOnlyTrackSelected(track)
     local num_of_items = r.CountTrackMediaItems(track)
     if num_of_items == 0 then goto continue end -- guard clause for empty first child
