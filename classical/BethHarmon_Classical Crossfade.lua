@@ -23,6 +23,8 @@ r.PreventUIRefresh(1)
 r.Undo_BeginBlock()
 
 function Main()
+    local fade_editor_toggle = r.NamedCommandLookup("_RS9c61ac0478c3de96f276137a249e9339ed76fc16")
+    local state = r.GetToggleCommandState(fade_editor_toggle)
     local select_items = r.NamedCommandLookup("_XENAKIOS_SELITEMSUNDEDCURSELTX")
     r.Main_OnCommand(select_items, 0) -- Xenakios/SWS: Select items under edit cursor on selected tracks
     r.Main_OnCommand(40297, 0) -- Track: Unselect (clear selection of) all tracks
@@ -36,7 +38,7 @@ function Main()
     r.Main_OnCommand(40635, 0) -- Time selection: Remove time selection
 
     local selected_items = r.CountSelectedMediaItems(0)
-    if selected_items > 0 then
+    if selected_items > 0 and (state == -1 or state == 0) then
         local item = r.GetSelectedMediaItem(0, 0)
         r.Main_OnCommand(40769, 0) -- Unselect (clear selection of) all tracks/items/envelope points
         r.SetMediaItemSelected(item, 1)

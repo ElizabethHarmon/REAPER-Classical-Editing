@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.07.02.1
+@version 22.07.02.2
 @changelog
+  v22.07.02.2
+  classical crossfade (X) leaves item selection differently depending on fade editor state
   v22.07.02.1
   Improve exit from crossfade editor
   classical crossfade (X) selects first item ready for editor view if desired
