@@ -1,7 +1,10 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.07.02
+@version 22.07.02.1
 @changelog
+  v22.07.02.1
+  Improve exit from crossfade editor
+  classical crossfade (X) selects first item ready for editor view if desired
   v22.07.02
   Improved checks for empty folder tracks
   Add guard clause for populated folder tracks

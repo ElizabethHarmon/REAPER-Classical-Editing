@@ -60,6 +60,13 @@ function fadeEnd()
   r.SetToggleCommandState(1, fade_editor_toggle, 0)
   r.RefreshToolbar2(1, fade_editor_toggle)
   view()
+  local selected_items = r.CountSelectedMediaItems(0)
+  if selected_items > 0 then
+    local item = r.GetSelectedMediaItem(0, 0)
+    r.Main_OnCommand(40769, 0) -- Unselect (clear selection of) all tracks/items/envelope points
+    r.SetMediaItemSelected(item, 1)
+  end
+  
   local start_time = r.GetExtState("Classical Crossfade Editor", "start_time")
   local end_time = r.GetExtState("Classical Crossfade Editor", "end_time")
   r.GetSet_ArrangeView2(0, true, 0, 0, start_time, end_time)
