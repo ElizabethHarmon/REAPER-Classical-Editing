@@ -66,7 +66,7 @@ function fadeEnd()
     r.Main_OnCommand(40769, 0) -- Unselect (clear selection of) all tracks/items/envelope points
     r.SetMediaItemSelected(item, 1)
   end
-  
+
   local start_time = r.GetExtState("Classical Crossfade Editor", "start_time")
   local end_time = r.GetExtState("Classical Crossfade Editor", "end_time")
   r.GetSet_ArrangeView2(0, true, 0, 0, start_time, end_time)
@@ -74,15 +74,13 @@ end
 
 function zoom()
   local cur_pos = (r.GetPlayState() == 0) and r.GetCursorPosition() or r.GetPlayPosition()
-  r.AddProjectMarker2(0, false, cur_pos, 0, "TEMP", 20000, r.ColorToNative(176, 130, 151) | 0x1000000)
   reaper.SetEditCurPos(cur_pos - 4, false, false)
   r.Main_OnCommand(40625, 0) -- Time selection: Set start point
   reaper.SetEditCurPos(cur_pos + 4, false, false)
   r.Main_OnCommand(40626, 0) -- Time selection: Set end point
   local zoom = r.NamedCommandLookup("_SWS_ZOOMSIT")
   r.Main_OnCommand(zoom, 0) -- SWS: Zoom to selected items or time selection
-  r.GoToMarker(0, 20000, false)
-  r.DeleteProjectMarker(NULL, 20000, false)
+  r.SetEditCurPos(cur_pos, false, false)
   r.Main_OnCommand(1012, 0) -- View: Zoom in horizontal
   r.Main_OnCommand(40635, 0) -- Time selection: Remove (unselect) time selection
 end

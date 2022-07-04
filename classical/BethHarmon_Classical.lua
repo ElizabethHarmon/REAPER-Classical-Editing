@@ -1,15 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.07.02.2
+@version 22.07.04
 @changelog
-  v22.07.02.2
-  classical crossfade (X) leaves item selection differently depending on fade editor state
-  v22.07.02.1
-  Improve exit from crossfade editor
-  classical crossfade (X) selects first item ready for editor view if desired
-  v22.07.02
-  Improved checks for empty folder tracks
-  Add guard clause for populated folder tracks
+  v22.22.07.04
+  Crossfade editor: switch from temp marker to position variable
 @metapackage
 @provides
   [main] BethHarmon_Add Destination IN marker.lua
