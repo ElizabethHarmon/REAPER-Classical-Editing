@@ -29,11 +29,11 @@ function Main()
     ripple_lock_mode()
     local focus = r.NamedCommandLookup("_BR_FOCUS_ARRANGE_WND")
     r.Main_OnCommand(focus, 0) -- BR_FOCUS_ARRANGE_WND
-    r.GoToMarker(0, 102, false)
+    r.GoToMarker(0, 998, false)
     lock_items()
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
     r.Main_OnCommand(40625, 0) -- Time Selection: Set start point
-    r.GoToMarker(0, 103, false)
+    r.GoToMarker(0, 999, false)
     r.Main_OnCommand(40626, 0) -- Time Selection: Set end point
     r.Main_OnCommand(40718, 0) -- Select all items on selected tracks in current time selection
     r.Main_OnCommand(40034, 0) -- Item Grouping: Select all items in group(s)
@@ -57,8 +57,8 @@ function Main()
     r.Main_OnCommand(fade_left, 0) -- SWS_MOVECURFADELEFT
     r.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
     r.Main_OnCommand(40020, 0) -- Time Selection: Remove time selection and loop point selection
-    r.DeleteProjectMarker(NULL, 102, false)
-    r.DeleteProjectMarker(NULL, 103, false)
+    r.DeleteProjectMarker(NULL, 998, false)
+    r.DeleteProjectMarker(NULL, 999, false)
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
     r.Main_OnCommand(40310, 0) -- Ripple per-track
   else

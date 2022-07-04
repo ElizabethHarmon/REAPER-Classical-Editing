@@ -19,7 +19,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 ]]
 
 local r = reaper
-r.DeleteProjectMarker(NULL, 100, false)
-r.DeleteProjectMarker(NULL, 101, false)
-r.DeleteProjectMarker(NULL, 102, false)
-r.DeleteProjectMarker(NULL, 103, false)
+r.DeleteProjectMarker(NULL, 996, false)
+r.DeleteProjectMarker(NULL, 997, false)
+r.DeleteProjectMarker(NULL, 998, false)
+r.DeleteProjectMarker(NULL, 999, false)

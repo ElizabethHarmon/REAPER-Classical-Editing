@@ -24,8 +24,8 @@ local folder_check, get_track_number
 function Main()
   local cur_pos = (r.GetPlayState() == 0) and r.GetCursorPosition() or r.GetPlayPosition()
   local track_number = math.floor(get_track_number())
-  r.DeleteProjectMarker(NULL, 102, false)
-  r.AddProjectMarker2(0, false, cur_pos, 0, track_number .. ":SOURCE-IN", 102, r.ColorToNative(23, 223, 143) | 0x1000000)
+  r.DeleteProjectMarker(NULL, 998, false)
+  r.AddProjectMarker2(0, false, cur_pos, 0, track_number .. ":SOURCE-IN", 998, r.ColorToNative(23, 223, 143) | 0x1000000)
 end
 
 function folder_check()

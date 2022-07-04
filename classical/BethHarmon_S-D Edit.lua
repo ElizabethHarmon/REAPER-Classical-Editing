@@ -52,7 +52,7 @@ function Main()
     copy_source()
     split_at_dest_in()
     r.Main_OnCommand(40625, 0) -- Time Selection: Set start point
-    r.GoToMarker(0, 101, false)
+    r.GoToMarker(0, 997, false)
     r.Main_OnCommand(40626, 0) -- Time Selection: Set end point
     r.Main_OnCommand(40718, 0) -- Select all items on selected tracks in current time selection
     r.Main_OnCommand(40034, 0) -- Item Grouping: Select all items in group(s)
@@ -116,10 +116,10 @@ function copy_source()
   r.Main_OnCommand(focus, 0) -- BR_FOCUS_ARRANGE_WND
   r.Main_OnCommand(40311, 0) -- Set ripple-all-tracks
   r.Main_OnCommand(40289, 0) -- Item: Unselect all items
-  r.GoToMarker(0, 102, false)
+  r.GoToMarker(0, 998, false)
   select_matching_folder()
   r.Main_OnCommand(40625, 0) -- Time Selection: Set start point
-  r.GoToMarker(0, 103, false)
+  r.GoToMarker(0, 999, false)
   r.Main_OnCommand(40626, 0) -- Time Selection: Set end point
   local start_time, end_time = r.GetSet_LoopTimeRange2(0, false, false, 0, 0, false)
   local sel_length = end_time - start_time
@@ -133,7 +133,7 @@ end
 function split_at_dest_in()
   r.Main_OnCommand(40927, 0) -- Options: Enable auto-crossfade on split
   r.Main_OnCommand(40939, 0) -- Track: Select track 01
-  r.GoToMarker(0, 100, false)
+  r.GoToMarker(0, 996, false)
   local select_under = r.NamedCommandLookup("_XENAKIOS_SELITEMSUNDEDCURSELTX")
   r.Main_OnCommand(select_under, 0) -- Xenakios/SWS: Select items under edit cursor on selected tracks
   r.Main_OnCommand(40034, 0) -- Item grouping: Select all items in groups
@@ -161,10 +161,10 @@ function create_crossfades()
 end
 
 function clean_up(track, item)
-  r.DeleteProjectMarker(NULL, 100, false)
-  r.DeleteProjectMarker(NULL, 101, false)
-  r.DeleteProjectMarker(NULL, 102, false)
-  r.DeleteProjectMarker(NULL, 103, false)
+  r.DeleteProjectMarker(NULL, 996, false)
+  r.DeleteProjectMarker(NULL, 997, false)
+  r.DeleteProjectMarker(NULL, 998, false)
+  r.DeleteProjectMarker(NULL, 999, false)
   r.Main_OnCommand(42395, 0) -- Clear tempo envelope
   r.DeleteTrackMediaItem(track, item)
 end
@@ -212,7 +212,7 @@ function temp_to_dest_in(dest_out)
   r.DeleteProjectMarker(NULL, 10000, false)
   if dest_out == 0 then
     local cur_pos = (r.GetPlayState() == 0) and r.GetCursorPosition() or r.GetPlayPosition()
-    r.AddProjectMarker2(0, false, cur_pos, 0, "DEST-IN", 100, r.ColorToNative(22, 141, 195) | 0x1000000)
+    r.AddProjectMarker2(0, false, cur_pos, 0, "DEST-IN", 996, r.ColorToNative(22, 141, 195) | 0x1000000)
   end
 end
 

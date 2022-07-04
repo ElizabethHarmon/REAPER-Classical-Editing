@@ -1,8 +1,10 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.07.04
+@version 22.07.04.1
 @changelog
-  v22.22.07.04
+  v22.07.04.1
+  Switch S-D marker numbers to 996-999
+  v22.07.04
   Crossfade editor: switch from temp marker to position variable
 @metapackage
 @provides

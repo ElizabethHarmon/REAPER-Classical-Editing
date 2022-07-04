@@ -31,10 +31,10 @@ function Main()
     r.Main_OnCommand(focus, 0) -- BR_FOCUS_ARRANGE_WND
     r.Main_OnCommand(40310, 0) -- Set ripple per-track
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
-    r.GoToMarker(0, 102, false)
+    r.GoToMarker(0, 998, false)
     select_matching_folder()
     r.Main_OnCommand(40625, 0) -- Time Selection: Set start point
-    r.GoToMarker(0, 103, false)
+    r.GoToMarker(0, 999, false)
     r.Main_OnCommand(40626, 0) -- Time Selection: Set end point
     local start_time, end_time = r.GetSet_LoopTimeRange2(0, false, false, 0, 0, false)
     local sel_length = end_time - start_time
@@ -43,7 +43,7 @@ function Main()
     r.Main_OnCommand(41383, 0) -- Edit: Copy items/tracks/envelope points (depending on focus) within time selection, if any (smart copy)
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
     r.Main_OnCommand(40939, 0) -- Track: Select track 01
-    r.GoToMarker(0, 100, false)
+    r.GoToMarker(0, 996, false)
     local select_under = r.NamedCommandLookup("_XENAKIOS_SELITEMSUNDEDCURSELTX")
     r.Main_OnCommand(select_under, 0) -- Xenakios/SWS: Select items under edit cursor on selected tracks
     r.Main_OnCommand(40034, 0) -- Item grouping: Select all items in groups
@@ -52,7 +52,7 @@ function Main()
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
 
     r.Main_OnCommand(40625, 0) -- Time Selection: Set start point
-    r.GoToMarker(0, 101, false)
+    r.GoToMarker(0, 997, false)
     r.Main_OnCommand(40626, 0) -- Time Selection: Set end point
     r.Main_OnCommand(40718, 0) -- Select all items on selected tracks in current time selection
     r.Main_OnCommand(40034, 0) -- Item Grouping: Select all items in group(s)
@@ -73,10 +73,10 @@ function Main()
     r.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
     r.Main_OnCommand(40912, 0) -- Options: Toggle auto-crossfade on split (OFF) 
     r.Main_OnCommand(40020, 0) -- Time Selection: Remove time selection and loop point selection
-    r.DeleteProjectMarker(NULL, 100, false)
-    r.DeleteProjectMarker(NULL, 101, false)
-    r.DeleteProjectMarker(NULL, 102, false)
-    r.DeleteProjectMarker(NULL, 103, false)
+    r.DeleteProjectMarker(NULL, 996, false)
+    r.DeleteProjectMarker(NULL, 997, false)
+    r.DeleteProjectMarker(NULL, 998, false)
+    r.DeleteProjectMarker(NULL, 999, false)
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
     r.Main_OnCommand(40310, 0) -- Ripple per-track
   else

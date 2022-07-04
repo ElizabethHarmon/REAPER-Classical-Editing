@@ -21,5 +21,5 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 local r = reaper
 local cur_pos = (r.GetPlayState() == 0) and r.GetCursorPosition() or r.GetPlayPosition()
 
-r.DeleteProjectMarker(NULL, 100, false)
-r.AddProjectMarker2(0, false, cur_pos, 0, "DEST-IN", 100, r.ColorToNative(22, 141, 195) | 0x1000000)
+r.DeleteProjectMarker(NULL, 996, false)
+r.AddProjectMarker2(0, false, cur_pos, 0, "DEST-IN", 996, r.ColorToNative(22, 141, 195) | 0x1000000)
