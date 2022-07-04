@@ -19,7 +19,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 ]]
 
 local r = reaper
-local fadeStart, fadeEnd, zoom, view
+local fadeStart, fadeEnd, zoom, view, lock_items, unlock_items
 local fade_editor_toggle = r.NamedCommandLookup("_RS9c61ac0478c3de96f276137a249e9339ed76fc16")
 local state = r.GetToggleCommandState(fade_editor_toggle)
 
@@ -44,12 +44,15 @@ function Main()
 end
 
 function fadeStart()
+  r.Main_OnCommand(40311, 0) -- Set ripple editing all tracks
+  lock_items()
+  r.Main_OnCommand(40289, 0) -- Item: Unselect all items
   r.SetToggleCommandState(1, fade_editor_toggle, 1)
   r.RefreshToolbar2(1, fade_editor_toggle)
   local start_time, end_time = r.GetSet_ArrangeView2(0, false, 0, 0, 0, 0)
   r.SetExtState("Classical Crossfade Editor", "start_time", start_time, true)
   r.SetExtState("Classical Crossfade Editor", "end_time", end_time, true)
-  local select_1 = r.NamedCommandLookup("_SWS_SEL1")
+  local select_1 = r.NamedCommandLookup("_SWS_SEL1") -- SWS: Select only track 1
   r.Main_OnCommand(select_1, 0)
   r.Main_OnCommand(40319, 0) -- move edit cursor to end of item
   view()
@@ -57,6 +60,8 @@ function fadeStart()
 end
 
 function fadeEnd()
+  unlock_items()
+  r.Main_OnCommand(40289, 0) -- Item: Unselect all items
   r.SetToggleCommandState(1, fade_editor_toggle, 0)
   r.RefreshToolbar2(1, fade_editor_toggle)
   view()
@@ -70,6 +75,7 @@ function fadeEnd()
   local start_time = r.GetExtState("Classical Crossfade Editor", "start_time")
   local end_time = r.GetExtState("Classical Crossfade Editor", "end_time")
   r.GetSet_ArrangeView2(0, true, 0, 0, start_time, end_time)
+  r.Main_OnCommand(40310, 0) -- Set ripple editing per-track
 end
 
 function zoom()
@@ -93,6 +99,28 @@ function view()
   r.Main_OnCommand(scroll_home, 0) -- XENAKIOS_TVPAGEHOME
   r.Main_OnCommand(41827, 0) -- View: Show crossfade editor window
   r.Main_OnCommand(40507, 0) -- Options: Offset overlapping media items vertically
+end
+
+function lock_items()
+  r.Main_OnCommand(40182, 0) -- select all items
+  r.Main_OnCommand(40939, 0) -- select track 01
+  local select_children = r.NamedCommandLookup("_SWS_SELCHILDREN2")
+  r.Main_OnCommand(select_children, 0) -- select children of track 1
+  local unselect_items = r.NamedCommandLookup("_SWS_UNSELONTRACKS")
+  r.Main_OnCommand(unselect_items, 0) -- unselect items in first folder
+  local total_items = r.CountSelectedMediaItems(0)
+  for i = 0, total_items - 1, 1 do
+    local item = r.GetSelectedMediaItem(0, i)
+    r.SetMediaItemInfo_Value(item, "C_LOCK", 1)
+  end
+end
+
+function unlock_items()
+  local total_items = r.CountMediaItems(0)
+  for i = 0, total_items - 1, 1 do
+    local item = r.GetMediaItem(0, i)
+    r.SetMediaItemInfo_Value(item, "C_LOCK", 0)
+  end
 end
 
 Main()

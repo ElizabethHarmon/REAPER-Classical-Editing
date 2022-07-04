@@ -1,15 +1,10 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.07.04.3
+@version 22.07.05
 @changelog
-  v22.07.04.3
-  S-D Edit: switch from temp item to cursor position variables comparison
-  v22.07.04.2
-  S-D Edit: switch from temp marker to position variable
-  v22.07.04.1
-  Switch S-D marker numbers to 996-999
-  v22.07.04
-  Crossfade editor: switch from temp marker to position variable
+  v22.07.05
+  Crossfade editor ripples markers & regions
+  NEW: Lock Toggle script (K)
 @metapackage
 @provides
   [main] BethHarmon_Add Destination IN marker.lua
@@ -35,6 +30,7 @@
   [main] BethHarmon_Insert with timestretching.lua
   [main] BethHarmon_Group Play.lua
   [main] BethHarmon_Create Folder.lua
+  [main] BethHarmon_Lock_toggle.lua
 
 @about
   These scripts provide dedicated source-destination markers, edits, crossfade
