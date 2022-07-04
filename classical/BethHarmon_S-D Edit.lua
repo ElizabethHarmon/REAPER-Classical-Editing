@@ -43,10 +43,10 @@ function Main()
     r.Main_OnCommand(42398, 0) -- Item: Paste items/tracks
     r.Main_OnCommand(40310, 0) -- Toggle ripple editing per-track
     unlock_items()
-    local first_track, temp_item = create_crossfades()
+    local first_track, temp_item, cur_pos = create_crossfades()
     clean_up(first_track, temp_item)
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
-    temp_to_dest_in(dest_out)
+    temp_to_dest_in(dest_out, cur_pos)
   elseif dest_in == 1 and source_count == 2 then
     lock_items()
     copy_source()
@@ -62,11 +62,11 @@ function Main()
     local paste = r.NamedCommandLookup("_SWS_AWPASTE")
     r.Main_OnCommand(paste, 0) -- SWS_AWPASTE
     unlock_items()
-    local first_track, temp_item = create_crossfades()
+    local first_track, temp_item, cur_pos = create_crossfades()
     clean_up(first_track, temp_item)
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
     r.Main_OnCommand(40310, 0) -- Toggle ripple editing per-track
-    temp_to_dest_in(dest_out)
+    temp_to_dest_in(dest_out, cur_pos)
   else
     r.ShowMessageBox("Please add at least 3 valid source-destination markers: \n 3-point edit: DEST-IN, SOURCE-IN and SOURCE-OUT \n 4-point edit: DEST-IN, DEST-OUT, SOURCE-IN and SOURCE-OUT"
       , "Source-Destination Edit", 0)
@@ -150,14 +150,14 @@ function create_crossfades()
   local fade_left = r.NamedCommandLookup("_SWS_MOVECURFADELEFT")
   r.Main_OnCommand(fade_left, 0) -- SWS_MOVECURFADELEFT
   r.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
-  add_temp_marker()
+  local cur_pos = add_temp_marker()
   local first_track, temp_item = add_temp_item()
   r.Main_OnCommand(40417, 0) -- Item Navigation: Select and move to next item
   r.Main_OnCommand(fade_left, 0) -- SWS_MOVECURFADELEFT
   r.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
   r.Main_OnCommand(40912, 0) -- Options: Toggle auto-crossfade on split (OFF) 
   r.Main_OnCommand(40020, 0) -- Time Selection: Remove time selection and loop point selection
-  return first_track, temp_item
+  return first_track, temp_item, cur_pos
 end
 
 function clean_up(track, item)
@@ -202,16 +202,13 @@ end
 function add_temp_marker()
   r.Main_OnCommand(41174, 0) -- Item navigation: Move cursor to end of items
   local cur_pos = (r.GetPlayState() == 0) and r.GetCursorPosition() or r.GetPlayPosition()
-  r.AddProjectMarker2(0, false, cur_pos, 0, "TEMP", 10000, r.ColorToNative(176, 130, 151) | 0x1000000)
   r.Main_OnCommand(41173, 0) -- Item navigation: Move cursor to start of items
-
+  return cur_pos
 end
 
-function temp_to_dest_in(dest_out)
-  r.GoToMarker(0, 10000, false)
-  r.DeleteProjectMarker(NULL, 10000, false)
+function temp_to_dest_in(dest_out, cur_pos)
+  r.SetEditCurPos(cur_pos, false, false)
   if dest_out == 0 then
-    local cur_pos = (r.GetPlayState() == 0) and r.GetCursorPosition() or r.GetPlayPosition()
     r.AddProjectMarker2(0, false, cur_pos, 0, "DEST-IN", 996, r.ColorToNative(22, 141, 195) | 0x1000000)
   end
 end
