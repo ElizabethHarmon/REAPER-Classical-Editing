@@ -21,7 +21,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 local r = reaper
 local copy_source, create_crossfades, clean_up, lock_items
 local markers, select_matching_folder, split_at_dest_in, unlock_items, ripple_lock_mode
-local add_temp_marker, temp_to_dest_in, add_temp_item
+local create_dest_in
 
 function Main()
   r.PreventUIRefresh(1)
@@ -43,10 +43,10 @@ function Main()
     r.Main_OnCommand(42398, 0) -- Item: Paste items/tracks
     r.Main_OnCommand(40310, 0) -- Toggle ripple editing per-track
     unlock_items()
-    local first_track, temp_item, cur_pos = create_crossfades()
-    clean_up(first_track, temp_item)
+    local cur_pos = create_crossfades()
+    clean_up()
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
-    temp_to_dest_in(dest_out, cur_pos)
+    create_dest_in(dest_out, cur_pos)
   elseif dest_in == 1 and source_count == 2 then
     lock_items()
     copy_source()
@@ -62,11 +62,11 @@ function Main()
     local paste = r.NamedCommandLookup("_SWS_AWPASTE")
     r.Main_OnCommand(paste, 0) -- SWS_AWPASTE
     unlock_items()
-    local first_track, temp_item, cur_pos = create_crossfades()
-    clean_up(first_track, temp_item)
+    local cur_pos = create_crossfades()
+    clean_up()
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
     r.Main_OnCommand(40310, 0) -- Toggle ripple editing per-track
-    temp_to_dest_in(dest_out, cur_pos)
+    create_dest_in(dest_out, cur_pos)
   else
     r.ShowMessageBox("Please add at least 3 valid source-destination markers: \n 3-point edit: DEST-IN, SOURCE-IN and SOURCE-OUT \n 4-point edit: DEST-IN, DEST-OUT, SOURCE-IN and SOURCE-OUT"
       , "Source-Destination Edit", 0)
@@ -150,23 +150,26 @@ function create_crossfades()
   local fade_left = r.NamedCommandLookup("_SWS_MOVECURFADELEFT")
   r.Main_OnCommand(fade_left, 0) -- SWS_MOVECURFADELEFT
   r.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
-  local cur_pos = add_temp_marker()
-  local first_track, temp_item = add_temp_item()
+  r.Main_OnCommand(41174, 0) -- Item navigation: Move cursor to end of items
+  local cur_pos = (r.GetPlayState() == 0) and r.GetCursorPosition() or r.GetPlayPosition()
+  r.Main_OnCommand(41173, 0) -- Item navigation: Move cursor to start of items
   r.Main_OnCommand(40417, 0) -- Item Navigation: Select and move to next item
-  r.Main_OnCommand(fade_left, 0) -- SWS_MOVECURFADELEFT
-  r.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor
+  local new_cur_pos = (r.GetPlayState() == 0) and r.GetCursorPosition() or r.GetPlayPosition()
+  if new_cur_pos == cur_pos then
+    r.Main_OnCommand(fade_left, 0) -- SWS_MOVECURFADELEFT
+    r.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor 
+  end
   r.Main_OnCommand(40912, 0) -- Options: Toggle auto-crossfade on split (OFF) 
   r.Main_OnCommand(40020, 0) -- Time Selection: Remove time selection and loop point selection
-  return first_track, temp_item, cur_pos
+  return cur_pos
 end
 
-function clean_up(track, item)
+function clean_up()
   r.DeleteProjectMarker(NULL, 996, false)
   r.DeleteProjectMarker(NULL, 997, false)
   r.DeleteProjectMarker(NULL, 998, false)
   r.DeleteProjectMarker(NULL, 999, false)
   r.Main_OnCommand(42395, 0) -- Clear tempo envelope
-  r.DeleteTrackMediaItem(track, item)
 end
 
 function lock_items()
@@ -199,26 +202,11 @@ function ripple_lock_mode()
   end
 end
 
-function add_temp_marker()
-  r.Main_OnCommand(41174, 0) -- Item navigation: Move cursor to end of items
-  local cur_pos = (r.GetPlayState() == 0) and r.GetCursorPosition() or r.GetPlayPosition()
-  r.Main_OnCommand(41173, 0) -- Item navigation: Move cursor to start of items
-  return cur_pos
-end
-
-function temp_to_dest_in(dest_out, cur_pos)
+function create_dest_in(dest_out, cur_pos)
   r.SetEditCurPos(cur_pos, false, false)
   if dest_out == 0 then
     r.AddProjectMarker2(0, false, cur_pos, 0, "DEST-IN", 996, r.ColorToNative(22, 141, 195) | 0x1000000)
   end
-end
-
-function add_temp_item()
-  length = r.GetProjectLength(0)
-  local first_track = r.GetTrack(0, 0)
-  local temp_item = r.AddMediaItemToTrack(first_track)
-  r.SetMediaItemPosition(temp_item, length + 1, false)
-  return first_track, temp_item
 end
 
 Main()

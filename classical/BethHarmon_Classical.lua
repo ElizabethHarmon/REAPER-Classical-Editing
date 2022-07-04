@@ -1,7 +1,9 @@
 @description BethHarmon_Classical
 @author BethHarmon
-@version 22.07.04.2
+@version 22.07.04.3
 @changelog
+  v22.07.04.3
+  S-D Edit: switch from temp item to cursor position variables comparison
   v22.07.04.2
   S-D Edit: switch from temp marker to position variable
   v22.07.04.1
