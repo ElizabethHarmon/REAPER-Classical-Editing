@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BethHarmon Scripts" commit="42375b221b7feaedae2e20e9e9273a4231bffe51">
+<index version="1" name="BethHarmon Scripts" commit="a3a038efb2101e571245bea2a8e1efbbc4542e8a">
   <category name="classical">
     <reapack name="BethHarmon_Classical.lua" type="script" desc="BethHarmon_Classical">
       <version name="22.06.30.2" author="BethHarmon" time="2022-06-30T11:27:06Z">
@@ -400,6 +400,35 @@ Crossfade editor: switch from temp marker to position variable]]></changelog>
         <source main="main" file="BethHarmon_Insert with timestretching.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/42375b221b7feaedae2e20e9e9273a4231bffe51/classical/BethHarmon_Insert%20with%20timestretching.lua</source>
         <source main="main" file="BethHarmon_Group Play.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/42375b221b7feaedae2e20e9e9273a4231bffe51/classical/BethHarmon_Group%20Play.lua</source>
         <source main="main" file="BethHarmon_Create Folder.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/42375b221b7feaedae2e20e9e9273a4231bffe51/classical/BethHarmon_Create%20Folder.lua</source>
+      </version>
+      <version name="22.07.05" author="BethHarmon" time="2022-07-04T22:35:00Z">
+        <changelog><![CDATA[v22.07.05
+Crossfade editor ripples markers & regions
+NEW: Lock Toggle script (K)]]></changelog>
+        <source main="main" file="BethHarmon_Add Destination IN marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Add%20Destination%20IN%20marker.lua</source>
+        <source main="main" file="BethHarmon_Add Destination OUT Marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Add%20Destination%20OUT%20Marker.lua</source>
+        <source main="main" file="BethHarmon_Add Source IN marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Add%20Source%20IN%20marker.lua</source>
+        <source main="main" file="BethHarmon_Add Source OUT marker.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Add%20Source%20OUT%20marker.lua</source>
+        <source main="main" file="BethHarmon_Classical Crossfade Editor.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Classical%20Crossfade%20Editor.lua</source>
+        <source main="main" file="BethHarmon_Classical Crossfade.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Classical%20Crossfade.lua</source>
+        <source main="main" file="BethHarmon_Classical Take Record.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Classical%20Take%20Record.lua</source>
+        <source main="main" file="BethHarmon_Crossfade Editor View.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Crossfade%20Editor%20View.lua</source>
+        <source main="main" file="BethHarmon_Delete All S-D markers.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Delete%20All%20S-D%20markers.lua</source>
+        <source main="main" file="BethHarmon_Duplicate folder (No items).lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Duplicate%20folder%20(No%20items).lua</source>
+        <source main="main" file="BethHarmon_Edit Classical Crossfade.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Edit%20Classical%20Crossfade.lua</source>
+        <source main="main" file="BethHarmon_Prepare Takes.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Prepare%20Takes.lua</source>
+        <source main="main" file="BethHarmon_S-D Edit.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_S-D%20Edit.lua</source>
+        <source main="main" file="BethHarmon_Whole Project View.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Whole%20Project%20View.lua</source>
+        <source main="main" file="BethHarmon_Create source groups (vertical).lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Create%20source%20groups%20(vertical).lua</source>
+        <source main="main" file="BethHarmon_Audition.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Audition.lua</source>
+        <source main="main" file="BethHarmon_BirdBird Razor Children.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_BirdBird%20Razor%20Children.lua</source>
+        <source main="main" file="BethHarmon_3-point edit replace.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_3-point%20edit%20replace.lua</source>
+        <source main="main" file="BethHarmon_Delete Leaving Silence.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Delete%20Leaving%20Silence.lua</source>
+        <source main="main" file="BethHarmon_Delete With Ripple.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Delete%20With%20Ripple.lua</source>
+        <source main="main" file="BethHarmon_Insert with timestretching.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Insert%20with%20timestretching.lua</source>
+        <source main="main" file="BethHarmon_Group Play.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Group%20Play.lua</source>
+        <source main="main" file="BethHarmon_Create Folder.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Create%20Folder.lua</source>
+        <source main="main" file="BethHarmon_Lock_toggle.lua">https://github.com/ElizabethHarmon/REAPER-Classical-Editing/raw/a3a038efb2101e571245bea2a8e1efbbc4542e8a/classical/BethHarmon_Lock_toggle.lua</source>
       </version>
     </reapack>
   </category>
