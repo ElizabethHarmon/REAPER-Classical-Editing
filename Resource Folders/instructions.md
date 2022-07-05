@@ -8,10 +8,22 @@
 - MacOS-arm64.zip (M1 chip) 
 
 1. Download and unzip the REAPER resource bundle for your system (Linux, Windows or MacOS 64-bit)
+2. Create a portable install:
+    * Windows: Download REAPER and check the "Portable Install" box when installing. Unzip and copy the contents of the downloaded resource folder into the portable install directory e.g. C:/REAPER.
+    * MacOS: Download REAPER and drag REAPER64.APP into the downloaded resource folder
+    * Linux: Download and unzip REAPER and drag the contents of the downloaded resource folder into the REAPER subfolder
+4. Start REAPER
+5. Sync ReaPack (to get latest ReaClassical scripts)
+
+or...
+
+1. Download and unzip the REAPER resource bundle for your system (Linux, Windows or MacOS 64-bit)
 2. Rename/backup your existing resource folder (important!)
 3. Replace with the downloaded folder
 4. Start REAPER
 5. Sync ReaPack (to get latest ReaClassical scripts)
+
+
 
 ### Notes
 
