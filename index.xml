@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <index version="1" name="BethHarmon Scripts" commit="bf5ef887707fc3f5eab5ba4afb752d45dcb7c570">
-  <category name="classical">
+  <category name="Reaclassical">
     <reapack name="ReaClassical.lua" type="script" desc="ReaClassical">
       <version name="22.07.05" author="BethHarmon" time="2022-07-05T10:36:52Z">
         <changelog><![CDATA[v22.07.05
