@@ -1,8 +1,10 @@
+SCR 4 0 RSa7436efacaf0efb8ba704fdec38e3caed3499a22 "Custom: BethHarmon_3-point edit replace.lua" "BethHarmon Scripts/classical/BethHarmon_3-point edit replace.lua"
 SCR 4 0 RS32c624d3a18b3109316a17bafa192670a8047d1f "Custom: BethHarmon_Add Destination IN marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Destination IN marker.lua"
 SCR 4 0 RSc48c7d72b89ae4ee52d5f8a1ba08e2f266fff1aa "Custom: BethHarmon_Add Destination OUT Marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Destination OUT Marker.lua"
 SCR 4 0 RS485da334f88a4f2ffa1d084612566589833c35e6 "Custom: BethHarmon_Add Source IN marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Source IN marker.lua"
 SCR 4 0 RS63aa2ec66b935b9c8ef8492979fdba9818f34939 "Custom: BethHarmon_Add Source OUT marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Source OUT marker.lua"
 SCR 4 0 RS98094db59befdb22a828f4f784ceec2ce595a68b "Custom: BethHarmon_Audition.lua" "BethHarmon Scripts/classical/BethHarmon_Audition.lua"
+SCR 516 0 RS2a78b865dca5f05176044b6d8801f19e4d7af562 "Custom: BethHarmon_BirdBird Razor Children.lua" "BethHarmon Scripts/classical/BethHarmon_BirdBird Razor Children.lua"
 SCR 4 0 RS9c61ac0478c3de96f276137a249e9339ed76fc16 "Custom: BethHarmon_Classical Crossfade Editor.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Crossfade Editor.lua"
 SCR 4 0 RS3a37848e27e182da552661629fe6cda880e72b87 "Custom: BethHarmon_Classical Crossfade.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Crossfade.lua"
 SCR 4 0 RSd51d37e55d67816b4d247aa707f3f7caca9b404b "Custom: BethHarmon_Classical Take Record.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Take Record.lua"
@@ -14,8 +16,11 @@ SCR 4 0 RS0509e23e5acd09ad977a52f12287855a4052d3c7 "Custom: BethHarmon_Delete Le
 SCR 4 0 RS18ce59b41c91695767a0fb7b8610560c479df683 "Custom: BethHarmon_Delete With Ripple.lua" "BethHarmon Scripts/classical/BethHarmon_Delete With Ripple.lua"
 SCR 4 0 RS9530c3c713b3322e3c256cd603195ec7307bba64 "Custom: BethHarmon_Duplicate folder (No items).lua" "BethHarmon Scripts/classical/BethHarmon_Duplicate folder (No items).lua"
 SCR 4 0 RS03fbdd7a8a48892177467951bd6923fe18ceacba "Custom: BethHarmon_Edit Classical Crossfade.lua" "BethHarmon Scripts/classical/BethHarmon_Edit Classical Crossfade.lua"
+SCR 4 0 RSf254abaa36ff403693c63f6bef92cfd9f064fb21 "Custom: BethHarmon_Group Play.lua" "BethHarmon Scripts/classical/BethHarmon_Group Play.lua"
 SCR 4 0 RSf769d9330acb0090519eb739dd2a8b8b8fa764e8 "Custom: BethHarmon_Insert with timestretching.lua" "BethHarmon Scripts/classical/BethHarmon_Insert with timestretching.lua"
+SCR 4 0 RS3ed06835a4efc399f4ba510921462d3583b401cd "Custom: BethHarmon_Lock_toggle.lua" "BethHarmon Scripts/classical/BethHarmon_Lock_toggle.lua"
 SCR 4 0 RSc5dda88c2a8cee1326915b8ed57f1e8dbc64cd4f "Custom: BethHarmon_Prepare Takes.lua" "BethHarmon Scripts/classical/BethHarmon_Prepare Takes.lua"
+SCR 4 0 RS973f2f307a4fbfbf27dee5a6558b5844beca8c0b "Custom: BethHarmon_Quick Crossfade Editor.lua" "BethHarmon Scripts/classical/BethHarmon_Quick Crossfade Editor.lua"
 SCR 4 0 RS20a8d20b71ffcee24fd8808498c9052d55812c46 "Custom: BethHarmon_S-D Edit.lua" "BethHarmon Scripts/classical/BethHarmon_S-D Edit.lua"
 SCR 4 0 RS9955d327581b58ca4381ed90a162792e7e2c2f66 "Custom: BethHarmon_Whole Project View.lua" "BethHarmon Scripts/classical/BethHarmon_Whole Project View.lua"
 KEY 1 49 _RS32c624d3a18b3109316a17bafa192670a8047d1f 0
@@ -40,6 +45,7 @@ KEY 1 8 _RS18ce59b41c91695767a0fb7b8610560c479df683 0
 KEY 0 92 _RS9530c3c713b3322e3c256cd603195ec7307bba64 0
 KEY 1 90 _RS03fbdd7a8a48892177467951bd6923fe18ceacba 0
 KEY 1 115 _RSf769d9330acb0090519eb739dd2a8b8b8fa764e8 0
+KEY 1 75 _RS3ed06835a4efc399f4ba510921462d3583b401cd 0
 KEY 1 84 _RSc5dda88c2a8cee1326915b8ed57f1e8dbc64cd4f 0
 KEY 1 53 _RS20a8d20b71ffcee24fd8808498c9052d55812c46 0
 KEY 1 32813 _RS20a8d20b71ffcee24fd8808498c9052d55812c46 0

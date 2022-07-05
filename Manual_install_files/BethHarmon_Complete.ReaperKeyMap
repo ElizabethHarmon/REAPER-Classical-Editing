@@ -30,6 +30,8 @@ SCR 4 0 RS18ce59b41c91695767a0fb7b8610560c479df683 "Custom: BethHarmon_Delete Wi
 SCR 4 0 RSf254abaa36ff403693c63f6bef92cfd9f064fb21 "Custom: BethHarmon_Group Play.lua" "BethHarmon Scripts/classical/BethHarmon_Group Play.lua"
 SCR 4 0 RSf769d9330acb0090519eb739dd2a8b8b8fa764e8 "Custom: BethHarmon_Insert with timestretching.lua" "BethHarmon Scripts/classical/BethHarmon_Insert with timestretching.lua"
 SCR 4 0 RS73f9e0d5a1afeebc7df383a68ca9d02b8a51c49b "Custom: BethHarmon_Create Folder.lua" "BethHarmon Scripts/classical/BethHarmon_Create Folder.lua"
+SCR 4 0 RS973f2f307a4fbfbf27dee5a6558b5844beca8c0b "Custom: BethHarmon_Quick Crossfade Editor.lua" "BethHarmon Scripts/classical/BethHarmon_Quick Crossfade Editor.lua"
+SCR 4 0 RS3ed06835a4efc399f4ba510921462d3583b401cd "Custom: BethHarmon_Lock_toggle.lua" "BethHarmon Scripts/classical/BethHarmon_Lock_toggle.lua"
 KEY 25 82 0 0
 KEY 9 80 0 0
 KEY 17 13 0 0
@@ -53,7 +55,7 @@ KEY 5 84 0 0
 KEY 1 120 0 0
 KEY 1 89 0 0
 KEY 1 114 0 0
-KEY 1 75 1135 0
+KEY 1 102 0 0
 KEY 17 80 1155 0
 KEY 1 82 40015 0
 KEY 1 79 40016 0
@@ -107,4 +109,5 @@ KEY 9 8 _RS0509e23e5acd09ad977a52f12287855a4052d3c7 0
 KEY 1 8 _RS18ce59b41c91695767a0fb7b8610560c479df683 0
 KEY 1 115 _RSf769d9330acb0090519eb739dd2a8b8b8fa764e8 0
 KEY 1 118 _RS73f9e0d5a1afeebc7df383a68ca9d02b8a51c49b 0
+KEY 1 75 _RS3ed06835a4efc399f4ba510921462d3583b401cd 0
 KEY 1 9 40440 32060
