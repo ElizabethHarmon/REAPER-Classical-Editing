@@ -20,7 +20,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 local r = reaper
 local fadeStart, fadeEnd, zoom, view, lock_items, unlock_items
-local fade_editor_toggle = r.NamedCommandLookup("_RS9c61ac0478c3de96f276137a249e9339ed76fc16")
+local fade_editor_toggle = r.NamedCommandLookup("_RSa91c127e4694f016de8094f76aa0974ed1b79f40")
 local state = r.GetToggleCommandState(fade_editor_toggle)
 
 function Main()

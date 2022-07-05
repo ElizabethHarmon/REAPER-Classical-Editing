@@ -23,7 +23,7 @@ r.PreventUIRefresh(1)
 r.Undo_BeginBlock()
 
 function Main()
-    local fade_editor_toggle = r.NamedCommandLookup("_RS9c61ac0478c3de96f276137a249e9339ed76fc16")
+    local fade_editor_toggle = r.NamedCommandLookup("_RSa91c127e4694f016de8094f76aa0974ed1b79f40")
     local state = r.GetToggleCommandState(fade_editor_toggle)
     local select_items = r.NamedCommandLookup("_XENAKIOS_SELITEMSUNDEDCURSELTX")
     r.Main_OnCommand(select_items, 0) -- Xenakios/SWS: Select items under edit cursor on selected tracks

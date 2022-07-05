@@ -1,7 +1,9 @@
 @description ReaClassical
 @author BethHarmon
-@version 22.07.05.1
+@version 22.07.05.2
 @changelog
+  v22.07.05.2
+  Update scripts that reference themselves as toggle
   v22.07.05.1
   Update name to ReaClassical
   v22.07.05
