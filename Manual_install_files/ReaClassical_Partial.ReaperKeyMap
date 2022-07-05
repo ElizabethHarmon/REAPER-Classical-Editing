@@ -1,52 +1,50 @@
-SCR 4 0 RSa7436efacaf0efb8ba704fdec38e3caed3499a22 "Custom: BethHarmon_3-point edit replace.lua" "BethHarmon Scripts/classical/BethHarmon_3-point edit replace.lua"
-SCR 4 0 RS32c624d3a18b3109316a17bafa192670a8047d1f "Custom: BethHarmon_Add Destination IN marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Destination IN marker.lua"
-SCR 4 0 RSc48c7d72b89ae4ee52d5f8a1ba08e2f266fff1aa "Custom: BethHarmon_Add Destination OUT Marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Destination OUT Marker.lua"
-SCR 4 0 RS485da334f88a4f2ffa1d084612566589833c35e6 "Custom: BethHarmon_Add Source IN marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Source IN marker.lua"
-SCR 4 0 RS63aa2ec66b935b9c8ef8492979fdba9818f34939 "Custom: BethHarmon_Add Source OUT marker.lua" "BethHarmon Scripts/classical/BethHarmon_Add Source OUT marker.lua"
-SCR 4 0 RS98094db59befdb22a828f4f784ceec2ce595a68b "Custom: BethHarmon_Audition.lua" "BethHarmon Scripts/classical/BethHarmon_Audition.lua"
-SCR 516 0 RS2a78b865dca5f05176044b6d8801f19e4d7af562 "Custom: BethHarmon_BirdBird Razor Children.lua" "BethHarmon Scripts/classical/BethHarmon_BirdBird Razor Children.lua"
-SCR 4 0 RS9c61ac0478c3de96f276137a249e9339ed76fc16 "Custom: BethHarmon_Classical Crossfade Editor.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Crossfade Editor.lua"
-SCR 4 0 RS3a37848e27e182da552661629fe6cda880e72b87 "Custom: BethHarmon_Classical Crossfade.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Crossfade.lua"
-SCR 4 0 RSd51d37e55d67816b4d247aa707f3f7caca9b404b "Custom: BethHarmon_Classical Take Record.lua" "BethHarmon Scripts/classical/BethHarmon_Classical Take Record.lua"
-SCR 4 0 RS73f9e0d5a1afeebc7df383a68ca9d02b8a51c49b "Custom: BethHarmon_Create Folder.lua" "BethHarmon Scripts/classical/BethHarmon_Create Folder.lua"
-SCR 4 0 RS7cabeec720993dfeedef4b7a48cb427bdd1e66c5 "Custom: BethHarmon_Create source groups (vertical).lua" "BethHarmon Scripts/classical/BethHarmon_Create source groups (vertical).lua"
-SCR 4 0 RS11490fe5592dd62143523cb4b57ab54549d69de9 "Custom: BethHarmon_Crossfade Editor View.lua" "BethHarmon Scripts/classical/BethHarmon_Crossfade Editor View.lua"
-SCR 4 0 RS5d06a61d2931d0e481139b76b0c9580bf0f6e9d1 "Custom: BethHarmon_Delete All S-D markers.lua" "BethHarmon Scripts/classical/BethHarmon_Delete All S-D markers.lua"
-SCR 4 0 RS0509e23e5acd09ad977a52f12287855a4052d3c7 "Custom: BethHarmon_Delete Leaving Silence.lua" "BethHarmon Scripts/classical/BethHarmon_Delete Leaving Silence.lua"
-SCR 4 0 RS18ce59b41c91695767a0fb7b8610560c479df683 "Custom: BethHarmon_Delete With Ripple.lua" "BethHarmon Scripts/classical/BethHarmon_Delete With Ripple.lua"
-SCR 4 0 RS9530c3c713b3322e3c256cd603195ec7307bba64 "Custom: BethHarmon_Duplicate folder (No items).lua" "BethHarmon Scripts/classical/BethHarmon_Duplicate folder (No items).lua"
-SCR 4 0 RS03fbdd7a8a48892177467951bd6923fe18ceacba "Custom: BethHarmon_Edit Classical Crossfade.lua" "BethHarmon Scripts/classical/BethHarmon_Edit Classical Crossfade.lua"
-SCR 4 0 RSf254abaa36ff403693c63f6bef92cfd9f064fb21 "Custom: BethHarmon_Group Play.lua" "BethHarmon Scripts/classical/BethHarmon_Group Play.lua"
-SCR 4 0 RSf769d9330acb0090519eb739dd2a8b8b8fa764e8 "Custom: BethHarmon_Insert with timestretching.lua" "BethHarmon Scripts/classical/BethHarmon_Insert with timestretching.lua"
-SCR 4 0 RS3ed06835a4efc399f4ba510921462d3583b401cd "Custom: BethHarmon_Lock_toggle.lua" "BethHarmon Scripts/classical/BethHarmon_Lock_toggle.lua"
-SCR 4 0 RSc5dda88c2a8cee1326915b8ed57f1e8dbc64cd4f "Custom: BethHarmon_Prepare Takes.lua" "BethHarmon Scripts/classical/BethHarmon_Prepare Takes.lua"
-SCR 4 0 RS973f2f307a4fbfbf27dee5a6558b5844beca8c0b "Custom: BethHarmon_Quick Crossfade Editor.lua" "BethHarmon Scripts/classical/BethHarmon_Quick Crossfade Editor.lua"
-SCR 4 0 RS20a8d20b71ffcee24fd8808498c9052d55812c46 "Custom: BethHarmon_S-D Edit.lua" "BethHarmon Scripts/classical/BethHarmon_S-D Edit.lua"
-SCR 4 0 RS9955d327581b58ca4381ed90a162792e7e2c2f66 "Custom: BethHarmon_Whole Project View.lua" "BethHarmon Scripts/classical/BethHarmon_Whole Project View.lua"
-KEY 1 49 _RS32c624d3a18b3109316a17bafa192670a8047d1f 0
-KEY 9 32804 _RS32c624d3a18b3109316a17bafa192670a8047d1f 0
-KEY 1 50 _RSc48c7d72b89ae4ee52d5f8a1ba08e2f266fff1aa 0
-KEY 9 32803 _RSc48c7d72b89ae4ee52d5f8a1ba08e2f266fff1aa 0
-KEY 1 51 _RS485da334f88a4f2ffa1d084612566589833c35e6 0
-KEY 5 32804 _RS485da334f88a4f2ffa1d084612566589833c35e6 0
-KEY 1 52 _RS63aa2ec66b935b9c8ef8492979fdba9818f34939 0
-KEY 5 32803 _RS63aa2ec66b935b9c8ef8492979fdba9818f34939 0
-KEY 1 65 _RS98094db59befdb22a828f4f784ceec2ce595a68b 0
-KEY 1 70 _RS9c61ac0478c3de96f276137a249e9339ed76fc16 0
-KEY 1 88 _RS3a37848e27e182da552661629fe6cda880e72b87 0
-KEY 1 110 _RSd51d37e55d67816b4d247aa707f3f7caca9b404b 0
-KEY 1 118 _RS73f9e0d5a1afeebc7df383a68ca9d02b8a51c49b 0
-KEY 1 119 _RS7cabeec720993dfeedef4b7a48cb427bdd1e66c5 0
-KEY 1 116 _RS11490fe5592dd62143523cb4b57ab54549d69de9 0
-KEY 5 32814 _RS5d06a61d2931d0e481139b76b0c9580bf0f6e9d1 0
-KEY 9 32814 _RS5d06a61d2931d0e481139b76b0c9580bf0f6e9d1 0
-KEY 9 8 _RS0509e23e5acd09ad977a52f12287855a4052d3c7 0
-KEY 1 8 _RS18ce59b41c91695767a0fb7b8610560c479df683 0
-KEY 0 92 _RS9530c3c713b3322e3c256cd603195ec7307bba64 0
-KEY 1 90 _RS03fbdd7a8a48892177467951bd6923fe18ceacba 0
-KEY 1 115 _RSf769d9330acb0090519eb739dd2a8b8b8fa764e8 0
-KEY 1 75 _RS3ed06835a4efc399f4ba510921462d3583b401cd 0
-KEY 1 84 _RSc5dda88c2a8cee1326915b8ed57f1e8dbc64cd4f 0
-KEY 1 53 _RS20a8d20b71ffcee24fd8808498c9052d55812c46 0
-KEY 1 32813 _RS20a8d20b71ffcee24fd8808498c9052d55812c46 0
-KEY 0 96 _RS9955d327581b58ca4381ed90a162792e7e2c2f66 0
+SCR 4 0 RS7bc2f38348b88783a587cce99699392496c84e28 "Custom: ReaClassical_3-point edit replace.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_3-point edit replace.lua"
+SCR 4 0 RSd1785eb4f761f90fe2c7ac79c9236517aed22038 "Custom: ReaClassical_Add Destination IN marker.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Add Destination IN marker.lua"
+SCR 4 0 RS360f363fe49c260a088441a010e6dfc854c4e0d1 "Custom: ReaClassical_Add Destination OUT Marker.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Add Destination OUT Marker.lua"
+SCR 4 0 RSc6f76a69343f6d012cf34e9335c61a6bf0813c98 "Custom: ReaClassical_Add Source IN marker.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Add Source IN marker.lua"
+SCR 4 0 RS1db34240b44ad19631de8275b897eef23b7beebf "Custom: ReaClassical_Add Source OUT marker.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Add Source OUT marker.lua"
+SCR 4 0 RScd4b06833506bbe04ae4be187e20569e33583617 "Custom: ReaClassical_Audition.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Audition.lua"
+SCR 4 0 RSbf7b2e83e3ffb6ed51d039407f59c836a842e3c3 "Custom: ReaClassical_BirdBird Razor Children.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_BirdBird Razor Children.lua"
+SCR 4 0 RSa91c127e4694f016de8094f76aa0974ed1b79f40 "Custom: ReaClassical_Classical Crossfade Editor.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Classical Crossfade Editor.lua"
+SCR 4 0 RS14e94d97146958ca3759bbe3980be46666800f23 "Custom: ReaClassical_Classical Crossfade.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Classical Crossfade.lua"
+SCR 4 0 RS14d72cef67a17b1ea0b06fa65e2b750e0c9504f1 "Custom: ReaClassical_Classical Take Record.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Classical Take Record.lua"
+SCR 4 0 RS92fbba6d5eedafe6e1b4ccdc1877da301d9288de "Custom: ReaClassical_Create Folder.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Create Folder.lua"
+SCR 4 0 RS6c154ad886bc36eb373b7700928eddf153514002 "Custom: ReaClassical_Create source groups (vertical).lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Create source groups (vertical).lua"
+SCR 4 0 RS94afccdf75b1d985df9f8d1a3dfc98ffb0b5b188 "Custom: ReaClassical_Crossfade Editor View.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Crossfade Editor View.lua"
+SCR 4 0 RS55746557c87ba40f468b2ab37c27e76edeb79ac7 "Custom: ReaClassical_Delete All S-D markers.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Delete All S-D markers.lua"
+SCR 4 0 RSddd6379cd9283760a6178764bdb37aa70e13ac30 "Custom: ReaClassical_Delete Leaving Silence.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Delete Leaving Silence.lua"
+SCR 4 0 RS6bddfd1974b39162cda0254e6a400fd07638e2d1 "Custom: ReaClassical_Delete With Ripple.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Delete With Ripple.lua"
+SCR 4 0 RSc8993f84a7cb526ca5a79a62ac849edc30984f17 "Custom: ReaClassical_Duplicate folder (No items).lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Duplicate folder (No items).lua"
+SCR 4 0 RS985e36468de8ad4f082975ade0f682acd0001a51 "Custom: ReaClassical_Edit Classical Crossfade.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Edit Classical Crossfade.lua"
+SCR 4 0 RS0ee02f05621ffd2e173ef6b1008a07924aa851b6 "Custom: ReaClassical_Group Play.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Group Play.lua"
+SCR 4 0 RS531d1c67ea9eae94b7508c6988f6365f8571c242 "Custom: ReaClassical_Insert with timestretching.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Insert with timestretching.lua"
+SCR 4 0 RS6dbff221b7cfc72702fce6bc90a13fe093b1dffb "Custom: ReaClassical_Lock_toggle.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Lock_toggle.lua"
+SCR 4 0 RS1988669834710c8b8c96481331214ce3263c046e "Custom: ReaClassical_Prepare Takes.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Prepare Takes.lua"
+SCR 4 0 RSb1f5572d3718de46db91007590a2531b400dbdf5 "Custom: ReaClassical_S-D Edit.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_S-D Edit.lua"
+SCR 4 0 RSae51ddf980d2cff0f0c0c9f2ea312d24fa2669ff "Custom: ReaClassical_Whole Project View.lua" "BethHarmon Scripts/ReaClassical/ReaClassical_Whole Project View.lua"
+KEY 9 32804 _RSd1785eb4f761f90fe2c7ac79c9236517aed22038 0
+KEY 1 49 _RSd1785eb4f761f90fe2c7ac79c9236517aed22038 0
+KEY 9 32803 _RS360f363fe49c260a088441a010e6dfc854c4e0d1 0
+KEY 1 50 _RS360f363fe49c260a088441a010e6dfc854c4e0d1 0
+KEY 5 32804 _RSc6f76a69343f6d012cf34e9335c61a6bf0813c98 0
+KEY 1 51 _RSc6f76a69343f6d012cf34e9335c61a6bf0813c98 0
+KEY 5 32803 _RS1db34240b44ad19631de8275b897eef23b7beebf 0
+KEY 1 52 _RS1db34240b44ad19631de8275b897eef23b7beebf 0
+KEY 1 65 _RScd4b06833506bbe04ae4be187e20569e33583617 0
+KEY 1 70 _RSa91c127e4694f016de8094f76aa0974ed1b79f40 0
+KEY 1 88 _RS14e94d97146958ca3759bbe3980be46666800f23 0
+KEY 1 110 _RS14d72cef67a17b1ea0b06fa65e2b750e0c9504f1 0
+KEY 1 118 _RS92fbba6d5eedafe6e1b4ccdc1877da301d9288de 0
+KEY 1 119 _RS6c154ad886bc36eb373b7700928eddf153514002 0
+KEY 1 116 _RS94afccdf75b1d985df9f8d1a3dfc98ffb0b5b188 0
+KEY 9 32814 _RS55746557c87ba40f468b2ab37c27e76edeb79ac7 0
+KEY 9 8 _RSddd6379cd9283760a6178764bdb37aa70e13ac30 0
+KEY 1 8 _RS6bddfd1974b39162cda0254e6a400fd07638e2d1 0
+KEY 0 92 _RSc8993f84a7cb526ca5a79a62ac849edc30984f17 0
+KEY 1 90 _RS985e36468de8ad4f082975ade0f682acd0001a51 0
+KEY 1 115 _RS531d1c67ea9eae94b7508c6988f6365f8571c242 0
+KEY 1 75 _RS6dbff221b7cfc72702fce6bc90a13fe093b1dffb 0
+KEY 1 84 _RS1988669834710c8b8c96481331214ce3263c046e 0
+KEY 1 32813 _RSb1f5572d3718de46db91007590a2531b400dbdf5 0
+KEY 1 53 _RSb1f5572d3718de46db91007590a2531b400dbdf5 0
+KEY 0 96 _RSae51ddf980d2cff0f0c0c9f2ea312d24fa2669ff 0
