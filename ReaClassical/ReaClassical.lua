@@ -1,7 +1,9 @@
 @description ReaClassical
 @author BethHarmon
-@version 22.07.05
+@version 22.07.05.1
 @changelog
+  v22.07.05.1
+  Update name to ReaClassical
   v22.07.05
   Crossfade editor ripples markers & regions
   NEW: Lock Toggle script (K)
