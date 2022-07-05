@@ -52,20 +52,20 @@ function create_destination_group()
       r.InsertTrackAtIndex(0, true)
     end
     for i = 0, tonumber(num) - 1, 1 do
-      track = r.GetTrack(0, i)
+      local track = r.GetTrack(0, i)
       r.SetTrackSelected(track, 1)
     end
     local make_folder = r.NamedCommandLookup("_SWS_MAKEFOLDER")
     r.Main_OnCommand(make_folder, 0) -- make folder from tracks
     for i = 0, tonumber(num) - 1, 1 do
-      track = r.GetTrack(0, i)
+      local track = r.GetTrack(0, i)
       r.SetTrackSelected(track, 0)
     end
   end
 end
 
 function solo()
-  track = r.GetSelectedTrack(0, 0)
+  local track = r.GetSelectedTrack(0, 0)
   r.SetMediaTrackInfo_Value(track, "I_SOLO", 1)
 
   for i = 0, r.CountTracks(0) - 1, 1 do
@@ -79,7 +79,7 @@ end
 
 function mixer()
   for i = 0, r.CountTracks(0) - 1, 1 do
-    track = r.GetTrack(0, i)
+    local track = r.GetTrack(0, i)
     if r.IsTrackSelected(track) then
       r.SetMediaTrackInfo_Value(track, 'B_SHOWINMIXER', 1)
     else
@@ -92,7 +92,7 @@ function folder_check()
   local folders = 0
   local total_tracks = r.CountTracks(0)
   for i = 0, total_tracks - 1, 1 do
-    track = r.GetTrack(0, i)
+    local track = r.GetTrack(0, i)
     if r.GetMediaTrackInfo_Value(track, "I_FOLDERDEPTH") == 1 then
       folders = folders + 1
     end

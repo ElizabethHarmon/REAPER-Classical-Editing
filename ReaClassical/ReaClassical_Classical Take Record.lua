@@ -60,7 +60,7 @@ function Main()
 end
 
 function solo()
-  track = r.GetSelectedTrack(0, 0)
+  local track = r.GetSelectedTrack(0, 0)
   r.SetMediaTrackInfo_Value(track, "I_SOLO", 1)
 
   for i = 0, r.CountTracks(0) - 1, 1 do
@@ -74,7 +74,7 @@ end
 
 function mixer()
   for i = 0, r.CountTracks(0) - 1, 1 do
-    track = r.GetTrack(0, i)
+    local track = r.GetTrack(0, i)
     if r.IsTrackSelected(track) then
       r.SetMediaTrackInfo_Value(track, 'B_SHOWINMIXER', 1)
     else

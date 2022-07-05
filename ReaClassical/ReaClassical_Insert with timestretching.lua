@@ -107,7 +107,7 @@ function select_matching_folder()
   local _, _, _, _, label, _, _ = r.EnumProjectMarkers3(0, marker_id)
   local folder_number = tonumber(string.match(label, "(%d*):SOURCE*"))
   for i = 0, r.CountTracks(0) - 1, 1 do
-    track = r.GetTrack(0, i)
+    local track = r.GetTrack(0, i)
     if r.GetMediaTrackInfo_Value(track, "IP_TRACKNUMBER") == folder_number then
       r.SetOnlyTrackSelected(track)
       break

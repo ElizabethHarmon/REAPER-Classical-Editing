@@ -30,7 +30,7 @@ function Main()
   local folders = 0
   local empty = false
   for i = 0, total_tracks - 1, 1 do
-    track = r.GetTrack(0, i)
+    local track = r.GetTrack(0, i)
     if r.GetMediaTrackInfo_Value(track, "I_FOLDERDEPTH") == 1.0 then
       folders = folders + 1
       local items = r.CountTrackMediaItems(track)
@@ -95,8 +95,8 @@ local function horizontal_group()
   r.Main_OnCommand(40032, 0) -- Item grouping: Group items
 end
 
-function vertical_group()
-  track = r.GetSelectedTrack(0, 0)
+function vertical_group(length)
+  local track = r.GetSelectedTrack(0, 0)
   local item = r.AddMediaItemToTrack(track)
   r.SetMediaItemPosition(item, length + 1, false)
 
@@ -110,7 +110,7 @@ function vertical_group()
 end
 
 function horizontal()
-  length = r.GetProjectLength(0)
+  local length = r.GetProjectLength(0)
   local num_of_tracks = r.CountTracks(0)
   local last_track = r.GetTrack(0, num_of_tracks - 1)
   local new_item = r.AddMediaItemToTrack(last_track)
@@ -135,12 +135,12 @@ function vertical()
   local select_all_folders = r.NamedCommandLookup("_SWS_SELALLPARENTS")
   r.Main_OnCommand(select_all_folders, 0) -- select all folders
   local num_of_folders = r.CountSelectedTracks(0)
-  length = r.GetProjectLength(0)
+  local length = r.GetProjectLength(0)
   local first_track = r.GetTrack(0, 0)
   r.SetOnlyTrackSelected(first_track)
   for i = 1, num_of_folders, 1 do
     vertical_color()
-    vertical_group()
+    vertical_group(length)
     local next_folder = r.NamedCommandLookup("_SWS_SELNEXTFOLDER")
     r.Main_OnCommand(next_folder, 0) -- select next folder
   end

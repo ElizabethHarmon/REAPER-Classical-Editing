@@ -30,13 +30,13 @@ function Main()
         r.InsertTrackAtIndex(0, true)
       end
       for i = 0, tonumber(num) - 1, 1 do
-        track = r.GetTrack(0, i)
+        local track = r.GetTrack(0, i)
         r.SetTrackSelected(track, 1)
       end
       local folder = r.NamedCommandLookup("_SWS_MAKEFOLDER")
       r.Main_OnCommand(folder, 0)
       for i = 0, tonumber(num) - 1, 1 do
-        track = r.GetTrack(0, i)
+        local track = r.GetTrack(0, i)
         r.SetTrackSelected(track, 0)
       end
     end

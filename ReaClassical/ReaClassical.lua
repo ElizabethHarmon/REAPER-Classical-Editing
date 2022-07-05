@@ -1,7 +1,9 @@
 @description ReaClassical
 @author BethHarmon
-@version 22.07.05.2
+@version 22.07.05.3
 @changelog
+  v22.07.05.3
+  Convert track to local variable and pass local length for vertical group
   v22.07.05.2
   Update scripts that reference themselves as toggle
   v22.07.05.1
