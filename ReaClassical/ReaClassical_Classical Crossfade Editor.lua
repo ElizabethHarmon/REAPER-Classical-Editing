@@ -28,10 +28,7 @@ function Main()
   r.Undo_BeginBlock()
 
 
-  if state == -1 then
-    r.SetToggleCommandState(1, fade_editor_toggle, 0)
-    fadeStart()
-  elseif state == 0 then
+  if state == -1 or state == 0 then
     fadeStart()
   else
     fadeEnd()
@@ -44,10 +41,10 @@ function Main()
 end
 
 function fadeStart()
+  r.SetToggleCommandState(1, fade_editor_toggle, 1)
   r.Main_OnCommand(40311, 0) -- Set ripple editing all tracks
   lock_items()
   r.Main_OnCommand(40289, 0) -- Item: Unselect all items
-  r.SetToggleCommandState(1, fade_editor_toggle, 1)
   r.RefreshToolbar2(1, fade_editor_toggle)
   local start_time, end_time = r.GetSet_ArrangeView2(0, false, 0, 0, 0, 0)
   r.SetExtState("Classical Crossfade Editor", "start_time", start_time, true)
@@ -60,10 +57,10 @@ function fadeStart()
 end
 
 function fadeEnd()
-  unlock_items()
-  r.Main_OnCommand(40289, 0) -- Item: Unselect all items
   r.SetToggleCommandState(1, fade_editor_toggle, 0)
   r.RefreshToolbar2(1, fade_editor_toggle)
+  unlock_items()
+  r.Main_OnCommand(40289, 0) -- Item: Unselect all items
   view()
   local selected_items = r.CountSelectedMediaItems(0)
   if selected_items > 0 then
@@ -93,12 +90,26 @@ end
 
 function view()
   local track1 = r.NamedCommandLookup("_SWS_SEL1")
+  local tog_state = r.GetToggleCommandState(fade_editor_toggle)
+  local win_state = r.GetToggleCommandState(41827)
+  local overlap_state = r.GetToggleCommandState(40507)
   r.Main_OnCommand(track1, 0) -- select only track 1
-  r.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
+
+  local max_height = r.GetToggleCommandState(40113)
+  if max_height + tog_state == 1 then
+    r.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
+  end
+
+  if overlap_state + tog_state == 1 then
+    r.Main_OnCommand(40507, 0) -- Options: Offset overlapping media items vertically
+  end
+
+  if tog_state + win_state == 1 then
+    r.Main_OnCommand(41827, 0) -- View: Show crossfade editor window
+  end
+
   local scroll_home = r.NamedCommandLookup("_XENAKIOS_TVPAGEHOME")
   r.Main_OnCommand(scroll_home, 0) -- XENAKIOS_TVPAGEHOME
-  r.Main_OnCommand(41827, 0) -- View: Show crossfade editor window
-  r.Main_OnCommand(40507, 0) -- Options: Offset overlapping media items vertically
 end
 
 function lock_items()

@@ -1,16 +1,9 @@
 @description ReaClassical
 @author BethHarmon
-@version 22.07.05.3
+@version 22.07.06
 @changelog
-  v22.07.05.3
-  Convert track to local variable and pass local length for vertical group
-  v22.07.05.2
-  Update scripts that reference themselves as toggle
-  v22.07.05.1
-  Update name to ReaClassical
-  v22.07.05
-  Crossfade editor ripples markers & regions
-  NEW: Lock Toggle script (K)
+  v22.07.06
+  Crossfade Editor (F): Open and close gracefully whatever the overlap, zoom or fade dialog state
 @metapackage
 @provides
   [main] ReaClassical_Add Destination IN marker.lua
