@@ -1,7 +1,9 @@
 @description ReaClassical
 @author BethHarmon
-@version 22.07.06.1
+@version 22.07.06.2
 @changelog
+  v22.07.06.2
+  Fix S-D edit regression
   v22.07.06.1
   Remove Crossfade Editor View script
   v22.07.06

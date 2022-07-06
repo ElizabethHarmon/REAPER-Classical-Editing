@@ -43,7 +43,7 @@ function Main()
     r.Main_OnCommand(42398, 0) -- Item: Paste items/tracks
     r.Main_OnCommand(40310, 0) -- Toggle ripple editing per-track
     unlock_items()
-    local cur_pos = create_crossfades()
+    local cur_pos = create_crossfades(dest_out)
     clean_up()
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
     create_dest_in(dest_out, cur_pos)
@@ -62,7 +62,7 @@ function Main()
     local paste = r.NamedCommandLookup("_SWS_AWPASTE")
     r.Main_OnCommand(paste, 0) -- SWS_AWPASTE
     unlock_items()
-    local cur_pos = create_crossfades()
+    local cur_pos = create_crossfades(dest_out)
     clean_up()
     r.Main_OnCommand(40289, 0) -- Item: Unselect all items
     r.Main_OnCommand(40310, 0) -- Toggle ripple editing per-track
@@ -145,7 +145,7 @@ function split_at_dest_in()
   r.Main_OnCommand(40289, 0) -- Item: Unselect all items
 end
 
-function create_crossfades()
+function create_crossfades(dest_out)
   r.Main_OnCommand(41173, 0) -- Item navigation: Move cursor to start of items
   local fade_left = r.NamedCommandLookup("_SWS_MOVECURFADELEFT")
   r.Main_OnCommand(fade_left, 0) -- SWS_MOVECURFADELEFT
@@ -155,7 +155,7 @@ function create_crossfades()
   r.Main_OnCommand(41173, 0) -- Item navigation: Move cursor to start of items
   r.Main_OnCommand(40417, 0) -- Item Navigation: Select and move to next item
   local new_cur_pos = (r.GetPlayState() == 0) and r.GetCursorPosition() or r.GetPlayPosition()
-  if new_cur_pos == cur_pos then
+  if (new_cur_pos - cur_pos < 0.000001) and dest_out == 1 then
     r.Main_OnCommand(fade_left, 0) -- SWS_MOVECURFADELEFT
     r.Main_OnCommand(41305, 0) -- Item edit: Trim left edge of item to edit cursor 
   end
