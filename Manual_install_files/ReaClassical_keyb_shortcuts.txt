@@ -24,11 +24,6 @@ A       Audition (folder or track)
 
 F       Fade Editor
 
-===only if Fade Editor options are messed up===
-F5      Crossfade Editor View (toggle)
-F6      Overlapping items in lanes View (toggle)
-===============================================
-
 X       Classical Crossfade
 Z       Edit existing crossfade across two lanes (when in Fade Editor view)
 
@@ -71,11 +66,3 @@ K       Lock Toggle
 B       Batch file converter
 C       Generate CUE from project CD markers
 R       Render
-
-Required files
-==============
-SWS, ReaPack
-BethHarmon_Classical (BethHarmon via import of https://elizabethharmon.github.io/REAPER-Classical-Editing/index.xml)
-Various_functions (MPL)
-JS reascript API (juliansader)
-Generate CUE from project markers (MPL)
