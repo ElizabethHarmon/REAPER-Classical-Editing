@@ -1,7 +1,9 @@
 @description ReaClassical
 @author BethHarmon
-@version 22.07.06
+@version 22.07.06.1
 @changelog
+  v22.07.06.1
+  Remove Crossfade Editor View script
   v22.07.06
   Crossfade Editor (F): Open and close gracefully whatever the overlap, zoom or fade dialog state
 @metapackage
@@ -13,7 +15,6 @@
   [main] ReaClassical_Classical Crossfade Editor.lua
   [main] ReaClassical_Classical Crossfade.lua
   [main] ReaClassical_Classical Take Record.lua
-  [main] ReaClassical_Crossfade Editor View.lua
   [main] ReaClassical_Delete All S-D markers.lua
   [main] ReaClassical_Duplicate folder (No items).lua
   [main] ReaClassical_Edit Classical Crossfade.lua
