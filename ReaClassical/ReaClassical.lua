@@ -1,13 +1,9 @@
 @description ReaClassical
 @author BethHarmon
-@version 22.07.06.2
+@version 22.07.07
 @changelog
-  v22.07.06.2
-  Fix S-D edit regression
-  v22.07.06.1
-  Remove Crossfade Editor View script
-  v22.07.06
-  Crossfade Editor (F): Open and close gracefully whatever the overlap, zoom or fade dialog state
+  v22.07.07
+  Fix razor edit grouping regression
 @metapackage
 @provides
   [main] ReaClassical_Add Destination IN marker.lua
