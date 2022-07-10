@@ -96,15 +96,15 @@ function view()
   r.Main_OnCommand(track1, 0) -- select only track 1
 
   local max_height = r.GetToggleCommandState(40113)
-  if max_height + tog_state == 1 then
+  if max_height ~= tog_state then
     r.Main_OnCommand(40113, 0) -- View: Toggle track zoom to maximum height
   end
 
-  if overlap_state + tog_state == 1 then
+  if overlap_state ~= tog_state then
     r.Main_OnCommand(40507, 0) -- Options: Offset overlapping media items vertically
   end
 
-  if tog_state + win_state == 1 then
+  if tog_state ~= win_state then
     r.Main_OnCommand(41827, 0) -- View: Show crossfade editor window
   end
 

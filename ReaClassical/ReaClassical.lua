@@ -1,9 +1,9 @@
 @description ReaClassical
 @author BethHarmon
-@version 22.07.07
+@version 22.07.10
 @changelog
-  v22.07.07
-  Fix razor edit grouping regression
+  v22.07.10
+  Crossfade Editor: refactor conditionals
 @metapackage
 @provides
   [main] ReaClassical_Add Destination IN marker.lua
