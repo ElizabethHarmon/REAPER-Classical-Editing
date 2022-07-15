@@ -1,9 +1,11 @@
 @description ReaClassical
 @author BethHarmon
-@version 22.07.10
+@version 22.07.15
 @changelog
-  v22.07.10
-  Crossfade Editor: refactor conditionals
+  v22.07.15
+  Add prototype audition tools in crossfade editor mode
+  Change zoom level when entering crossfade editor mode
+  Small change to edit crossfade script in how cursor centering occurs
 @metapackage
 @provides
   [main] ReaClassical_Add Destination IN marker.lua
