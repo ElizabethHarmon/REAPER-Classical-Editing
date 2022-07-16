@@ -12,8 +12,8 @@
     * Windows: Download REAPER and check the "Portable Install" box when installing. Unzip and copy the contents of the downloaded resource folder into the portable install directory e.g. C:/REAPER.
     * MacOS: Download REAPER and drag REAPER64.APP into the downloaded resource folder
     * Linux: Download and unzip REAPER and drag the contents of the downloaded resource folder into the REAPER subfolder
-4. Start REAPER
-5. Sync ReaPack (to get latest ReaClassical scripts)
+3. Start REAPER
+4. Sync ReaPack (to get latest ReaClassical scripts)
 
 or...
 
