@@ -1,11 +1,10 @@
 @description ReaClassical
 @author BethHarmon
-@version 22.07.15
+@version 22.07.19
 @changelog
-  v22.07.15
-  Add prototype audition tools in crossfade editor mode
-  Change zoom level when entering crossfade editor mode
-  Small change to edit crossfade script in how cursor centering occurs
+  v22.07.19
+  Crossfade editor selects both items ready for auditioning and tweaking via panel
+  Edit crossfade (Z) only works in crossfade editor mode and when both items are selected
 @metapackage
 @provides
   [main] ReaClassical_Add Destination IN marker.lua

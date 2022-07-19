@@ -42,6 +42,7 @@ end
 
 function fadeStart()
   r.SetToggleCommandState(1, fade_editor_toggle, 1)
+  local item = r.GetSelectedMediaItem(0,0)
   r.Main_OnCommand(40311, 0) -- Set ripple editing all tracks
   lock_items()
   r.Main_OnCommand(40289, 0) -- Item: Unselect all items
@@ -54,6 +55,11 @@ function fadeStart()
   r.Main_OnCommand(40319, 0) -- move edit cursor to end of item
   view()
   zoom()
+  if item ~= nil then
+    r.SetMediaItemSelected(item, true)
+    local select_next = r.NamedCommandLookup("_SWS_SELNEXTITEM2") -- SWS: Select next item, keeping current selection (across tracks)
+    r.Main_OnCommand(select_next, 0)
+  end
 end
 
 function fadeEnd()
