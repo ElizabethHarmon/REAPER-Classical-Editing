@@ -19,7 +19,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 ]]
 
 local r = reaper
-local fadeStart, fadeEnd, zoom, view, lock_items, unlock_items
+local fadeStart, fadeEnd, zoom, view, lock_items, unlock_items, select_check
 local fade_editor_toggle = r.NamedCommandLookup("_RSa91c127e4694f016de8094f76aa0974ed1b79f40")
 local state = r.GetToggleCommandState(fade_editor_toggle)
 
@@ -27,18 +27,12 @@ function Main()
   r.PreventUIRefresh(1)
   r.Undo_BeginBlock()
 
-  local item = r.GetSelectedMediaItem(0,0)
-  if item ~= nil then
-    item_position = r.GetMediaItemInfo_Value(item, "D_POSITION")
-    item_length = r.GetMediaItemInfo_Value(item, "D_LENGTH")
-    item_end = item_position + item_length
-  end
-  local cursor_position = r.GetCursorPosition()
-  if item == nil or (cursor_position <= item_position or cursor_position >= item_end) then
-    r.ShowMessageBox("Please select—and place your cursor on—the left item of a crossfade pair", "Crossfade Editor", 0)
-    return
-  end
   if state == -1 or state == 0 then
+    local check = select_check()
+    if check == -1 then
+      r.ShowMessageBox("Please select—and place your cursor on—the left item of a crossfade pair", "Crossfade Editor", 0)
+      return
+    end
     fadeStart()
   else
     fadeEnd()
@@ -50,9 +44,22 @@ function Main()
   r.UpdateTimeline()
 end
 
+function select_check()
+  local item = r.GetSelectedMediaItem(0, 0)
+  if item ~= nil then
+    item_position = r.GetMediaItemInfo_Value(item, "D_POSITION")
+    item_length = r.GetMediaItemInfo_Value(item, "D_LENGTH")
+    item_end = item_position + item_length
+  end
+  local cursor_position = r.GetCursorPosition()
+  if item == nil or (cursor_position <= item_position or cursor_position >= item_end) then
+    return -1
+  end
+end
+
 function fadeStart()
   r.SetToggleCommandState(1, fade_editor_toggle, 1)
-  local item = r.GetSelectedMediaItem(0,0)
+  local item = r.GetSelectedMediaItem(0, 0)
   r.Main_OnCommand(40311, 0) -- Set ripple editing all tracks
   lock_items()
   r.Main_OnCommand(40289, 0) -- Item: Unselect all items

@@ -1,7 +1,9 @@
 @description ReaClassical
 @author BethHarmon
-@version 22.07.19.1
+@version 22.07.19.2
 @changelog
+  v22.07.19.2
+  Refactor check into its own function
   v22.07.19.1
   Enforce left item selection to enter crossfade editor
   v22.07.19
