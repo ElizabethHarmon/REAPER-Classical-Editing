@@ -27,7 +27,17 @@ function Main()
   r.PreventUIRefresh(1)
   r.Undo_BeginBlock()
 
-
+  local item = r.GetSelectedMediaItem(0,0)
+  if item ~= nil then
+    item_position = r.GetMediaItemInfo_Value(item, "D_POSITION")
+    item_length = r.GetMediaItemInfo_Value(item, "D_LENGTH")
+    item_end = item_position + item_length
+  end
+  local cursor_position = r.GetCursorPosition()
+  if item == nil or (cursor_position <= item_position or cursor_position >= item_end) then
+    r.ShowMessageBox("Please select—and place your cursor on—the left item of a crossfade pair", "Crossfade Editor", 0)
+    return
+  end
   if state == -1 or state == 0 then
     fadeStart()
   else

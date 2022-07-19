@@ -1,7 +1,9 @@
 @description ReaClassical
 @author BethHarmon
-@version 22.07.19
+@version 22.07.19.1
 @changelog
+  v22.07.19.1
+  Enforce left item selection to enter crossfade editor
   v22.07.19
   Crossfade editor selects both items ready for auditioning and tweaking via panel
   Edit crossfade (Z) only works in crossfade editor mode and when both items are selected
